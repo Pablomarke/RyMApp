@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		39D05D962A727E0300468A9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05D952A727E0300468A9E /* AppDelegate.swift */; };
-		39D05D982A727E0300468A9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05D972A727E0300468A9E /* SceneDelegate.swift */; };
-		39D05D9A2A727E0300468A9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05D992A727E0300468A9E /* ViewController.swift */; };
 		39D05D9D2A727E0300468A9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D05D9B2A727E0300468A9E /* Main.storyboard */; };
 		39D05D9F2A727E0400468A9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39D05D9E2A727E0400468A9E /* Assets.xcassets */; };
 		39D05DA22A727E0400468A9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D05DA02A727E0400468A9E /* LaunchScreen.storyboard */; };
 		39D05DAD2A727E0400468A9E /* RyMAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DAC2A727E0400468A9E /* RyMAppTests.swift */; };
 		39D05DB72A727E0400468A9E /* RyMAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DB62A727E0400468A9E /* RyMAppUITests.swift */; };
 		39D05DB92A727E0400468A9E /* RyMAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DB82A727E0400468A9E /* RyMAppUITestsLaunchTests.swift */; };
+		39D05DC72A727E4600468A9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DC52A727E4600468A9E /* HomeViewController.swift */; };
+		39D05DC82A727E4600468A9E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D05DC62A727E4600468A9E /* HomeViewController.xib */; };
+		39D05DCA2A727F9D00468A9E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DC92A727F9D00468A9E /* Character.swift */; };
+		39D05DCC2A72801A00468A9E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DCB2A72801A00468A9E /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +40,6 @@
 /* Begin PBXFileReference section */
 		39D05D922A727E0300468A9E /* RyMApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RyMApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D05D952A727E0300468A9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		39D05D972A727E0300468A9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		39D05D992A727E0300468A9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		39D05D9C2A727E0300468A9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39D05D9E2A727E0400468A9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39D05DA12A727E0400468A9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +49,10 @@
 		39D05DB22A727E0400468A9E /* RyMAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RyMAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D05DB62A727E0400468A9E /* RyMAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyMAppUITests.swift; sourceTree = "<group>"; };
 		39D05DB82A727E0400468A9E /* RyMAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyMAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		39D05DC52A727E4600468A9E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		39D05DC62A727E4600468A9E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		39D05DC92A727F9D00468A9E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		39D05DCB2A72801A00468A9E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				39D05D952A727E0300468A9E /* AppDelegate.swift */,
-				39D05D972A727E0300468A9E /* SceneDelegate.swift */,
-				39D05D992A727E0300468A9E /* ViewController.swift */,
 				39D05D9B2A727E0300468A9E /* Main.storyboard */,
 				39D05D9E2A727E0400468A9E /* Assets.xcassets */,
 				39D05DA02A727E0400468A9E /* LaunchScreen.storyboard */,
 				39D05DA32A727E0400468A9E /* Info.plist */,
+				39D05DC52A727E4600468A9E /* HomeViewController.swift */,
+				39D05DC62A727E4600468A9E /* HomeViewController.xib */,
+				39D05DC92A727F9D00468A9E /* Character.swift */,
+				39D05DCB2A72801A00468A9E /* Network.swift */,
 			);
 			path = RyMApp;
 			sourceTree = "<group>";
@@ -234,6 +240,7 @@
 				39D05DA22A727E0400468A9E /* LaunchScreen.storyboard in Resources */,
 				39D05D9F2A727E0400468A9E /* Assets.xcassets in Resources */,
 				39D05D9D2A727E0300468A9E /* Main.storyboard in Resources */,
+				39D05DC82A727E4600468A9E /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39D05D9A2A727E0300468A9E /* ViewController.swift in Sources */,
+				39D05DCA2A727F9D00468A9E /* Character.swift in Sources */,
 				39D05D962A727E0300468A9E /* AppDelegate.swift in Sources */,
-				39D05D982A727E0300468A9E /* SceneDelegate.swift in Sources */,
+				39D05DCC2A72801A00468A9E /* Network.swift in Sources */,
+				39D05DC72A727E4600468A9E /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
