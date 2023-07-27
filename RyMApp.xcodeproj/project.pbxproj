@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39D05D962A727E0300468A9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05D952A727E0300468A9E /* AppDelegate.swift */; };
+		39D05D982A727E0300468A9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05D972A727E0300468A9E /* SceneDelegate.swift */; };
+		39D05D9A2A727E0300468A9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05D992A727E0300468A9E /* ViewController.swift */; };
+		39D05D9D2A727E0300468A9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D05D9B2A727E0300468A9E /* Main.storyboard */; };
+		39D05D9F2A727E0400468A9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39D05D9E2A727E0400468A9E /* Assets.xcassets */; };
+		39D05DA22A727E0400468A9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D05DA02A727E0400468A9E /* LaunchScreen.storyboard */; };
+		39D05DAD2A727E0400468A9E /* RyMAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DAC2A727E0400468A9E /* RyMAppTests.swift */; };
+		39D05DB72A727E0400468A9E /* RyMAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DB62A727E0400468A9E /* RyMAppUITests.swift */; };
+		39D05DB92A727E0400468A9E /* RyMAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DB82A727E0400468A9E /* RyMAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		39D05DA92A727E0400468A9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39D05D8A2A727E0200468A9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39D05D912A727E0300468A9E;
+			remoteInfo = RyMApp;
+		};
+		39D05DB32A727E0400468A9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39D05D8A2A727E0200468A9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39D05D912A727E0300468A9E;
+			remoteInfo = RyMApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		39D05D922A727E0300468A9E /* RyMApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RyMApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39D05D952A727E0300468A9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		39D05D972A727E0300468A9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		39D05D992A727E0300468A9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		39D05D9C2A727E0300468A9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		39D05D9E2A727E0400468A9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39D05DA12A727E0400468A9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		39D05DA32A727E0400468A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39D05DA82A727E0400468A9E /* RyMAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RyMAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39D05DAC2A727E0400468A9E /* RyMAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyMAppTests.swift; sourceTree = "<group>"; };
+		39D05DB22A727E0400468A9E /* RyMAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RyMAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39D05DB62A727E0400468A9E /* RyMAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyMAppUITests.swift; sourceTree = "<group>"; };
+		39D05DB82A727E0400468A9E /* RyMAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyMAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39D05D8F2A727E0300468A9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39D05DA52A727E0400468A9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39D05DAF2A727E0400468A9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39D05D892A727E0200468A9E = {
+			isa = PBXGroup;
+			children = (
+				39D05D942A727E0300468A9E /* RyMApp */,
+				39D05DAB2A727E0400468A9E /* RyMAppTests */,
+				39D05DB52A727E0400468A9E /* RyMAppUITests */,
+				39D05D932A727E0300468A9E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39D05D932A727E0300468A9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39D05D922A727E0300468A9E /* RyMApp.app */,
+				39D05DA82A727E0400468A9E /* RyMAppTests.xctest */,
+				39D05DB22A727E0400468A9E /* RyMAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39D05D942A727E0300468A9E /* RyMApp */ = {
+			isa = PBXGroup;
+			children = (
+				39D05D952A727E0300468A9E /* AppDelegate.swift */,
+				39D05D972A727E0300468A9E /* SceneDelegate.swift */,
+				39D05D992A727E0300468A9E /* ViewController.swift */,
+				39D05D9B2A727E0300468A9E /* Main.storyboard */,
+				39D05D9E2A727E0400468A9E /* Assets.xcassets */,
+				39D05DA02A727E0400468A9E /* LaunchScreen.storyboard */,
+				39D05DA32A727E0400468A9E /* Info.plist */,
+			);
+			path = RyMApp;
+			sourceTree = "<group>";
+		};
+		39D05DAB2A727E0400468A9E /* RyMAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				39D05DAC2A727E0400468A9E /* RyMAppTests.swift */,
+			);
+			path = RyMAppTests;
+			sourceTree = "<group>";
+		};
+		39D05DB52A727E0400468A9E /* RyMAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				39D05DB62A727E0400468A9E /* RyMAppUITests.swift */,
+				39D05DB82A727E0400468A9E /* RyMAppUITestsLaunchTests.swift */,
+			);
+			path = RyMAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39D05D912A727E0300468A9E /* RyMApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39D05DBC2A727E0400468A9E /* Build configuration list for PBXNativeTarget "RyMApp" */;
+			buildPhases = (
+				39D05D8E2A727E0300468A9E /* Sources */,
+				39D05D8F2A727E0300468A9E /* Frameworks */,
+				39D05D902A727E0300468A9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RyMApp;
+			productName = RyMApp;
+			productReference = 39D05D922A727E0300468A9E /* RyMApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		39D05DA72A727E0400468A9E /* RyMAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39D05DBF2A727E0400468A9E /* Build configuration list for PBXNativeTarget "RyMAppTests" */;
+			buildPhases = (
+				39D05DA42A727E0400468A9E /* Sources */,
+				39D05DA52A727E0400468A9E /* Frameworks */,
+				39D05DA62A727E0400468A9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39D05DAA2A727E0400468A9E /* PBXTargetDependency */,
+			);
+			name = RyMAppTests;
+			productName = RyMAppTests;
+			productReference = 39D05DA82A727E0400468A9E /* RyMAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		39D05DB12A727E0400468A9E /* RyMAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39D05DC22A727E0400468A9E /* Build configuration list for PBXNativeTarget "RyMAppUITests" */;
+			buildPhases = (
+				39D05DAE2A727E0400468A9E /* Sources */,
+				39D05DAF2A727E0400468A9E /* Frameworks */,
+				39D05DB02A727E0400468A9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39D05DB42A727E0400468A9E /* PBXTargetDependency */,
+			);
+			name = RyMAppUITests;
+			productName = RyMAppUITests;
+			productReference = 39D05DB22A727E0400468A9E /* RyMAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39D05D8A2A727E0200468A9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					39D05D912A727E0300468A9E = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					39D05DA72A727E0400468A9E = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 39D05D912A727E0300468A9E;
+					};
+					39D05DB12A727E0400468A9E = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 39D05D912A727E0300468A9E;
+					};
+				};
+			};
+			buildConfigurationList = 39D05D8D2A727E0200468A9E /* Build configuration list for PBXProject "RyMApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39D05D892A727E0200468A9E;
+			productRefGroup = 39D05D932A727E0300468A9E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39D05D912A727E0300468A9E /* RyMApp */,
+				39D05DA72A727E0400468A9E /* RyMAppTests */,
+				39D05DB12A727E0400468A9E /* RyMAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39D05D902A727E0300468A9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39D05DA22A727E0400468A9E /* LaunchScreen.storyboard in Resources */,
+				39D05D9F2A727E0400468A9E /* Assets.xcassets in Resources */,
+				39D05D9D2A727E0300468A9E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39D05DA62A727E0400468A9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39D05DB02A727E0400468A9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39D05D8E2A727E0300468A9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39D05D9A2A727E0300468A9E /* ViewController.swift in Sources */,
+				39D05D962A727E0300468A9E /* AppDelegate.swift in Sources */,
+				39D05D982A727E0300468A9E /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39D05DA42A727E0400468A9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39D05DAD2A727E0400468A9E /* RyMAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39D05DAE2A727E0400468A9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39D05DB72A727E0400468A9E /* RyMAppUITests.swift in Sources */,
+				39D05DB92A727E0400468A9E /* RyMAppUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39D05DAA2A727E0400468A9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39D05D912A727E0300468A9E /* RyMApp */;
+			targetProxy = 39D05DA92A727E0400468A9E /* PBXContainerItemProxy */;
+		};
+		39D05DB42A727E0400468A9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39D05D912A727E0300468A9E /* RyMApp */;
+			targetProxy = 39D05DB32A727E0400468A9E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		39D05D9B2A727E0300468A9E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39D05D9C2A727E0300468A9E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		39D05DA02A727E0400468A9E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39D05DA12A727E0400468A9E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39D05DBA2A727E0400468A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		39D05DBB2A727E0400468A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39D05DBD2A727E0400468A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RyMApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pabloMarke.RyMApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39D05DBE2A727E0400468A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RyMApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pabloMarke.RyMApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		39D05DC02A727E0400468A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pabloMarke.RyMAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RyMApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RyMApp";
+			};
+			name = Debug;
+		};
+		39D05DC12A727E0400468A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pabloMarke.RyMAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RyMApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RyMApp";
+			};
+			name = Release;
+		};
+		39D05DC32A727E0400468A9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pabloMarke.RyMAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RyMApp;
+			};
+			name = Debug;
+		};
+		39D05DC42A727E0400468A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pabloMarke.RyMAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RyMApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39D05D8D2A727E0200468A9E /* Build configuration list for PBXProject "RyMApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39D05DBA2A727E0400468A9E /* Debug */,
+				39D05DBB2A727E0400468A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39D05DBC2A727E0400468A9E /* Build configuration list for PBXNativeTarget "RyMApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39D05DBD2A727E0400468A9E /* Debug */,
+				39D05DBE2A727E0400468A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39D05DBF2A727E0400468A9E /* Build configuration list for PBXNativeTarget "RyMAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39D05DC02A727E0400468A9E /* Debug */,
+				39D05DC12A727E0400468A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39D05DC22A727E0400468A9E /* Build configuration list for PBXNativeTarget "RyMAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39D05DC32A727E0400468A9E /* Debug */,
+				39D05DC42A727E0400468A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39D05D8A2A727E0200468A9E /* Project object */;
+}
