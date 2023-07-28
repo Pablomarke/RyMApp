@@ -27,7 +27,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J74-tq-yhj">
-                    <rect key="frame" x="139" y="305" width="75" height="35"/>
+                    <rect key="frame" x="62" y="301" width="238" height="112"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Button"/>
@@ -43,7 +43,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EbP-7v-3bE" secondAttribute="trailing" constant="20" id="76S-f2-k1d"/>
                 <constraint firstItem="EbP-7v-3bE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="JP3-28-N6m"/>
             </constraints>
-            <point key="canvasLocation" x="108" y="-11"/>
+            <point key="canvasLocation" x="107.63358778625954" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>

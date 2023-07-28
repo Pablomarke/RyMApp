@@ -6,4 +6,27 @@
 //
 
 import Foundation
+import Alamofire
 
+class NetworkApi {
+    
+    static let shared = NetworkApi()
+    private let cstatusOk = 200...299
+    private let baseUrl = "https://rickandmortyapi.com/api/character/"
+    
+    func getCharacter(id: Int, success: @escaping (_ character: Character) -> (), failure: @escaping(_ error: Error?) -> () ){
+        
+        let newUrl = "https://rickandmortyapi.com/api/character/\(id)"
+        
+        AF.request(newUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable (of: Character.self, decoder: DataDecoder()) { response in
+            
+            if let character = response.value {
+                success(character)
+                
+            } else {
+                failure(response.error)
+            }
+        }
+    }
+    
+}

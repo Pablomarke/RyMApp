@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391DA30A2A73B778006C9CCF /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391DA3092A73B778006C9CCF /* DataDecoder.swift */; };
+		39AE69BC2A73D7E700E3D09A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 39AE69BB2A73D7E700E3D09A /* Kingfisher */; };
 		39D05D962A727E0300468A9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05D952A727E0300468A9E /* AppDelegate.swift */; };
 		39D05D9D2A727E0300468A9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D05D9B2A727E0300468A9E /* Main.storyboard */; };
 		39D05D9F2A727E0400468A9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39D05D9E2A727E0400468A9E /* Assets.xcassets */; };
@@ -18,6 +20,9 @@
 		39D05DC82A727E4600468A9E /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D05DC62A727E4600468A9E /* HomeViewController.xib */; };
 		39D05DCA2A727F9D00468A9E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DC92A727F9D00468A9E /* Character.swift */; };
 		39D05DCC2A72801A00468A9E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DCB2A72801A00468A9E /* Network.swift */; };
+		39D05DCF2A72819E00468A9E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 39D05DCE2A72819E00468A9E /* Alamofire */; };
+		39D05DD22A72847E00468A9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DD02A72847E00468A9E /* DetailViewController.swift */; };
+		39D05DD32A72847E00468A9E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D05DD12A72847E00468A9E /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		391DA3092A73B778006C9CCF /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		39D05D922A727E0300468A9E /* RyMApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RyMApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39D05D952A727E0300468A9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39D05D9C2A727E0300468A9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +59,8 @@
 		39D05DC62A727E4600468A9E /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		39D05DC92A727F9D00468A9E /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		39D05DCB2A72801A00468A9E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		39D05DD02A72847E00468A9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		39D05DD12A72847E00468A9E /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39AE69BC2A73D7E700E3D09A /* Kingfisher in Frameworks */,
+				39D05DCF2A72819E00468A9E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,11 +117,14 @@
 				39D05D9B2A727E0300468A9E /* Main.storyboard */,
 				39D05D9E2A727E0400468A9E /* Assets.xcassets */,
 				39D05DA02A727E0400468A9E /* LaunchScreen.storyboard */,
-				39D05DA32A727E0400468A9E /* Info.plist */,
+				39D05DC92A727F9D00468A9E /* Character.swift */,
 				39D05DC52A727E4600468A9E /* HomeViewController.swift */,
 				39D05DC62A727E4600468A9E /* HomeViewController.xib */,
-				39D05DC92A727F9D00468A9E /* Character.swift */,
+				391DA3092A73B778006C9CCF /* DataDecoder.swift */,
 				39D05DCB2A72801A00468A9E /* Network.swift */,
+				39D05DD02A72847E00468A9E /* DetailViewController.swift */,
+				39D05DD12A72847E00468A9E /* DetailViewController.xib */,
+				39D05DA32A727E0400468A9E /* Info.plist */,
 			);
 			path = RyMApp;
 			sourceTree = "<group>";
@@ -149,6 +162,10 @@
 			dependencies = (
 			);
 			name = RyMApp;
+			packageProductDependencies = (
+				39D05DCE2A72819E00468A9E /* Alamofire */,
+				39AE69BB2A73D7E700E3D09A /* Kingfisher */,
+			);
 			productName = RyMApp;
 			productReference = 39D05D922A727E0300468A9E /* RyMApp.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +238,10 @@
 				Base,
 			);
 			mainGroup = 39D05D892A727E0200468A9E;
+			packageReferences = (
+				39D05DCD2A72819E00468A9E /* XCRemoteSwiftPackageReference "Alamofire" */,
+				39AE69BA2A73D7E700E3D09A /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 39D05D932A727E0300468A9E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,6 +260,7 @@
 			files = (
 				39D05DA22A727E0400468A9E /* LaunchScreen.storyboard in Resources */,
 				39D05D9F2A727E0400468A9E /* Assets.xcassets in Resources */,
+				39D05DD32A72847E00468A9E /* DetailViewController.xib in Resources */,
 				39D05D9D2A727E0300468A9E /* Main.storyboard in Resources */,
 				39D05DC82A727E4600468A9E /* HomeViewController.xib in Resources */,
 			);
@@ -265,8 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391DA30A2A73B778006C9CCF /* DataDecoder.swift in Sources */,
 				39D05DCA2A727F9D00468A9E /* Character.swift in Sources */,
 				39D05D962A727E0300468A9E /* AppDelegate.swift in Sources */,
+				39D05DD22A72847E00468A9E /* DetailViewController.swift in Sources */,
 				39D05DCC2A72801A00468A9E /* Network.swift in Sources */,
 				39D05DC72A727E4600468A9E /* HomeViewController.swift in Sources */,
 			);
@@ -604,6 +628,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		39AE69BA2A73D7E700E3D09A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		39D05DCD2A72819E00468A9E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		39AE69BB2A73D7E700E3D09A /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39AE69BA2A73D7E700E3D09A /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		39D05DCE2A72819E00468A9E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39D05DCD2A72819E00468A9E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 39D05D8A2A727E0200468A9E /* Project object */;
 }
