@@ -13,7 +13,6 @@ final class DataDecoder: JSONDecoder {
     
     override init() {
         super.init()
-        "2017-11-04T18:50:21.651Z"
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         dateDecodingStrategy = .formatted(dateFormatter)
     }

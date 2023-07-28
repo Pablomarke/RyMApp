@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var createdLabel: UILabel!
+   
     var model: Character
     
     init(model: Character) {
@@ -30,9 +31,9 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-syncModel()
-        
+        syncModel()
     }
+    
     func syncModel() {
         nameLabel.text = model.name
         speciesLabel.text = model.species
@@ -42,12 +43,11 @@ syncModel()
         let imageUrl = model.image
         imageDetail.kf.setImage(with: URL(string: imageUrl))
     }
+    
     func dateToString(date: Date) -> String {
         let myDate = DateFormatter()
         myDate.dateStyle = .short
         let newDate = myDate.string(from: date)
         return newDate
     }
-
-    
 }

@@ -29,4 +29,16 @@ class NetworkApi {
         }
     }
     
+    func getAllCharacters(success: @escaping (_ allCharacters: AllCharacters) -> (), failure: @escaping(_ error: Error?) -> ()) {
+       
+        AF.request(baseUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
+            
+            if let allCharacters = response.value {
+                success(allCharacters)
+            } else {
+                failure(response.error)
+            }
+        }
+        
+    }
 }

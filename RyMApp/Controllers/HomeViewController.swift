@@ -20,16 +20,15 @@ class HomeViewController: UIViewController {
     
     @IBAction func homeBAction(_ sender: Any) {
         
-        
-        NetworkApi.shared.getCharacter(id: 8) { character in
-            let detailedView = DetailViewController(model: character)
-            self.navigationController?.pushViewController(detailedView, animated: true)
-            self.homeLabel.text = character.name
+        NetworkApi.shared.getAllCharacters { allCharacters in
+            let allCharacters = CharactersViewController(allCharacters)
+                self.navigationController?.pushViewController(allCharacters, animated: true)
         } failure: { error in
-            self.homeLabel.text = error.debugDescription
+            self.homeLabel.text = "Error"
         }
 
+        
+        
        
-    
     }
 }

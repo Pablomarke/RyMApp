@@ -18,7 +18,6 @@ var window: UIWindow?
         let nav = UINavigationController(rootViewController: home)
         window?.rootViewController = nav
         
-        
         return true
     }
 

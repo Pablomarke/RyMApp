@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import Kingfisher
+
 
 struct Character: Decodable {
     let id: Int
