@@ -13,7 +13,13 @@ class CharacterViewCell: UICollectionViewCell {
     @IBOutlet weak var imageCharacter: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        imageCharacter.contentMode = .scaleAspectFill
+        
+        nameCharacter.textColor = UIColor(named: "rickHair")
+        nameCharacter.font = UIFont(name: "Get Schwifty Regular", size: 16)
+        nameCharacter.backgroundColor = UIColor.secondaryLabel
+        nameCharacter.shadowColor = UIColor.blue
+        
     }
-
 }

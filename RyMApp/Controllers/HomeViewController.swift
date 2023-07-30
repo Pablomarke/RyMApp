@@ -9,13 +9,24 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var buttonLabel: UILabel!
     @IBOutlet weak var homeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeLabel.text = "Hola Mundo"
-        homeLabel.textColor = UIColor.red
+        
+        
+        backImage.image = UIImage(named: "w1")
+        backImage.contentMode = .scaleToFill
+        
+        buttonLabel.text = "Entrar"
+        buttonLabel.font = UIFont(name: "Get Schwifty Regular", size: 32)
+        buttonLabel.textAlignment = .center
+        homeButton.tintColor = UIColor(named: "rickHair")
+        
+        
     }
     
     @IBAction func homeBAction(_ sender: Any) {

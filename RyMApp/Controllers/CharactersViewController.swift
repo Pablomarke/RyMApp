@@ -10,6 +10,7 @@ import Kingfisher
 
 class CharactersViewController: UIViewController {
 
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var collectionCharacters: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -28,6 +29,16 @@ class CharactersViewController: UIViewController {
         super.viewDidLoad()
         
         titleLabel.text = "Personajes principales"
+        titleLabel.textColor = UIColor(named: "rickHair")
+        titleLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
+        
+        
+        backImage.image = UIImage(named: "w2")
+        backImage.contentMode = .scaleToFill
+        
+        
+        collectionCharacters.backgroundColor = UIColor.clear
+        collectionCharacters.backgroundView = UIView.init(frame: CGRect.zero)
         
         collectionCharacters.dataSource = self
         collectionCharacters.delegate = self
@@ -61,6 +72,7 @@ extension CharactersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return model.results!.count
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionCharacters.dequeueReusableCell(withReuseIdentifier: "CellC", for: indexPath) as! CharacterViewCell

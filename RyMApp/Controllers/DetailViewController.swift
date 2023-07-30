@@ -10,9 +10,11 @@ import Kingfisher
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageDetail: UIImageView!
     
+    @IBOutlet weak var backColor: UIImageView!
     @IBOutlet weak var speciesLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
@@ -31,7 +33,22 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backColor.backgroundColor = UIColor(named: "dark")
+        nameLabel.font = UIFont(name: "Get Schwifty Regular", size: 36)
+        nameLabel.textColor = UIColor(named: "rickHair")
+        speciesLabel.textColor = UIColor(named: "rickHair")
+        speciesLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
+        typeLabel.textColor = UIColor(named: "rickHair")
+        typeLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
+        genderLabel.textColor = UIColor(named: "rickHair")
+        genderLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
+        createdLabel.textColor = UIColor(named: "rickHair")
+        createdLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
+        
         syncModel()
+        backImage.image = UIImage(named: "w3")
+        backImage.contentMode = .scaleToFill
     }
     
     func syncModel() {

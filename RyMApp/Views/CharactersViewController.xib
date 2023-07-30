@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersViewController" customModule="RyMApp" customModuleProvider="target">
             <connections>
+                <outlet property="backImage" destination="U6r-Zp-Zx9" id="O4X-oS-alT"/>
                 <outlet property="collectionCharacters" destination="ChM-NJ-GAl" id="gD6-PW-mrV"/>
                 <outlet property="titleLabel" destination="TbP-dt-QkH" id="PzA-i0-3ee"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,6 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U6r-Zp-Zx9">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbP-dt-QkH">
                     <rect key="frame" x="175.66666666666666" y="99" width="42" height="20.333333333333329"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -40,10 +44,14 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="U6r-Zp-Zx9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Ke9-Ue-A1A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ChM-NJ-GAl" secondAttribute="trailing" constant="16" id="MxC-Rt-etz"/>
                 <constraint firstItem="TbP-dt-QkH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="OXO-U7-SQv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U6r-Zp-Zx9" secondAttribute="trailing" id="Ycx-4Q-joT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="U6r-Zp-Zx9" secondAttribute="bottom" id="bdx-hJ-f9h"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ChM-NJ-GAl" secondAttribute="bottom" constant="16" id="eMY-TE-Ldl"/>
                 <constraint firstItem="ChM-NJ-GAl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="eTw-7h-2Bv"/>
+                <constraint firstItem="U6r-Zp-Zx9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gTE-V0-SmP"/>
                 <constraint firstItem="TbP-dt-QkH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oVG-Nz-fr8"/>
                 <constraint firstItem="ChM-NJ-GAl" firstAttribute="top" secondItem="TbP-dt-QkH" secondAttribute="bottom" constant="36" id="xMU-Vd-mtk"/>
             </constraints>

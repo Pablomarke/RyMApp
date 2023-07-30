@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391802AA2A76B00E006BE05A /* get_schwifty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 391802A92A76B00E006BE05A /* get_schwifty.ttf */; };
 		391DA30A2A73B778006C9CCF /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391DA3092A73B778006C9CCF /* DataDecoder.swift */; };
 		39AE69BC2A73D7E700E3D09A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 39AE69BB2A73D7E700E3D09A /* Kingfisher */; };
 		39AE69C32A73E53C00E3D09A /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AE69C12A73E53C00E3D09A /* CharactersViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		391802A92A76B00E006BE05A /* get_schwifty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = get_schwifty.ttf; sourceTree = "<group>"; };
 		391DA3092A73B778006C9CCF /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		39AE69C12A73E53C00E3D09A /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		39AE69C22A73E53C00E3D09A /* CharactersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersViewController.xib; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		391802AB2A76B013006BE05A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				391802A92A76B00E006BE05A /* get_schwifty.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		39AE69BD2A73E46C00E3D09A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,8 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				39D05DC52A727E4600468A9E /* HomeViewController.swift */,
-				39D05DD02A72847E00468A9E /* DetailViewController.swift */,
 				39AE69C12A73E53C00E3D09A /* CharactersViewController.swift */,
+				39D05DD02A72847E00468A9E /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -171,6 +181,7 @@
 		39D05D942A727E0300468A9E /* RyMApp */ = {
 			isa = PBXGroup;
 			children = (
+				391802AB2A76B013006BE05A /* Fonts */,
 				39AE69C92A73E89A00E3D09A /* CustomsCells */,
 				39AE69C02A73E4BE00E3D09A /* Networking */,
 				39AE69BF2A73E4A200E3D09A /* Models */,
@@ -317,6 +328,7 @@
 				39AE69C42A73E53C00E3D09A /* CharactersViewController.xib in Resources */,
 				39D05DA22A727E0400468A9E /* LaunchScreen.storyboard in Resources */,
 				39D05D9F2A727E0400468A9E /* Assets.xcassets in Resources */,
+				391802AA2A76B00E006BE05A /* get_schwifty.ttf in Resources */,
 				39D05DD32A72847E00468A9E /* DetailViewController.xib in Resources */,
 				39D05D9D2A727E0300468A9E /* Main.storyboard in Resources */,
 				39D05DC82A727E4600468A9E /* HomeViewController.xib in Resources */,
