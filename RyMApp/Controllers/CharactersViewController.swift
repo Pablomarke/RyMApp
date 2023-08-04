@@ -40,9 +40,10 @@ class CharactersViewController: UIViewController {
         collectionCharacters.backgroundColor = UIColor.clear
         collectionCharacters.backgroundView = UIView.init(frame: CGRect.zero)
         
+        
         collectionCharacters.dataSource = self
         collectionCharacters.delegate = self
-        collectionCharacters.register(UINib(nibName: "CharacterViewCell", bundle: nil),
+        collectionCharacters.register(UINib(nibName: "CharacterCell", bundle: nil),
                                       forCellWithReuseIdentifier: "CellC")
 
     }
@@ -59,7 +60,6 @@ extension CharactersViewController: UICollectionViewDelegate {
             let detailedView = DetailViewController(model: character)
             self.navigationController?.pushViewController(detailedView,
                                                           animated: true)
-            
         } failure: { error in
             self.titleLabel.text = "Error"
         }
@@ -73,15 +73,24 @@ extension CharactersViewController: UICollectionViewDataSource {
         return model.results!.count
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionCharacters.dequeueReusableCell(withReuseIdentifier: "CellC", for: indexPath) as! CharacterViewCell
+        let cell = collectionCharacters.dequeueReusableCell(withReuseIdentifier: "CellC",
+                                                            for: indexPath) as! CharacterCell
         
-        cell.nameCharacter.text = model.results![indexPath.row].name
+        cell.characterName.text = model.results![indexPath.row].name
         let urlImage = URL(string: model.results![indexPath.row].image)
-        cell.imageCharacter.kf.setImage(with: urlImage)
+        cell.CharacterView.kf.setImage(with: urlImage)
+        cell.characterStatus.text = model.results![indexPath.row].status
         
-        
+        if cell.characterStatus.text == "Alive" {
+            cell.statusView.backgroundColor = .green
+        } else if cell.characterStatus.text == "Dead"{
+            cell.statusView.backgroundColor = .red
+        } else {
+            cell.statusView.backgroundColor = .gray
+            cell.statusView.layer.cornerRadius = 6
+            cell.characterStatus.textColor = .black
+        }
         return cell
     }
 }
