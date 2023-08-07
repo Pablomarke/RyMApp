@@ -10,6 +10,7 @@ import Kingfisher
 
 class CharactersViewController: UIViewController {
 
+    @IBOutlet weak var characterBar: UITabBar!
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var collectionCharacters: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -28,10 +29,15 @@ class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(named: "dark")
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
+        
+        self.title = "Characters"
+        
         titleLabel.text = "Personajes principales"
         titleLabel.textColor = UIColor(named: "rickHair")
         titleLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
-        
         
         backImage.image = UIImage(named: "w2")
         backImage.contentMode = .scaleToFill
@@ -40,11 +46,15 @@ class CharactersViewController: UIViewController {
         collectionCharacters.backgroundColor = UIColor.clear
         collectionCharacters.backgroundView = UIView.init(frame: CGRect.zero)
         
-        
         collectionCharacters.dataSource = self
         collectionCharacters.delegate = self
         collectionCharacters.register(UINib(nibName: "CharacterCell", bundle: nil),
                                       forCellWithReuseIdentifier: "CellC")
+        characterBar.delegate = self
+        characterBar.tintColor = UIColor(named: "rickHair")
+        characterBar.backgroundColor = UIColor(named: "dark")
+        characterBar.barTintColor = UIColor(named: "dark")
+        characterBar.isTranslucent = false
 
     }
 
@@ -64,8 +74,6 @@ extension CharactersViewController: UICollectionViewDelegate {
             self.titleLabel.text = "Error"
         }
     }
-    
-    
 }
 
 extension CharactersViewController: UICollectionViewDataSource {
@@ -94,3 +102,9 @@ extension CharactersViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+extension CharactersViewController: UITabBarDelegate {
+    
+}
+
+
