@@ -126,6 +126,7 @@
 				39D05DC62A727E4600468A9E /* HomeViewController.xib */,
 				39D05DD12A72847E00468A9E /* DetailViewController.xib */,
 				39AE69C22A73E53C00E3D09A /* CharactersViewController.xib */,
+				39C7F2AE2A8249FA00376FBC /* SearchViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,7 +138,6 @@
 				39AE69C12A73E53C00E3D09A /* CharactersViewController.swift */,
 				39D05DD02A72847E00468A9E /* DetailViewController.swift */,
 				39C7F2AD2A8249FA00376FBC /* SearchViewController.swift */,
-				39C7F2AE2A8249FA00376FBC /* SearchViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

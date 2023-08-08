@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="get_schwifty.ttf">
+            <string>GetSchwifty-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="RyMApp" customModuleProvider="target">
+            <connections>
+                <outlet property="backImage" destination="TUz-tH-2r7" id="HIR-nZ-ChU"/>
+                <outlet property="backView" destination="dur-Lz-Tp1" id="Gme-yB-q8z"/>
+                <outlet property="searchButton" destination="W83-jZ-jRX" id="QeB-fy-bQK"/>
+                <outlet property="searchCollection" destination="TDi-9t-Un2" id="XQg-OM-k5W"/>
+                <outlet property="searchText" destination="Pmf-Ti-3mS" id="sfN-1E-Rx7"/>
+                <outlet property="tabBarSearch" destination="3AQ-uN-mhU" id="DS8-eF-HBn"/>
+                <outlet property="titleLabel" destination="uWc-sw-MPM" id="Aj0-VQ-Pmf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dur-Lz-Tp1">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TUz-tH-2r7">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWc-sw-MPM">
+                            <rect key="frame" x="177" y="32" width="39" height="17"/>
+                            <fontDescription key="fontDescription" name="GetSchwifty-Regular" family="Get Schwifty" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TDi-9t-Un2">
+                            <rect key="frame" x="8" y="284" width="377" height="419"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LAM-x0-CC1">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pmf-Ti-3mS">
+                            <rect key="frame" x="16" y="73" width="361" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="2ut-Ea-84B"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W83-jZ-jRX">
+                            <rect key="frame" x="151.66666666666666" y="169" width="90" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="Ehl-9V-rI2"/>
+                                <constraint firstAttribute="width" constant="90" id="JQP-Qk-4V2"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            <connections>
+                                <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="VYo-OJ-cnH"/>
+                            </connections>
+                        </button>
+                        <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3AQ-uN-mhU">
+                            <rect key="frame" x="0.0" y="703" width="393" height="56"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="WuE-8C-5RI"/>
+                            </constraints>
+                            <items>
+                                <tabBarItem title="Characters" image="person.2.fill" catalog="system" id="TGk-gr-Fml" userLabel="Character"/>
+                                <tabBarItem title="Locations" image="location.fill" catalog="system" selectedImage="location.viewfinder" id="D7M-xQ-EuT" userLabel="Location"/>
+                                <tabBarItem title="Episodes" image="book.fill" catalog="system" selectedImage="book" id="aZ2-LE-iNM" userLabel="Episode"/>
+                                <tabBarItem systemItem="search" id="v4d-aL-DZA" userLabel="Search"/>
+                            </items>
+                        </tabBar>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="TUz-tH-2r7" secondAttribute="bottom" id="3Uy-Nm-qhe"/>
+                        <constraint firstItem="3AQ-uN-mhU" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" id="GfL-Ve-axg"/>
+                        <constraint firstAttribute="bottom" secondItem="3AQ-uN-mhU" secondAttribute="bottom" id="MpA-M3-jOK"/>
+                        <constraint firstItem="Pmf-Ti-3mS" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" constant="16" id="QtG-0x-QYk"/>
+                        <constraint firstItem="TDi-9t-Un2" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" constant="8" id="WCI-6B-56X"/>
+                        <constraint firstItem="W83-jZ-jRX" firstAttribute="top" secondItem="Pmf-Ti-3mS" secondAttribute="bottom" constant="16" id="Ym8-GX-RnK"/>
+                        <constraint firstAttribute="trailing" secondItem="3AQ-uN-mhU" secondAttribute="trailing" id="g3l-Vb-iHs"/>
+                        <constraint firstItem="TDi-9t-Un2" firstAttribute="top" secondItem="W83-jZ-jRX" secondAttribute="bottom" constant="80" id="gwd-FV-WbN"/>
+                        <constraint firstItem="uWc-sw-MPM" firstAttribute="top" secondItem="dur-Lz-Tp1" secondAttribute="top" constant="32" id="icd-xC-iBa"/>
+                        <constraint firstItem="3AQ-uN-mhU" firstAttribute="top" secondItem="TDi-9t-Un2" secondAttribute="bottom" id="nT1-ox-XF0"/>
+                        <constraint firstAttribute="trailing" secondItem="Pmf-Ti-3mS" secondAttribute="trailing" constant="16" id="nax-xR-dX1"/>
+                        <constraint firstItem="TUz-tH-2r7" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" id="njn-On-8ta"/>
+                        <constraint firstAttribute="trailing" secondItem="TDi-9t-Un2" secondAttribute="trailing" constant="8" id="pNQ-L6-E46"/>
+                        <constraint firstItem="Pmf-Ti-3mS" firstAttribute="top" secondItem="uWc-sw-MPM" secondAttribute="bottom" constant="24" id="rbB-7g-JAD"/>
+                        <constraint firstItem="W83-jZ-jRX" firstAttribute="centerX" secondItem="dur-Lz-Tp1" secondAttribute="centerX" id="t0l-Dq-7lo"/>
+                        <constraint firstItem="TUz-tH-2r7" firstAttribute="top" secondItem="dur-Lz-Tp1" secondAttribute="top" id="tmN-BS-cpw"/>
+                        <constraint firstItem="uWc-sw-MPM" firstAttribute="centerX" secondItem="dur-Lz-Tp1" secondAttribute="centerX" id="xIY-8q-bDo"/>
+                        <constraint firstAttribute="trailing" secondItem="TUz-tH-2r7" secondAttribute="trailing" id="xnX-hC-dap"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="dur-Lz-Tp1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7pO-6b-XfD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dur-Lz-Tp1" secondAttribute="trailing" id="Bd5-Av-m8H"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dur-Lz-Tp1" secondAttribute="bottom" id="KEy-fW-2ZO"/>
+                <constraint firstItem="dur-Lz-Tp1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kxX-FC-LJv"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
+        <image name="location.fill" catalog="system" width="128" height="119"/>
+        <image name="location.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="person.2.fill" catalog="system" width="128" height="81"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

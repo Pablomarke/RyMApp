@@ -41,4 +41,16 @@ class NetworkApi {
         }
         
     }
+    
+    func searchCharacters(name: String, success: @escaping (_ allCharacters: AllCharacters) -> (), failure: @escaping(_ error: Error?) -> ()) {
+       let searchUrl = baseUrl + "?name=\(name)"
+        
+        AF.request(searchUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
+            if let allCharacters = response.value {
+                success(allCharacters)
+            } else {
+                failure(response.error)
+            }
+        }
+    }
 }

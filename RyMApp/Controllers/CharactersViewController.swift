@@ -19,7 +19,8 @@ class CharactersViewController: UIViewController {
     
     init(_ model: AllCharacters) {
         self.model = model
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nil,
+                   bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -30,7 +31,6 @@ class CharactersViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(named: "dark")
-        
         self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
         
         
@@ -41,7 +41,6 @@ class CharactersViewController: UIViewController {
         backImage.image = UIImage(named: "w2")
         backImage.contentMode = .scaleToFill
         
-        
         collectionCharacters.backgroundColor = UIColor.clear
         collectionCharacters.backgroundView = UIView.init(frame: CGRect.zero)
         
@@ -51,7 +50,7 @@ class CharactersViewController: UIViewController {
                                       forCellWithReuseIdentifier: "CellC")
         characterBar.delegate = self
         characterBar.tintColor = UIColor(named: "rickHair")
-       // characterBar.backgroundColor = UIColor(named: "dark")
+       
         characterBar.barTintColor = UIColor(named: "dark")
         characterBar.isTranslucent = false
 
