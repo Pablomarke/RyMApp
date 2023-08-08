@@ -33,7 +33,6 @@ class CharactersViewController: UIViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
         
-        self.title = "Characters"
         
         titleLabel.text = "Personajes principales"
         titleLabel.textColor = UIColor(named: "rickHair")
@@ -52,7 +51,7 @@ class CharactersViewController: UIViewController {
                                       forCellWithReuseIdentifier: "CellC")
         characterBar.delegate = self
         characterBar.tintColor = UIColor(named: "rickHair")
-        characterBar.backgroundColor = UIColor(named: "dark")
+       // characterBar.backgroundColor = UIColor(named: "dark")
         characterBar.barTintColor = UIColor(named: "dark")
         characterBar.isTranslucent = false
 
