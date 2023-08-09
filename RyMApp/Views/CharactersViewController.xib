@@ -10,9 +10,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersViewController" customModule="RyMApp" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="kDa-PG-Q21" id="te7-rp-sxb"/>
                 <outlet property="backImage" destination="U6r-Zp-Zx9" id="O4X-oS-alT"/>
                 <outlet property="characterBar" destination="JIw-BC-o2t" id="D9i-7q-DlN"/>
                 <outlet property="collectionCharacters" destination="ChM-NJ-GAl" id="gD6-PW-mrV"/>
+                <outlet property="nextButton" destination="9OE-xL-uyH" id="fMU-0L-6T9"/>
+                <outlet property="pageView" destination="5fR-CK-tiU" id="kqZ-gr-HDe"/>
+                <outlet property="pagesLabel" destination="1gi-k5-upy" id="JkU-CO-bn0"/>
                 <outlet property="titleLabel" destination="TbP-dt-QkH" id="PzA-i0-3ee"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -32,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ChM-NJ-GAl">
-                    <rect key="frame" x="16" y="143.33333333333331" width="361" height="618.66666666666674"/>
+                    <rect key="frame" x="16" y="143.33333333333331" width="361" height="578.66666666666674"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0nZ-hh-ymx">
                         <size key="itemSize" width="160" height="100"/>
@@ -54,21 +58,73 @@
                         <tabBarItem systemItem="search" id="tNx-UC-ae8" userLabel="Search"/>
                     </items>
                 </tabBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-CK-tiU">
+                    <rect key="frame" x="16" y="722" width="361" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDa-PG-Q21">
+                            <rect key="frame" x="2" y="2" width="62" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="62" id="ei4-em-UAh"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button" backgroundImage="arrowshape.backward.fill" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="plain" image="arrowshape.backward.fill" catalog="system"/>
+                            <connections>
+                                <action selector="backButtonAction:" destination="-1" eventType="touchUpInside" id="jZF-go-ikT"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OE-xL-uyH">
+                            <rect key="frame" x="297" y="2" width="62" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="62" id="FqX-hJ-8fa"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button" backgroundImage="arrowshape.forward.fill" catalog="system"/>
+                            <buttonConfiguration key="configuration" style="plain" image="arrowshape.forward.fill" catalog="system"/>
+                            <connections>
+                                <action selector="nextButtonAction:" destination="-1" eventType="touchUpInside" id="aAc-oX-qF1"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gi-k5-upy">
+                            <rect key="frame" x="72" y="8" width="217" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="9OE-xL-uyH" secondAttribute="bottom" constant="2" id="4CC-b0-wQU"/>
+                        <constraint firstItem="1gi-k5-upy" firstAttribute="leading" secondItem="kDa-PG-Q21" secondAttribute="trailing" constant="8" id="GWy-7f-2KD"/>
+                        <constraint firstAttribute="bottom" secondItem="kDa-PG-Q21" secondAttribute="bottom" constant="2" id="HCy-XZ-xWK"/>
+                        <constraint firstItem="1gi-k5-upy" firstAttribute="top" secondItem="5fR-CK-tiU" secondAttribute="top" constant="8" id="KKo-aS-xgW"/>
+                        <constraint firstAttribute="bottom" secondItem="1gi-k5-upy" secondAttribute="bottom" constant="8" id="Pkg-2c-omw"/>
+                        <constraint firstItem="9OE-xL-uyH" firstAttribute="leading" secondItem="1gi-k5-upy" secondAttribute="trailing" constant="8" id="Q8r-ag-R7M"/>
+                        <constraint firstItem="kDa-PG-Q21" firstAttribute="leading" secondItem="5fR-CK-tiU" secondAttribute="leading" constant="2" id="agA-m7-4mx"/>
+                        <constraint firstAttribute="trailing" secondItem="9OE-xL-uyH" secondAttribute="trailing" constant="2" id="g16-6Y-64k"/>
+                        <constraint firstItem="kDa-PG-Q21" firstAttribute="top" secondItem="5fR-CK-tiU" secondAttribute="top" constant="2" id="gHH-sm-52Z"/>
+                        <constraint firstItem="9OE-xL-uyH" firstAttribute="top" secondItem="5fR-CK-tiU" secondAttribute="top" constant="2" id="vFC-9R-wcm"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="5fR-CK-tiU" firstAttribute="top" secondItem="ChM-NJ-GAl" secondAttribute="bottom" id="5n6-lW-JMm"/>
                 <constraint firstItem="JIw-BC-o2t" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9Vw-q7-BWU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="JIw-BC-o2t" secondAttribute="bottom" id="AeU-Mx-gPA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5fR-CK-tiU" secondAttribute="trailing" constant="16" id="Jte-U1-JuV"/>
                 <constraint firstItem="U6r-Zp-Zx9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Ke9-Ue-A1A"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ChM-NJ-GAl" secondAttribute="trailing" constant="16" id="MxC-Rt-etz"/>
-                <constraint firstItem="JIw-BC-o2t" firstAttribute="top" secondItem="ChM-NJ-GAl" secondAttribute="bottom" id="OQF-AU-1F5"/>
+                <constraint firstItem="JIw-BC-o2t" firstAttribute="top" secondItem="ChM-NJ-GAl" secondAttribute="bottom" constant="40" id="OQF-AU-1F5"/>
+                <constraint firstItem="5fR-CK-tiU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="T8p-Nd-fF2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U6r-Zp-Zx9" secondAttribute="trailing" id="Ycx-4Q-joT"/>
                 <constraint firstItem="TbP-dt-QkH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="azc-gn-WsO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="U6r-Zp-Zx9" secondAttribute="bottom" id="bdx-hJ-f9h"/>
                 <constraint firstItem="ChM-NJ-GAl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="eTw-7h-2Bv"/>
                 <constraint firstItem="U6r-Zp-Zx9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gTE-V0-SmP"/>
                 <constraint firstItem="JIw-BC-o2t" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hG5-9i-q4w"/>
+                <constraint firstItem="JIw-BC-o2t" firstAttribute="top" secondItem="5fR-CK-tiU" secondAttribute="bottom" id="nb4-iL-m9g"/>
                 <constraint firstItem="TbP-dt-QkH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oVG-Nz-fr8"/>
                 <constraint firstItem="ChM-NJ-GAl" firstAttribute="top" secondItem="TbP-dt-QkH" secondAttribute="bottom" constant="32" id="xMU-Vd-mtk"/>
             </constraints>
@@ -76,6 +132,8 @@
         </view>
     </objects>
     <resources>
+        <image name="arrowshape.backward.fill" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.forward.fill" catalog="system" width="128" height="104"/>
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>

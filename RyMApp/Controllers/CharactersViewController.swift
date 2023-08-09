@@ -15,8 +15,13 @@ class CharactersViewController: UIViewController {
     @IBOutlet weak var collectionCharacters: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var model: AllCharacters
+    @IBOutlet weak var pageView: UIView!
+    @IBOutlet weak var pagesLabel: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
+    var model: AllCharacters
+    var countPage = 1
     init(_ model: AllCharacters) {
         self.model = model
         super.init(nibName: nil,
@@ -30,13 +35,16 @@ class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if model.info?.prev == nil || model.info?.next == nil {
+            backButton.isHidden = true
+        }
         self.view.backgroundColor = UIColor(named: "dark")
         self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
         
         
         titleLabel.text = "Personajes principales"
         titleLabel.textColor = UIColor(named: "rickHair")
-        titleLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
+        titleLabel.font = UIFont(name: "Get Schwifty Regular", size: 32)
         
         backImage.image = UIImage(named: "w2")
         backImage.contentMode = .scaleToFill
@@ -53,12 +61,42 @@ class CharactersViewController: UIViewController {
        
         characterBar.barTintColor = UIColor(named: "dark")
         characterBar.isTranslucent = false
-
-    }
-
-    func syncModel(){
         
+        pageView.backgroundColor = .clear
+        pagesLabel.text = "\(countPage) / \(model.info?.pages ?? 1)"
+        pagesLabel.textColor = UIColor(named: "rickHair")
+        pagesLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
+
     }
+    
+    // Botones
+    @IBAction func nextButtonAction(_ sender: Any) {
+        NetworkApi.shared.pages(url: (model.info?.next)!) { allCharacters in
+            self.model = allCharacters
+            self.collectionCharacters.reloadData()
+            self.countPage += 1
+            self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
+            if self.model.info?.prev != nil {
+                self.backButton.isHidden = false
+            }
+        } failure: { error in
+            print("Error")
+        }
+    }
+    @IBAction func backButtonAction(_ sender: Any) {
+        NetworkApi.shared.pages(url: (model.info?.prev)!) { allCharacters in
+            self.model = allCharacters
+            self.collectionCharacters.reloadData()
+            self.countPage -= 1
+            self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
+            if self.model.info?.prev == nil {
+                self.backButton.isHidden = true
+            }
+        } failure: { error in
+            print("Error")
+        }
+    }
+    
 }
 
 extension CharactersViewController: UICollectionViewDelegate {

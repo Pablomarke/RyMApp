@@ -29,13 +29,18 @@ class NetworkApi {
         }
     }
     
-    func getAllCharacters(success: @escaping (_ allCharacters: AllCharacters) -> (), failure: @escaping(_ error: Error?) -> ()) {
+    func getAllCharacters(success: @escaping (_ allCharacters: AllCharacters) -> (),
+                          failure: @escaping(_ error: Error?) -> ()) {
        
-        AF.request(baseUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
+        AF.request(baseUrl,
+                   method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self,
+                                                                                            decoder: DataDecoder()) { response in
             
             if let allCharacters = response.value {
+                print("ok1")
                 success(allCharacters)
             } else {
+                print("bad")
                 failure(response.error)
             }
         }
@@ -46,6 +51,19 @@ class NetworkApi {
        let searchUrl = baseUrl + "?name=\(name)"
         
         AF.request(searchUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
+            if let allCharacters = response.value {
+                success(allCharacters)
+            } else {
+                failure(response.error)
+            }
+        }
+    }
+    
+    func pages(url: String, success: @escaping (_ allCharacters: AllCharacters) -> (),
+               failure: @escaping(_ error: Error?) -> ()) {
+        let myUrl = url
+        
+        AF.request(myUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
             if let allCharacters = response.value {
                 success(allCharacters)
             } else {
