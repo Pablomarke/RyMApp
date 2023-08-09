@@ -18,6 +18,9 @@ struct Character: Decodable {
     let species: String
     let gender: String
     let type: String
+    let location: SimpleLocation
+    let origin: SimpleLocation
+    let episode: [String]
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -28,7 +31,18 @@ struct Character: Decodable {
         case species
         case gender
         case type
+        case location
+        case origin
+        case episode
     }
 }
 
-
+struct SimpleLocation: Decodable {
+    let name: String
+    let url: String
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case url
+    }
+}

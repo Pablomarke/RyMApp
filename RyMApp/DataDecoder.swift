@@ -16,4 +16,11 @@ final class DataDecoder: JSONDecoder {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         dateDecodingStrategy = .formatted(dateFormatter)
     }
+    
+    func dateToString(date: Date) -> String {
+        let myDate = DateFormatter()
+        myDate.dateStyle = .short
+        let newDate = myDate.string(from: date)
+        return newDate
+    }
 }

@@ -33,6 +33,10 @@
 		39D05DCF2A72819E00468A9E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 39D05DCE2A72819E00468A9E /* Alamofire */; };
 		39D05DD22A72847E00468A9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DD02A72847E00468A9E /* DetailViewController.swift */; };
 		39D05DD32A72847E00468A9E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D05DD12A72847E00468A9E /* DetailViewController.xib */; };
+		39DA13102A83AB4C009073E0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DA130E2A83AB4C009073E0 /* TableViewCell.swift */; };
+		39DA13112A83AB4C009073E0 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39DA130F2A83AB4C009073E0 /* TableViewCell.xib */; };
+		39DA13132A83E45D009073E0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DA13122A83E45D009073E0 /* Location.swift */; };
+		39DA13152A83EB34009073E0 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DA13142A83EB34009073E0 /* Episode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		39D05DCB2A72801A00468A9E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		39D05DD02A72847E00468A9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		39D05DD12A72847E00468A9E /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		39DA130E2A83AB4C009073E0 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		39DA130F2A83AB4C009073E0 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		39DA13122A83E45D009073E0 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		39DA13142A83EB34009073E0 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +155,8 @@
 			children = (
 				39D05DC92A727F9D00468A9E /* Character.swift */,
 				39AE69CA2A73EF9000E3D09A /* allCharacters.swift */,
+				39DA13122A83E45D009073E0 /* Location.swift */,
+				39DA13142A83EB34009073E0 /* Episode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,6 +176,8 @@
 				39AE69C62A73E65A00E3D09A /* CharacterViewCell.xib */,
 				39AD96212A7D2849001D60FA /* CharacterCell.swift */,
 				39AD96222A7D2849001D60FA /* CharacterCell.xib */,
+				39DA130E2A83AB4C009073E0 /* TableViewCell.swift */,
+				39DA130F2A83AB4C009073E0 /* TableViewCell.xib */,
 			);
 			path = CustomsCells;
 			sourceTree = "<group>";
@@ -337,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39AE69C82A73E65A00E3D09A /* CharacterViewCell.xib in Resources */,
+				39DA13112A83AB4C009073E0 /* TableViewCell.xib in Resources */,
 				39AE69C42A73E53C00E3D09A /* CharactersViewController.xib in Resources */,
 				39D05DA22A727E0400468A9E /* LaunchScreen.storyboard in Resources */,
 				39D05D9F2A727E0400468A9E /* Assets.xcassets in Resources */,
@@ -376,9 +389,12 @@
 				39AE69C72A73E65A00E3D09A /* CharacterViewCell.swift in Sources */,
 				39D05DCA2A727F9D00468A9E /* Character.swift in Sources */,
 				39D05D962A727E0300468A9E /* AppDelegate.swift in Sources */,
+				39DA13132A83E45D009073E0 /* Location.swift in Sources */,
 				39AD96232A7D2849001D60FA /* CharacterCell.swift in Sources */,
 				39AE69CB2A73EF9000E3D09A /* allCharacters.swift in Sources */,
+				39DA13152A83EB34009073E0 /* Episode.swift in Sources */,
 				39D05DD22A72847E00468A9E /* DetailViewController.swift in Sources */,
+				39DA13102A83AB4C009073E0 /* TableViewCell.swift in Sources */,
 				39D05DCC2A72801A00468A9E /* Network.swift in Sources */,
 				39D05DC72A727E4600468A9E /* HomeViewController.swift in Sources */,
 			);

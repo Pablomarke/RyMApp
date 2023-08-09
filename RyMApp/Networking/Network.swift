@@ -37,10 +37,8 @@ class NetworkApi {
                                                                                             decoder: DataDecoder()) { response in
             
             if let allCharacters = response.value {
-                print("ok1")
                 success(allCharacters)
             } else {
-                print("bad")
                 failure(response.error)
             }
         }
@@ -61,9 +59,8 @@ class NetworkApi {
     
     func pages(url: String, success: @escaping (_ allCharacters: AllCharacters) -> (),
                failure: @escaping(_ error: Error?) -> ()) {
-        let myUrl = url
         
-        AF.request(myUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
+        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
             if let allCharacters = response.value {
                 success(allCharacters)
             } else {
@@ -71,4 +68,19 @@ class NetworkApi {
             }
         }
     }
+    
+    func getEpisodes(url: String, success: @escaping (_ episode: Episode) -> (),
+               failure: @escaping(_ error: Error?) -> ()) {
+        
+        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Episode.self, decoder: DataDecoder()) { response in
+            if let episode = response.value {
+                success(episode)
+            } else {
+                print("mal")
+                failure(response.error)
+            }
+        }
+    }
+    
+    
 }
