@@ -211,8 +211,8 @@
 				39AE69BF2A73E4A200E3D09A /* Models */,
 				39AE69BE2A73E48800E3D09A /* Controllers */,
 				39AE69BD2A73E46C00E3D09A /* Views */,
-				39D05D952A727E0300468A9E /* AppDelegate.swift */,
 				391DA3092A73B778006C9CCF /* DataDecoder.swift */,
+				39D05D952A727E0300468A9E /* AppDelegate.swift */,
 				39D05D9E2A727E0400468A9E /* Assets.xcassets */,
 				39D05DA32A727E0400468A9E /* Info.plist */,
 			);

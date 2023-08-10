@@ -8,8 +8,6 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
-    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
@@ -18,14 +16,18 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backView.layer.cornerRadius = 12
+    
+        contentView.backgroundColor = UIColor(named: "myClear")
+
         titleView.layer.cornerRadius = 12
+        titleView.backgroundColor = UIColor(named: "rickHair")
+        
         dataView.layer.cornerRadius = 12
+        dataView.backgroundColor = UIColor(named: "rickHair")
         
-        backView.backgroundColor = UIColor(named: "dark")
-        titleView.backgroundColor = UIColor(named: "dark")
-        dataView.backgroundColor = .clear
-        
+        titleLabel.textColor = UIColor(named: "dark")
+        dataLabel.textColor = UIColor(named: "dark")
+        self.backgroundColor = UIColor.clear
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

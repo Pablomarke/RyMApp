@@ -25,7 +25,6 @@ class CharacterCell: UICollectionViewCell {
         backView.layer.cornerRadius = 16
         backView.layer.cornerRadius = 16
         CharacterView.layer.cornerRadius = 40
-        
         statusView.layer.cornerRadius = 8
     }
 
