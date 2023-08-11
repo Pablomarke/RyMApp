@@ -55,7 +55,7 @@
                         <tabBarItem title="Characters" image="person.2.fill" catalog="system" id="5BM-pa-uyK" userLabel="Character"/>
                         <tabBarItem title="Locations" image="location.fill" catalog="system" selectedImage="location.viewfinder" id="nsS-xc-LZr" userLabel="Location"/>
                         <tabBarItem title="Episodes" image="book.fill" catalog="system" selectedImage="book" id="KmO-4Z-QxR" userLabel="Episode"/>
-                        <tabBarItem systemItem="search" id="tNx-UC-ae8" userLabel="Search"/>
+                        <tabBarItem title="Search" image="magnifyingglass" catalog="system" id="tNx-UC-ae8" userLabel="Search"/>
                     </items>
                 </tabBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-CK-tiU">
@@ -138,6 +138,7 @@
         <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
         <image name="location.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person.2.fill" catalog="system" width="128" height="81"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

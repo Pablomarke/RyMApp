@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class DetailViewController: UIViewController {
-
+    
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageDetail: UIImageView!
@@ -48,9 +48,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tOriginaView: UIView!
     @IBOutlet weak var tOriginLabel: UILabel!
     
-    
-    
-    
     var model: Character
     
     init(model: Character) {
@@ -81,12 +78,12 @@ class DetailViewController: UIViewController {
         episodeTable.dataSource = self
         episodeTable.delegate = self
         episodeTable.register(UINib(nibName: "TableViewCell",
-                                   bundle: nil),
-                             forCellReuseIdentifier: "detailCell")
+                                    bundle: nil),
+                              forCellReuseIdentifier: "detailCell")
         
-      episodeTable.backgroundColor = UIColor(named: "myClear")
-       episodeTable.backgroundView = UIView.init(frame: CGRect.zero)
-       // detailTable.layer.cornerRadius = 20
+        episodeTable.backgroundColor = UIColor(named: "myClear")
+        episodeTable.backgroundView = UIView.init(frame: CGRect.zero)
+        // detailTable.layer.cornerRadius = 20
         
         // Vista Datos importantes
         
@@ -168,7 +165,7 @@ extension DetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      
+        
         let detailCell = episodeTable.dequeueReusableCell(withIdentifier: "detailCell") as! TableViewCell
         NetworkApi.shared.getEpisodes(url: model.episode[indexPath.row]) { episode in
             detailCell.dataLabel.text = episode.name

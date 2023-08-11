@@ -83,6 +83,7 @@ class CharactersViewController: UIViewController {
             print("Error")
         }
     }
+    
     @IBAction func backButtonAction(_ sender: Any) {
         NetworkApi.shared.pages(url: (model.info?.prev)!) { allCharacters in
             self.model = allCharacters
@@ -140,7 +141,26 @@ extension CharactersViewController: UICollectionViewDataSource {
 }
 
 extension CharactersViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.title == "Characters"{
+            NetworkApi.shared.getCharacter(id: 1) { character in
+                let detailedView = DetailViewController(model: character)
+                self.navigationController?.pushViewController(detailedView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        } else if item.title == "Search" {
+             NetworkApi.shared.getAllCharacters { allCharacters in
+                let allCharacters = SearchViewController(allCharacters)
+                self.navigationController?.pushViewController(allCharacters, animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        }
+    }
     
 }
+
 
 

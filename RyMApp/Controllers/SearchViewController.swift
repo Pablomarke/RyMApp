@@ -74,8 +74,6 @@ class SearchViewController: UIViewController {
             self.searchText.backgroundColor = .red
         }
     }
-    
-    
 
 }
 extension SearchViewController: UITabBarDelegate {
@@ -108,6 +106,4 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         return cell
     }
-    
-    
 }
