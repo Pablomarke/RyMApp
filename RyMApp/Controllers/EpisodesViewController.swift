@@ -40,9 +40,10 @@ class EpisodesViewController: UIViewController {
         
         episodeTable.dataSource = self
         episodeTable.delegate = self
-        episodeTable.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TC")
+        episodeTable.register(UINib(nibName: "TableViewCell",
+                                    bundle: nil), forCellReuseIdentifier: "TC")
         episodeTable.backgroundColor = .clear
-        
+        tabBarEpisode.delegate = self
     }
 }
 
@@ -74,3 +75,41 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension EpisodesViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.title == "Characters" {
+            NetworkApi.shared.getAllCharacters { allCharacters in
+                let myView = CharactersViewController(allCharacters)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        } else if item.title == "Search" {
+            NetworkApi.shared.getAllCharacters { allCharacters in
+                let myView = SearchViewController(allCharacters)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        } else if item.title == "Episodes" {
+            NetworkApi.shared.getAllEpisodes { episodes in
+                let myView = EpisodesViewController(episodes)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        } else if item.title == "Locations" {
+            NetworkApi.shared.getAllLocations() { locations in
+                let myView = LocationViewController(locations)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        }
+       
+    }
+}

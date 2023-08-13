@@ -96,7 +96,7 @@ class NetworkApi {
         }
     }
     
-    func getAllLocations(url: String, success: @escaping (_ locations: AllLocations) -> (),
+    func getLocationsUrl(url: String, success: @escaping (_ locations: AllLocations) -> (),
                          failure:@escaping(_ error: Error?) -> ()) {
         
         let allLUrl = baseUrl + "episode/"
@@ -117,6 +117,18 @@ class NetworkApi {
         AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Character.self, decoder: DataDecoder()) { response in
             if let character = response.value {
                 success(character)
+            } else {
+                failure(response.error)
+            }
+        }
+    }
+    
+    func getAllLocations(succes: @escaping(_ location: AllLocations) -> (),
+                         failure: @escaping(_ error: Error?) -> ()) {
+        let locationsUrl = baseUrl + "location"
+        AF.request(locationsUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllLocations.self, decoder: DataDecoder()) { response in
+            if let allLocations = response.value {
+                succes(allLocations)
             } else {
                 failure(response.error)
             }

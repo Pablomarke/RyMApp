@@ -40,6 +40,8 @@
 		39D05DCF2A72819E00468A9E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 39D05DCE2A72819E00468A9E /* Alamofire */; };
 		39D05DD22A72847E00468A9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D05DD02A72847E00468A9E /* DetailViewController.swift */; };
 		39D05DD32A72847E00468A9E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D05DD12A72847E00468A9E /* DetailViewController.xib */; };
+		39D645E02A895BD800F39F84 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D645DE2A895BD800F39F84 /* LocationViewController.swift */; };
+		39D645E12A895BD800F39F84 /* LocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D645DF2A895BD800F39F84 /* LocationViewController.xib */; };
 		39DA13102A83AB4C009073E0 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DA130E2A83AB4C009073E0 /* TableViewCell.swift */; };
 		39DA13112A83AB4C009073E0 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39DA130F2A83AB4C009073E0 /* TableViewCell.xib */; };
 		39DA13132A83E45D009073E0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DA13122A83E45D009073E0 /* Location.swift */; };
@@ -99,6 +101,8 @@
 		39D05DCB2A72801A00468A9E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		39D05DD02A72847E00468A9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		39D05DD12A72847E00468A9E /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		39D645DE2A895BD800F39F84 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		39D645DF2A895BD800F39F84 /* LocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
 		39DA130E2A83AB4C009073E0 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		39DA130F2A83AB4C009073E0 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		39DA13122A83E45D009073E0 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				395A85352A879FC900C59BCE /* EpisodeDetailViewController.xib */,
 				39D05DD12A72847E00468A9E /* DetailViewController.xib */,
 				39AE69C22A73E53C00E3D09A /* CharactersViewController.xib */,
+				39D645DF2A895BD800F39F84 /* LocationViewController.xib */,
 				39C7F2AE2A8249FA00376FBC /* SearchViewController.xib */,
 			);
 			path = Views;
@@ -164,6 +169,7 @@
 				39C7F2AD2A8249FA00376FBC /* SearchViewController.swift */,
 				3905095D2A86A801003CC30A /* EpisodesViewController.swift */,
 				395A85342A879FC900C59BCE /* EpisodeDetailViewController.swift */,
+				39D645DE2A895BD800F39F84 /* LocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				395A85372A879FC900C59BCE /* EpisodeDetailViewController.xib in Resources */,
 				390509602A86A801003CC30A /* EpisodesViewController.xib in Resources */,
 				39D05DC82A727E4600468A9E /* HomeViewController.xib in Resources */,
+				39D645E12A895BD800F39F84 /* LocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +428,7 @@
 				3905095F2A86A801003CC30A /* EpisodesViewController.swift in Sources */,
 				395A85362A879FC900C59BCE /* EpisodeDetailViewController.swift in Sources */,
 				39D05DD22A72847E00468A9E /* DetailViewController.swift in Sources */,
+				39D645E02A895BD800F39F84 /* LocationViewController.swift in Sources */,
 				39DA13102A83AB4C009073E0 /* TableViewCell.swift in Sources */,
 				39D05DCC2A72801A00468A9E /* Network.swift in Sources */,
 				390D94C52A861E530091336F /* AllEpisodes.swift in Sources */,

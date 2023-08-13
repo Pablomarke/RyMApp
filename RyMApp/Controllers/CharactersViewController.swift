@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class CharactersViewController: UIViewController {
-
+    
     @IBOutlet weak var characterBar: UITabBar!
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var collectionCharacters: UICollectionView!
@@ -59,7 +59,7 @@ class CharactersViewController: UIViewController {
                                       forCellWithReuseIdentifier: "CellC")
         characterBar.delegate = self
         characterBar.tintColor = UIColor(named: "rickHair")
-       
+        
         characterBar.barTintColor = UIColor(named: "dark")
         characterBar.isTranslucent = false
         
@@ -67,7 +67,7 @@ class CharactersViewController: UIViewController {
         pagesLabel.text = "\(countPage) / \(model.info?.pages ?? 1)"
         pagesLabel.textColor = UIColor(named: "rickHair")
         pagesLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
-
+        
     }
     
     // Botones
@@ -143,34 +143,42 @@ extension CharactersViewController: UICollectionViewDataSource {
 
 extension CharactersViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        
         if item.title == "Characters"{
-            NetworkApi.shared.getCharacter(id: 1) { character in
-                let detailedView = DetailViewController(model: character)
-                self.navigationController?.pushViewController(detailedView,
+            NetworkApi.shared.getAllCharacters { allCharacters in
+                var myView = CharactersViewController(allCharacters)
+                self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
                 self.titleLabel.text = "Error"
             }
         } else if item.title == "Search" {
             NetworkApi.shared.getAllCharacters { allCharacters in
-                let allCharacters = SearchViewController(allCharacters)
-                self.navigationController?.pushViewController(allCharacters,
+                var myView = SearchViewController(allCharacters)
+                self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
                 self.titleLabel.text = "Error"
             }
         } else if item.title == "Episodes" {
             NetworkApi.shared.getAllEpisodes { episodes in
-                let episodeView = EpisodesViewController(episodes)
-                self.navigationController?.pushViewController(episodeView,
+               var myView = EpisodesViewController(episodes)
+                self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
                 self.titleLabel.text = "Error"
             }
-
+        } else if item.title == "Locations" {
+            NetworkApi.shared.getAllLocations() { locations in
+                var myView = LocationViewController(locations)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
         }
+       
     }
 }
+
 
 

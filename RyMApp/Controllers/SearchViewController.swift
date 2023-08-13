@@ -76,9 +76,6 @@ class SearchViewController: UIViewController {
     }
 
 }
-extension SearchViewController: UITabBarDelegate {
-    
-}
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
@@ -104,5 +101,43 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.characterStatus.textColor = .black
         }
         return cell
+    }
+}
+extension SearchViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.title == "Characters"{
+            NetworkApi.shared.getAllCharacters { allCharacters in
+                var myView = CharactersViewController(allCharacters)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        } else if item.title == "Search" {
+            NetworkApi.shared.getAllCharacters { allCharacters in
+                var myView = SearchViewController(allCharacters)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        } else if item.title == "Episodes" {
+            NetworkApi.shared.getAllEpisodes { episodes in
+               var myView = EpisodesViewController(episodes)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        } else if item.title == "Locations" {
+            NetworkApi.shared.getAllLocations() { locations in
+                var myView = LocationViewController(locations)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+        }
+       
     }
 }
