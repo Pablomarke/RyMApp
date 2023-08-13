@@ -69,7 +69,7 @@ class NetworkApi {
         }
     }
     
-    func getEpisodes(url: String, success: @escaping (_ episode: Episode) -> (),
+    func getEpisode(url: String, success: @escaping (_ episode: Episode) -> (),
                      failure: @escaping(_ error: Error?) -> ()) {
         
         AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Episode.self, decoder: DataDecoder()) { response in
@@ -81,15 +81,15 @@ class NetworkApi {
         }
     }
     
-    func getAllEpisodes(url: String, success: @escaping (_ episodes: AllEpisodes) -> (),
+    func getAllEpisodes(success: @escaping (_ episodes: AllEpisodes) -> (),
                         failure: @escaping(_ error: Error?) -> ()){
         let allEUrl = baseUrl + "episode/"
         
         AF.request(allEUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllEpisodes.self, decoder: DataDecoder()) {
             response in
             
-            if let episode = response.value {
-                success(episode)
+            if let episodes = response.value {
+                success(episodes)
             } else {
                 failure(response.error)
             }
@@ -111,4 +111,15 @@ class NetworkApi {
         }
     }
     
+    func getCharacterUrl(url: String, success: @escaping (_ character: Character) -> (),
+                     failure: @escaping(_ error: Error?) -> ()) {
+        
+        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Character.self, decoder: DataDecoder()) { response in
+            if let character = response.value {
+                success(character)
+            } else {
+                failure(response.error)
+            }
+        }
+    }
 }

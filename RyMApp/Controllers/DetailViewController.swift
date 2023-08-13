@@ -167,7 +167,7 @@ extension DetailViewController: UITableViewDataSource {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let detailCell = episodeTable.dequeueReusableCell(withIdentifier: "detailCell") as! TableViewCell
-        NetworkApi.shared.getEpisodes(url: model.episode[indexPath.row]) { episode in
+        NetworkApi.shared.getEpisode(url: model.episode[indexPath.row]) { episode in
             detailCell.dataLabel.text = episode.name
             detailCell.titleLabel.text = episode.episode
         } failure: { error in

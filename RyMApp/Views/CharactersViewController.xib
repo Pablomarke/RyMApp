@@ -54,7 +54,7 @@
                     <items>
                         <tabBarItem title="Characters" image="person.2.fill" catalog="system" id="5BM-pa-uyK" userLabel="Character"/>
                         <tabBarItem title="Locations" image="location.fill" catalog="system" selectedImage="location.viewfinder" id="nsS-xc-LZr" userLabel="Location"/>
-                        <tabBarItem title="Episodes" image="book.fill" catalog="system" selectedImage="book" id="KmO-4Z-QxR" userLabel="Episode"/>
+                        <tabBarItem title="Episodes" image="book.fill" catalog="system" selectedImage="book" id="KmO-4Z-QxR"/>
                         <tabBarItem title="Search" image="magnifyingglass" catalog="system" id="tNx-UC-ae8" userLabel="Search"/>
                     </items>
                 </tabBar>

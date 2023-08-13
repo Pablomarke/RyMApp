@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3905095F2A86A801003CC30A /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3905095D2A86A801003CC30A /* EpisodesViewController.swift */; };
+		390509602A86A801003CC30A /* EpisodesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3905095E2A86A801003CC30A /* EpisodesViewController.xib */; };
 		390D94C12A861DFB0091336F /* ApiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D94C02A861DFB0091336F /* ApiInfo.swift */; };
 		390D94C32A861E2C0091336F /* AllLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D94C22A861E2C0091336F /* AllLocations.swift */; };
 		390D94C52A861E530091336F /* AllEpisodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D94C42A861E530091336F /* AllEpisodes.swift */; };
 		391802AA2A76B00E006BE05A /* get_schwifty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 391802A92A76B00E006BE05A /* get_schwifty.ttf */; };
 		391DA30A2A73B778006C9CCF /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391DA3092A73B778006C9CCF /* DataDecoder.swift */; };
+		395A85362A879FC900C59BCE /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A85342A879FC900C59BCE /* EpisodeDetailViewController.swift */; };
+		395A85372A879FC900C59BCE /* EpisodeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395A85352A879FC900C59BCE /* EpisodeDetailViewController.xib */; };
 		39AD96232A7D2849001D60FA /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AD96212A7D2849001D60FA /* CharacterCell.swift */; };
 		39AD96242A7D2849001D60FA /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39AD96222A7D2849001D60FA /* CharacterCell.xib */; };
 		39AE69BC2A73D7E700E3D09A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 39AE69BB2A73D7E700E3D09A /* Kingfisher */; };
@@ -60,11 +64,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3905095D2A86A801003CC30A /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		3905095E2A86A801003CC30A /* EpisodesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodesViewController.xib; sourceTree = "<group>"; };
 		390D94C02A861DFB0091336F /* ApiInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInfo.swift; sourceTree = "<group>"; };
 		390D94C22A861E2C0091336F /* AllLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLocations.swift; sourceTree = "<group>"; };
 		390D94C42A861E530091336F /* AllEpisodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEpisodes.swift; sourceTree = "<group>"; };
 		391802A92A76B00E006BE05A /* get_schwifty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = get_schwifty.ttf; sourceTree = "<group>"; };
 		391DA3092A73B778006C9CCF /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
+		395A85342A879FC900C59BCE /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		395A85352A879FC900C59BCE /* EpisodeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EpisodeDetailViewController.xib; sourceTree = "<group>"; };
 		39AD96212A7D2849001D60FA /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		39AD96222A7D2849001D60FA /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
 		39AE69C12A73E53C00E3D09A /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +146,8 @@
 				39D05D9B2A727E0300468A9E /* Main.storyboard */,
 				39D05DA02A727E0400468A9E /* LaunchScreen.storyboard */,
 				39D05DC62A727E4600468A9E /* HomeViewController.xib */,
+				3905095E2A86A801003CC30A /* EpisodesViewController.xib */,
+				395A85352A879FC900C59BCE /* EpisodeDetailViewController.xib */,
 				39D05DD12A72847E00468A9E /* DetailViewController.xib */,
 				39AE69C22A73E53C00E3D09A /* CharactersViewController.xib */,
 				39C7F2AE2A8249FA00376FBC /* SearchViewController.xib */,
@@ -152,6 +162,8 @@
 				39AE69C12A73E53C00E3D09A /* CharactersViewController.swift */,
 				39D05DD02A72847E00468A9E /* DetailViewController.swift */,
 				39C7F2AD2A8249FA00376FBC /* SearchViewController.swift */,
+				3905095D2A86A801003CC30A /* EpisodesViewController.swift */,
+				395A85342A879FC900C59BCE /* EpisodeDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -367,6 +379,8 @@
 				39D05D9D2A727E0300468A9E /* Main.storyboard in Resources */,
 				39AD96242A7D2849001D60FA /* CharacterCell.xib in Resources */,
 				39C7F2B02A8249FA00376FBC /* SearchViewController.xib in Resources */,
+				395A85372A879FC900C59BCE /* EpisodeDetailViewController.xib in Resources */,
+				390509602A86A801003CC30A /* EpisodesViewController.xib in Resources */,
 				39D05DC82A727E4600468A9E /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +418,8 @@
 				39AD96232A7D2849001D60FA /* CharacterCell.swift in Sources */,
 				39AE69CB2A73EF9000E3D09A /* AllCharacter.swift in Sources */,
 				39DA13152A83EB34009073E0 /* Episode.swift in Sources */,
+				3905095F2A86A801003CC30A /* EpisodesViewController.swift in Sources */,
+				395A85362A879FC900C59BCE /* EpisodeDetailViewController.swift in Sources */,
 				39D05DD22A72847E00468A9E /* DetailViewController.swift in Sources */,
 				39DA13102A83AB4C009073E0 /* TableViewCell.swift in Sources */,
 				39D05DCC2A72801A00468A9E /* Network.swift in Sources */,

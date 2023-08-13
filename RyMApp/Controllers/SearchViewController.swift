@@ -43,7 +43,7 @@ class SearchViewController: UIViewController {
         searchText.layer.cornerRadius = 20
         searchText.backgroundColor = UIColor(named: "rickHair")
         
-        backImage.image = UIImage(named: "w4")
+        backImage.image = UIImage(named: "r3")
         backImage.contentMode = .scaleAspectFill
         self.view.backgroundColor = .clear
         
@@ -83,7 +83,6 @@ extension SearchViewController: UITabBarDelegate {
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        
         return model.results!.count
     }
     

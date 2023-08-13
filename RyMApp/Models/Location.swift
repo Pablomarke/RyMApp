@@ -12,12 +12,14 @@ struct Location: Decodable {
     let name: String
     let type: String
     let residents: [String]
+    let url: String
     
-    init(_ id: Int, name: String, type: String, residents: [String]) {
+    init(_ id: Int, name: String, type: String, residents: [String], url: String) {
         self.id = id
         self.name = name
         self.type = type
         self.residents = residents
+        self.url = url
         
     }
     
@@ -26,5 +28,6 @@ struct Location: Decodable {
         case name
         case type
         case residents
+        case url
     }
 }

@@ -21,6 +21,7 @@ class CharactersViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     
     var model: AllCharacters
+    
     var countPage = 1
     init(_ model: AllCharacters) {
         self.model = model
@@ -34,7 +35,7 @@ class CharactersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor(named: "dark")
         if model.info?.prev == nil || model.info?.next == nil {
             backButton.isHidden = true
         }
@@ -142,6 +143,7 @@ extension CharactersViewController: UICollectionViewDataSource {
 
 extension CharactersViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
         if item.title == "Characters"{
             NetworkApi.shared.getCharacter(id: 1) { character in
                 let detailedView = DetailViewController(model: character)
@@ -151,16 +153,24 @@ extension CharactersViewController: UITabBarDelegate {
                 self.titleLabel.text = "Error"
             }
         } else if item.title == "Search" {
-             NetworkApi.shared.getAllCharacters { allCharacters in
+            NetworkApi.shared.getAllCharacters { allCharacters in
                 let allCharacters = SearchViewController(allCharacters)
-                self.navigationController?.pushViewController(allCharacters, animated: true)
+                self.navigationController?.pushViewController(allCharacters,
+                                                              animated: true)
             } failure: { error in
                 self.titleLabel.text = "Error"
             }
+        } else if item.title == "Episodes" {
+            NetworkApi.shared.getAllEpisodes { episodes in
+                let episodeView = EpisodesViewController(episodes)
+                self.navigationController?.pushViewController(episodeView,
+                                                              animated: true)
+            } failure: { error in
+                self.titleLabel.text = "Error"
+            }
+
         }
     }
-    
 }
-
 
 
