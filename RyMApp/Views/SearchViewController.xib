@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,6 +18,7 @@
             <connections>
                 <outlet property="backImage" destination="TUz-tH-2r7" id="HIR-nZ-ChU"/>
                 <outlet property="backView" destination="dur-Lz-Tp1" id="Gme-yB-q8z"/>
+                <outlet property="buttonView" destination="k6a-YP-Fk1" id="JrK-wF-ZWB"/>
                 <outlet property="searchButton" destination="W83-jZ-jRX" id="QeB-fy-bQK"/>
                 <outlet property="searchCollection" destination="TDi-9t-Un2" id="XQg-OM-k5W"/>
                 <outlet property="searchText" destination="Pmf-Ti-3mS" id="sfN-1E-Rx7"/>
@@ -43,7 +45,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TDi-9t-Un2">
-                            <rect key="frame" x="8" y="284" width="377" height="419"/>
+                            <rect key="frame" x="16" y="284" width="361" height="419"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LAM-x0-CC1">
                                 <size key="itemSize" width="160" height="100"/>
@@ -53,25 +55,13 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pmf-Ti-3mS">
-                            <rect key="frame" x="16" y="73" width="361" height="80"/>
+                            <rect key="frame" x="16" y="73" width="361" height="60"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="80" id="2ut-Ea-84B"/>
+                                <constraint firstAttribute="height" constant="60" id="2ut-Ea-84B"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W83-jZ-jRX">
-                            <rect key="frame" x="151.66666666666666" y="169" width="90" height="35"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="35" id="Ehl-9V-rI2"/>
-                                <constraint firstAttribute="width" constant="90" id="JQP-Qk-4V2"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                            <connections>
-                                <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="VYo-OJ-cnH"/>
-                            </connections>
-                        </button>
                         <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3AQ-uN-mhU">
                             <rect key="frame" x="0.0" y="703" width="393" height="56"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -85,6 +75,31 @@
                                 <tabBarItem systemItem="search" id="v4d-aL-DZA" userLabel="Search"/>
                             </items>
                         </tabBar>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6a-YP-Fk1">
+                            <rect key="frame" x="136.66666666666666" y="149" width="119.99999999999997" height="56"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W83-jZ-jRX">
+                                    <rect key="frame" x="6" y="6" width="108" height="44"/>
+                                    <color key="tintColor" name="rickHair"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Buscar">
+                                        <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="VYo-OJ-cnH"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="W83-jZ-jRX" secondAttribute="trailing" constant="6" id="ElL-w1-Jas"/>
+                                <constraint firstAttribute="width" constant="120" id="SYb-4m-Ahc"/>
+                                <constraint firstAttribute="height" constant="56" id="dqt-Xp-rUP"/>
+                                <constraint firstItem="W83-jZ-jRX" firstAttribute="leading" secondItem="k6a-YP-Fk1" secondAttribute="leading" constant="6" id="vRB-O8-GVv"/>
+                                <constraint firstAttribute="bottom" secondItem="W83-jZ-jRX" secondAttribute="bottom" constant="6" id="wHa-ih-xkg"/>
+                                <constraint firstItem="W83-jZ-jRX" firstAttribute="top" secondItem="k6a-YP-Fk1" secondAttribute="top" constant="6" id="xQZ-Jx-EZc"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -92,18 +107,18 @@
                         <constraint firstItem="3AQ-uN-mhU" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" id="GfL-Ve-axg"/>
                         <constraint firstAttribute="bottom" secondItem="3AQ-uN-mhU" secondAttribute="bottom" id="MpA-M3-jOK"/>
                         <constraint firstItem="Pmf-Ti-3mS" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" constant="16" id="QtG-0x-QYk"/>
-                        <constraint firstItem="TDi-9t-Un2" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" constant="8" id="WCI-6B-56X"/>
-                        <constraint firstItem="W83-jZ-jRX" firstAttribute="top" secondItem="Pmf-Ti-3mS" secondAttribute="bottom" constant="16" id="Ym8-GX-RnK"/>
+                        <constraint firstItem="k6a-YP-Fk1" firstAttribute="centerX" secondItem="dur-Lz-Tp1" secondAttribute="centerX" id="Rfc-xc-h1W"/>
+                        <constraint firstItem="TDi-9t-Un2" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" constant="16" id="WCI-6B-56X"/>
                         <constraint firstAttribute="trailing" secondItem="3AQ-uN-mhU" secondAttribute="trailing" id="g3l-Vb-iHs"/>
-                        <constraint firstItem="TDi-9t-Un2" firstAttribute="top" secondItem="W83-jZ-jRX" secondAttribute="bottom" constant="80" id="gwd-FV-WbN"/>
                         <constraint firstItem="uWc-sw-MPM" firstAttribute="top" secondItem="dur-Lz-Tp1" secondAttribute="top" constant="32" id="icd-xC-iBa"/>
+                        <constraint firstItem="TDi-9t-Un2" firstAttribute="top" secondItem="k6a-YP-Fk1" secondAttribute="bottom" constant="79" id="mC3-mx-iGj"/>
                         <constraint firstItem="3AQ-uN-mhU" firstAttribute="top" secondItem="TDi-9t-Un2" secondAttribute="bottom" id="nT1-ox-XF0"/>
                         <constraint firstAttribute="trailing" secondItem="Pmf-Ti-3mS" secondAttribute="trailing" constant="16" id="nax-xR-dX1"/>
                         <constraint firstItem="TUz-tH-2r7" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" id="njn-On-8ta"/>
-                        <constraint firstAttribute="trailing" secondItem="TDi-9t-Un2" secondAttribute="trailing" constant="8" id="pNQ-L6-E46"/>
+                        <constraint firstAttribute="trailing" secondItem="TDi-9t-Un2" secondAttribute="trailing" constant="16" id="pNQ-L6-E46"/>
                         <constraint firstItem="Pmf-Ti-3mS" firstAttribute="top" secondItem="uWc-sw-MPM" secondAttribute="bottom" constant="24" id="rbB-7g-JAD"/>
-                        <constraint firstItem="W83-jZ-jRX" firstAttribute="centerX" secondItem="dur-Lz-Tp1" secondAttribute="centerX" id="t0l-Dq-7lo"/>
                         <constraint firstItem="TUz-tH-2r7" firstAttribute="top" secondItem="dur-Lz-Tp1" secondAttribute="top" id="tmN-BS-cpw"/>
+                        <constraint firstItem="k6a-YP-Fk1" firstAttribute="top" secondItem="Pmf-Ti-3mS" secondAttribute="bottom" constant="16" id="uqL-At-muE"/>
                         <constraint firstItem="uWc-sw-MPM" firstAttribute="centerX" secondItem="dur-Lz-Tp1" secondAttribute="centerX" id="xIY-8q-bDo"/>
                         <constraint firstAttribute="trailing" secondItem="TUz-tH-2r7" secondAttribute="trailing" id="xnX-hC-dap"/>
                     </constraints>
@@ -126,6 +141,9 @@
         <image name="location.fill" catalog="system" width="128" height="119"/>
         <image name="location.viewfinder" catalog="system" width="128" height="115"/>
         <image name="person.2.fill" catalog="system" width="128" height="81"/>
+        <namedColor name="rickHair">
+            <color red="0.66274509803921566" green="0.89803921568627454" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

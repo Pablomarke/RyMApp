@@ -9,15 +9,17 @@ import UIKit
 import Kingfisher
 
 class SearchViewController: UIViewController {
+    // Outlets
     @IBOutlet weak var backView: UIView!
-    
     @IBOutlet weak var tabBarSearch: UITabBar!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchText: UITextField!
     @IBOutlet weak var searchCollection: UICollectionView!
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var buttonView: UIView!
     
+    //Modelo
     var model: AllCharacters
     
     init(_ model: AllCharacters) {
@@ -30,6 +32,7 @@ class SearchViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "dark")
@@ -38,44 +41,55 @@ class SearchViewController: UIViewController {
         titleLabel.text = "Buscador de personajes"
         titleLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
         titleLabel.textColor = UIColor(named: "rickHair")
-        searchButton.titleLabel?.text = "Buscar"
+        
+        ///SearchText
         searchText.placeholder = "Introduce nombre"
-        searchText.layer.cornerRadius = 20
+        searchText.layer.cornerRadius = 32
         searchText.backgroundColor = UIColor(named: "rickHair")
         
         backImage.image = UIImage(named: "r3")
         backImage.contentMode = .scaleAspectFill
         self.view.backgroundColor = .clear
         
+        ///Button
+        buttonView.backgroundColor = UIColor(named: "dark")
+        buttonView.layer.cornerRadius = 24
+        searchButton.titleLabel?.text = "Buscar"
+        
+        ///Tab bar
         tabBarSearch.delegate = self
         tabBarSearch.tintColor = UIColor(named: "rickHair")
         tabBarSearch.barTintColor = UIColor(named: "dark")
         tabBarSearch.isTranslucent = false
 
+        ///Search Collection
         searchCollection.backgroundColor = UIColor.clear
         searchCollection.backgroundView = UIView.init(frame: CGRect.zero)
-        
         searchCollection.dataSource = self
         searchCollection.delegate = self
-        searchCollection.register(UINib(nibName: "CharacterCell", bundle: nil),
+        searchCollection.register(UINib(nibName: "CharacterCell",
+                                        bundle: nil),
                                       forCellWithReuseIdentifier: "CellC")
-        
         searchCollection.isHidden = true
         
     }
     
+    //Button search
     @IBAction func searchAction(_ sender: Any) {
-        self.searchCollection.isHidden = false
         let newName = searchText.text
         NetworkApi.shared.searchCharacters(name: newName!) { allCharacters in
             self.model = allCharacters
             self.searchCollection.reloadData()
+            self.searchText.backgroundColor = UIColor(named: "rickHair")
+            self.searchCollection.isHidden = false
         } failure: { error in
             self.searchText.backgroundColor = .red
+            self.searchCollection.isHidden = true
+            self.searchText.text = "No hay resultados"
         }
     }
-
 }
+
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
@@ -103,11 +117,12 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
 }
+
 extension SearchViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.title == "Characters"{
             NetworkApi.shared.getAllCharacters { allCharacters in
-                var myView = CharactersViewController(allCharacters)
+                let myView = CharactersViewController(allCharacters)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
@@ -115,7 +130,7 @@ extension SearchViewController: UITabBarDelegate {
             }
         } else if item.title == "Search" {
             NetworkApi.shared.getAllCharacters { allCharacters in
-                var myView = SearchViewController(allCharacters)
+                let myView = SearchViewController(allCharacters)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
@@ -123,7 +138,7 @@ extension SearchViewController: UITabBarDelegate {
             }
         } else if item.title == "Episodes" {
             NetworkApi.shared.getAllEpisodes { episodes in
-               var myView = EpisodesViewController(episodes)
+                let myView = EpisodesViewController(episodes)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
@@ -131,7 +146,7 @@ extension SearchViewController: UITabBarDelegate {
             }
         } else if item.title == "Locations" {
             NetworkApi.shared.getAllLocations() { locations in
-                var myView = LocationViewController(locations)
+                let myView = LocationViewController(locations)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationViewController" customModule="RyMApp" customModuleProvider="target">
             <connections>
+                <outlet property="backImage" destination="zVT-A5-vHH" id="5H8-wz-4sh"/>
                 <outlet property="locationTabBar" destination="ct0-bV-OcU" id="89E-ia-k8d"/>
                 <outlet property="locationTable" destination="fjx-N9-0Lg" id="oXq-6t-yOE"/>
                 <outlet property="titleLabel" destination="7rh-Gg-rec" id="xnY-vm-REf"/>

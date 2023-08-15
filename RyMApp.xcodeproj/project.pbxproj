@@ -171,11 +171,11 @@
 				39D05DC52A727E4600468A9E /* HomeViewController.swift */,
 				39AE69C12A73E53C00E3D09A /* CharactersViewController.swift */,
 				39D05DD02A72847E00468A9E /* DetailViewController.swift */,
-				39C7F2AD2A8249FA00376FBC /* SearchViewController.swift */,
 				3905095D2A86A801003CC30A /* EpisodesViewController.swift */,
 				395A85342A879FC900C59BCE /* EpisodeDetailViewController.swift */,
 				39D645DE2A895BD800F39F84 /* LocationViewController.swift */,
 				3975A6A92A8B872D007BDBC6 /* LocationDetailViewController.swift */,
+				39C7F2AD2A8249FA00376FBC /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

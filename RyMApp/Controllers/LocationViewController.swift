@@ -12,7 +12,8 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationTable: UITableView!
     @IBOutlet weak var locationTabBar: UITabBar!
-
+    @IBOutlet weak var backImage: UIImageView!
+    
     var model: AllLocations
     
     init(_ model: AllLocations) {
@@ -32,6 +33,7 @@ class LocationViewController: UIViewController {
         titleLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
         self.view.backgroundColor = UIColor(named: "dark")
         
+        backImage.image = UIImage(named: "w8")
         
         locationTabBar.delegate = self
         locationTabBar.isTranslucent = false
