@@ -145,7 +145,7 @@ extension CharactersViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.title == "Characters"{
             NetworkApi.shared.getAllCharacters { allCharacters in
-                var myView = CharactersViewController(allCharacters)
+                let myView = CharactersViewController(allCharacters)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
@@ -153,7 +153,7 @@ extension CharactersViewController: UITabBarDelegate {
             }
         } else if item.title == "Search" {
             NetworkApi.shared.getAllCharacters { allCharacters in
-                var myView = SearchViewController(allCharacters)
+                let myView = SearchViewController(allCharacters)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
@@ -161,7 +161,7 @@ extension CharactersViewController: UITabBarDelegate {
             }
         } else if item.title == "Episodes" {
             NetworkApi.shared.getAllEpisodes { episodes in
-               var myView = EpisodesViewController(episodes)
+                let myView = EpisodesViewController(episodes)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
@@ -169,7 +169,7 @@ extension CharactersViewController: UITabBarDelegate {
             }
         } else if item.title == "Locations" {
             NetworkApi.shared.getAllLocations() { locations in
-                var myView = LocationViewController(locations)
+                let myView = LocationViewController( locations)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in

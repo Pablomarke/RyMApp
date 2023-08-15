@@ -134,4 +134,16 @@ class NetworkApi {
             }
         }
     }
+    
+    
+    func getLocationUrl(url: String, success: @escaping (_ location: Location) -> (), failure: @escaping(_ error: Error?) -> ()) {
+        
+        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Location.self, decoder: DataDecoder()) { response in
+            if let location = response.value {
+                success(location)
+            } else {
+                failure(response.error)
+            }
+        }
+    }
 }
