@@ -137,7 +137,7 @@ extension SearchViewController: UITabBarDelegate {
                 print("Error")
             }
         } else if item.title == "Episodes" {
-            NetworkApi.shared.getAllEpisodes { episodes in
+            NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
                 let myView = EpisodesViewController(episodes)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)

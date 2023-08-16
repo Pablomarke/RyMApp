@@ -14,21 +14,8 @@ class NetworkApi {
     private let cstatusOk = 200...299
     private let baseUrl = "https://rickandmortyapi.com/api/"
     
-    func getCharacter(id: Int, success: @escaping (_ character: Character) -> (), failure: @escaping(_ error: Error?) -> () ){
-        
-        let newUrl = baseUrl + "character/\(id)"
-        
-        AF.request(newUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable (of: Character.self, decoder: DataDecoder()) { response in
-            
-            if let character = response.value {
-                success(character)
-                
-            } else {
-                failure(response.error)
-            }
-        }
-    }
     
+    // MARK: Characters
     func getAllCharacters(success: @escaping (_ allCharacters: AllCharacters) -> (),
                           failure: @escaping(_ error: Error?) -> ()) {
         let allCUrl = baseUrl + "character/"
@@ -45,6 +32,23 @@ class NetworkApi {
         
     }
     
+    func getCharacter(id: Int, success: @escaping (_ character: Character) -> (), failure: @escaping(_ error: Error?) -> () ){
+        
+        let newUrl = baseUrl + "character/\(id)"
+        
+        AF.request(newUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable (of: Character.self, decoder: DataDecoder()) { response in
+            
+            if let character = response.value {
+                success(character)
+                
+            } else {
+                failure(response.error)
+            }
+        }
+    }
+    
+    
+    
     func searchCharacters(name: String, success: @escaping (_ allCharacters: AllCharacters) -> (), failure: @escaping(_ error: Error?) -> ()) {
         let searchUrl = baseUrl + "character/?name=\(name)"
         
@@ -57,12 +61,29 @@ class NetworkApi {
         }
     }
     
-    func pages(url: String, success: @escaping (_ allCharacters: AllCharacters) -> (),
-               failure: @escaping(_ error: Error?) -> ()) {
+    func getCharacterUrl(url: String, success: @escaping (_ character: Character) -> (),
+                         failure: @escaping(_ error: Error?) -> ()) {
         
-        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
-            if let allCharacters = response.value {
-                success(allCharacters)
+        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Character.self, decoder: DataDecoder()) { response in
+            if let character = response.value {
+                success(character)
+            } else {
+                failure(response.error)
+            }
+        }
+    }
+    
+    
+    // MARK: Episodes
+    func getAllEpisodes(success: @escaping (_ episodes: AllEpisodes) -> (),
+                        failure: @escaping(_ error: Error?) -> ()){
+        let allEUrl = baseUrl + "episode/"
+        
+        AF.request(allEUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllEpisodes.self, decoder: DataDecoder()) {
+            response in
+            
+            if let episodes = response.value {
+                success(episodes)
             } else {
                 failure(response.error)
             }
@@ -70,7 +91,7 @@ class NetworkApi {
     }
     
     func getEpisode(url: String, success: @escaping (_ episode: Episode) -> (),
-                     failure: @escaping(_ error: Error?) -> ()) {
+                    failure: @escaping(_ error: Error?) -> ()) {
         
         AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Episode.self, decoder: DataDecoder()) { response in
             if let episode = response.value {
@@ -81,15 +102,27 @@ class NetworkApi {
         }
     }
     
-    func getAllEpisodes(success: @escaping (_ episodes: AllEpisodes) -> (),
-                        failure: @escaping(_ error: Error?) -> ()){
-        let allEUrl = baseUrl + "episode/"
-        
-        AF.request(allEUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllEpisodes.self, decoder: DataDecoder()) {
-            response in
-            
-            if let episodes = response.value {
-                success(episodes)
+    func getArrayEpisodes(season: String,
+                          success: @escaping(_ episodes: [Episode]) -> (),
+                          failure: @escaping(_ error: Error?) -> ()) {
+    
+            var seasonsUrl = baseUrl + "episode/\(season)"
+        AF.request(seasonsUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: [Episode].self, decoder: DataDecoder()) { response in
+            if let season = response.value {
+                success(season)
+            } else {
+                failure(response.error)
+            }
+        }
+    }
+    
+    // MARK: Locations
+    func getAllLocations(succes: @escaping(_ location: AllLocations) -> (),
+                         failure: @escaping(_ error: Error?) -> ()) {
+        let locationsUrl = baseUrl + "location"
+        AF.request(locationsUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllLocations.self, decoder: DataDecoder()) { response in
+            if let allLocations = response.value {
+                succes(allLocations)
             } else {
                 failure(response.error)
             }
@@ -110,32 +143,7 @@ class NetworkApi {
             }
         }
     }
-    
-    func getCharacterUrl(url: String, success: @escaping (_ character: Character) -> (),
-                     failure: @escaping(_ error: Error?) -> ()) {
-        
-        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Character.self, decoder: DataDecoder()) { response in
-            if let character = response.value {
-                success(character)
-            } else {
-                failure(response.error)
-            }
-        }
-    }
-    
-    func getAllLocations(succes: @escaping(_ location: AllLocations) -> (),
-                         failure: @escaping(_ error: Error?) -> ()) {
-        let locationsUrl = baseUrl + "location"
-        AF.request(locationsUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllLocations.self, decoder: DataDecoder()) { response in
-            if let allLocations = response.value {
-                succes(allLocations)
-            } else {
-                failure(response.error)
-            }
-        }
-    }
-    
-    
+
     func getLocationUrl(url: String, success: @escaping (_ location: Location) -> (), failure: @escaping(_ error: Error?) -> ()) {
         
         AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Location.self, decoder: DataDecoder()) { response in
@@ -146,4 +154,18 @@ class NetworkApi {
             }
         }
     }
+    
+    // MARK: Pages
+    func pages(url: String, success: @escaping (_ allCharacters: AllCharacters) -> (),
+               failure: @escaping(_ error: Error?) -> ()) {
+        
+        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
+            if let allCharacters = response.value {
+                success(allCharacters)
+            } else {
+                failure(response.error)
+            }
+        }
+    }
+    
 }

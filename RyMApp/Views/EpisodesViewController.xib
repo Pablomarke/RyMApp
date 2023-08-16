@@ -5,13 +5,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EpisodesViewController" customModule="RyMApp" customModuleProvider="target">
             <connections>
                 <outlet property="backImage" destination="ni9-Ft-mqY" id="gew-gf-1aV"/>
+                <outlet property="buttonSeason" destination="oNE-Et-lQ7" id="76z-EY-MHu"/>
                 <outlet property="episodeTable" destination="8MO-6y-0kI" id="ddq-Lw-QAh"/>
+                <outlet property="seasonMenu" destination="Xr6-sH-DFC" id="pXn-Gf-RRG"/>
                 <outlet property="tabBarEpisode" destination="4qV-DQ-zLL" id="BtD-nA-rDO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,10 +29,10 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8MO-6y-0kI">
-                    <rect key="frame" x="16" y="118" width="361" height="640"/>
+                    <rect key="frame" x="16" y="178" width="361" height="580"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="640" id="0mY-jE-aic"/>
+                        <constraint firstAttribute="height" constant="580" id="0mY-jE-aic"/>
                     </constraints>
                 </tableView>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qV-DQ-zLL">
@@ -45,12 +48,28 @@
                         <tabBarItem title="Search" image="magnifyingglass" catalog="system" id="mMd-1a-LCj" userLabel="Search"/>
                     </items>
                 </tabBar>
+                <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNE-Et-lQ7">
+                    <rect key="frame" x="24" y="122" width="160" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="Qnl-s9-bQm"/>
+                        <constraint firstAttribute="width" constant="160" id="jze-Ex-qDO"/>
+                    </constraints>
+                    <menu key="menu" id="Xr6-sH-DFC">
+                        <children>
+                            <command title="Item 1" id="39F-cd-mnJ"/>
+                            <command title="Item 2" id="ICW-9g-G4A"/>
+                        </children>
+                    </menu>
+                    <state key="normal" title="Button"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="EOI-bb-ehR"/>
+                <constraint firstItem="oNE-Et-lQ7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="F15-50-nog"/>
                 <constraint firstItem="8MO-6y-0kI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="FDQ-Qh-BiY"/>
+                <constraint firstItem="8MO-6y-0kI" firstAttribute="top" secondItem="oNE-Et-lQ7" secondAttribute="bottom" constant="32" id="R2U-ei-edI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8MO-6y-0kI" secondAttribute="trailing" constant="16" id="RZb-hM-uIK"/>
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="top" secondItem="8MO-6y-0kI" secondAttribute="bottom" id="c0G-eY-53Q"/>
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nVV-dA-Y2V"/>

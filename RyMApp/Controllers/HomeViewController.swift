@@ -35,8 +35,7 @@ class HomeViewController: UIViewController {
             let allCharacters = CharactersViewController(allCharacters)
             self.navigationController?.pushViewController(allCharacters, animated: true)
         } failure: { error in
-            self.homeLabel.text = "Error"
+            print("Error")
         }
-        
     }
 }
