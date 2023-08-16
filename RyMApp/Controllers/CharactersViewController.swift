@@ -13,16 +13,14 @@ class CharactersViewController: UIViewController {
     @IBOutlet weak var characterBar: UITabBar!
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var collectionCharacters: UICollectionView!
-    @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var pageView: UIView!
     @IBOutlet weak var pagesLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
     var model: AllCharacters
-    
     var countPage = 1
+    
     init(_ model: AllCharacters) {
         self.model = model
         super.init(nibName: nil,
@@ -36,30 +34,28 @@ class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "dark")
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
+        navigationItem.title = "Personajes"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "rickHair")]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
+       
         if model.info?.prev == nil || model.info?.next == nil {
             backButton.isHidden = true
         }
-        self.view.backgroundColor = UIColor(named: "dark")
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
-        
-        
-        titleLabel.text = "Personajes principales"
-        titleLabel.textColor = UIColor(named: "rickHair")
-        titleLabel.font = UIFont(name: "Get Schwifty Regular", size: 32)
         
         backImage.image = UIImage(named: "w2")
         backImage.contentMode = .scaleToFill
         
         collectionCharacters.backgroundColor = UIColor.clear
         collectionCharacters.backgroundView = UIView.init(frame: CGRect.zero)
-        
         collectionCharacters.dataSource = self
         collectionCharacters.delegate = self
         collectionCharacters.register(UINib(nibName: "CharacterCell", bundle: nil),
                                       forCellWithReuseIdentifier: "CellC")
+        
         characterBar.delegate = self
         characterBar.tintColor = UIColor(named: "rickHair")
-        
         characterBar.barTintColor = UIColor(named: "dark")
         characterBar.isTranslucent = false
         
@@ -109,7 +105,7 @@ extension CharactersViewController: UICollectionViewDelegate {
             self.navigationController?.pushViewController(detailedView,
                                                           animated: true)
         } failure: { error in
-            self.titleLabel.text = "Error"
+            print("Error")
         }
     }
 }
@@ -149,7 +145,7 @@ extension CharactersViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         } else if item.title == "Search" {
             NetworkApi.shared.getAllCharacters { allCharacters in
@@ -157,7 +153,7 @@ extension CharactersViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         } else if item.title == "Episodes" {
             NetworkApi.shared.getAllEpisodes { episodes in
@@ -165,7 +161,7 @@ extension CharactersViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         } else if item.title == "Locations" {
             NetworkApi.shared.getAllLocations() { locations in
@@ -173,7 +169,7 @@ extension CharactersViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         }
        

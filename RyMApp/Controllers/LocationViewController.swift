@@ -9,7 +9,6 @@ import UIKit
 
 class LocationViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationTable: UITableView!
     @IBOutlet weak var locationTabBar: UITabBar!
     @IBOutlet weak var backImage: UIImageView!
@@ -28,9 +27,13 @@ class LocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = "Localizaciones"
-        titleLabel.textColor = UIColor(named: "rickHair")
-        titleLabel.font = UIFont(name: "Get Schwifty Regular", size: 24)
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
+        navigationItem.title = "Localizaciones"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "rickHair")]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
+        
+        
+        
         self.view.backgroundColor = UIColor(named: "dark")
         
         backImage.image = UIImage(named: "w8")
@@ -70,7 +73,7 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(detail,
                                                           animated: true)
         } failure: { error in
-            self.titleLabel.text = "Error"
+            print("Error")
         }
         
     }
@@ -83,7 +86,7 @@ extension LocationViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         } else if item.title == "Search" {
             NetworkApi.shared.getAllCharacters { allCharacters in
@@ -91,7 +94,7 @@ extension LocationViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         } else if item.title == "Episodes" {
             NetworkApi.shared.getAllEpisodes { episodes in
@@ -99,7 +102,7 @@ extension LocationViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         } else if item.title == "Locations" {
             NetworkApi.shared.getAllLocations() { locations in
@@ -107,7 +110,7 @@ extension LocationViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         }
        

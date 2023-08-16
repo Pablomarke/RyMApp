@@ -10,7 +10,6 @@ import UIKit
 class EpisodesViewController: UIViewController {
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var episodeTable: UITableView!
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tabBarEpisode: UITabBar!
     
     var model: AllEpisodes
@@ -28,10 +27,11 @@ class EpisodesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = "Episodios"
-        titleLabel.font = UIFont(name: "Get Schwifty Regular", size: 32)
-        titleLabel.textColor = UIColor(named: "rickHair")
-        titleLabel.numberOfLines = 0
+        
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
+        navigationItem.title = "Episodios"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "rickHair")]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         
         self.view.backgroundColor = UIColor(named: "dark")
         tabBarEpisode.barTintColor = UIColor(named: "dark")
@@ -69,7 +69,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(detail,
                                                           animated: true)
         } failure: { error in
-            self.titleLabel.text = "Error"
+            print("Error")
         }
         
     }
@@ -83,7 +83,7 @@ extension EpisodesViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         } else if item.title == "Search" {
             NetworkApi.shared.getAllCharacters { allCharacters in
@@ -91,7 +91,7 @@ extension EpisodesViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         } else if item.title == "Episodes" {
             NetworkApi.shared.getAllEpisodes { episodes in
@@ -99,7 +99,7 @@ extension EpisodesViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         } else if item.title == "Locations" {
             NetworkApi.shared.getAllLocations() { locations in
@@ -107,7 +107,7 @@ extension EpisodesViewController: UITabBarDelegate {
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
-                self.titleLabel.text = "Error"
+                print("Error")
             }
         }
        

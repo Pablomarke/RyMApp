@@ -13,7 +13,6 @@
                 <outlet property="backImage" destination="ni9-Ft-mqY" id="gew-gf-1aV"/>
                 <outlet property="episodeTable" destination="8MO-6y-0kI" id="ddq-Lw-QAh"/>
                 <outlet property="tabBarEpisode" destination="4qV-DQ-zLL" id="BtD-nA-rDO"/>
-                <outlet property="titleLabel" destination="s2A-fO-cs8" id="eau-Ac-4Z7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,20 +25,11 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2A-fO-cs8">
-                    <rect key="frame" x="40" y="115" width="313" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="24" id="X3W-Fv-9h7"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8MO-6y-0kI">
-                    <rect key="frame" x="16" y="218" width="361" height="540"/>
+                    <rect key="frame" x="16" y="118" width="361" height="640"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="540" id="0mY-jE-aic"/>
+                        <constraint firstAttribute="height" constant="640" id="0mY-jE-aic"/>
                     </constraints>
                 </tableView>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qV-DQ-zLL">
@@ -61,11 +51,8 @@
             <constraints>
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="EOI-bb-ehR"/>
                 <constraint firstItem="8MO-6y-0kI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="FDQ-Qh-BiY"/>
-                <constraint firstItem="s2A-fO-cs8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="IH4-tR-9kJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8MO-6y-0kI" secondAttribute="trailing" constant="16" id="RZb-hM-uIK"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="s2A-fO-cs8" secondAttribute="trailing" constant="40" id="aI6-SU-f67"/>
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="top" secondItem="8MO-6y-0kI" secondAttribute="bottom" id="c0G-eY-53Q"/>
-                <constraint firstItem="s2A-fO-cs8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="56" id="lcm-AP-g6g"/>
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nVV-dA-Y2V"/>
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="qg8-gZ-SD2"/>
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="top" secondItem="8MO-6y-0kI" secondAttribute="bottom" id="vZF-JO-itY"/>

@@ -8,22 +8,15 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="get_schwifty.ttf">
-            <string>GetSchwifty-Regular</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="RyMApp" customModuleProvider="target">
             <connections>
                 <outlet property="backImage" destination="TUz-tH-2r7" id="HIR-nZ-ChU"/>
-                <outlet property="backView" destination="dur-Lz-Tp1" id="Gme-yB-q8z"/>
                 <outlet property="buttonView" destination="k6a-YP-Fk1" id="JrK-wF-ZWB"/>
                 <outlet property="searchButton" destination="W83-jZ-jRX" id="QeB-fy-bQK"/>
                 <outlet property="searchCollection" destination="TDi-9t-Un2" id="XQg-OM-k5W"/>
                 <outlet property="searchText" destination="Pmf-Ti-3mS" id="sfN-1E-Rx7"/>
                 <outlet property="tabBarSearch" destination="3AQ-uN-mhU" id="DS8-eF-HBn"/>
-                <outlet property="titleLabel" destination="uWc-sw-MPM" id="Aj0-VQ-Pmf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,105 +25,87 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dur-Lz-Tp1">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TUz-tH-2r7">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6a-YP-Fk1">
+                    <rect key="frame" x="136.66666666666666" y="183" width="119.99999999999997" height="56"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TUz-tH-2r7">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWc-sw-MPM">
-                            <rect key="frame" x="177" y="32" width="39" height="17"/>
-                            <fontDescription key="fontDescription" name="GetSchwifty-Regular" family="Get Schwifty" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TDi-9t-Un2">
-                            <rect key="frame" x="16" y="284" width="361" height="419"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LAM-x0-CC1">
-                                <size key="itemSize" width="160" height="100"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                        </collectionView>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pmf-Ti-3mS">
-                            <rect key="frame" x="16" y="73" width="361" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="60" id="2ut-Ea-84B"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3AQ-uN-mhU">
-                            <rect key="frame" x="0.0" y="703" width="393" height="56"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="56" id="WuE-8C-5RI"/>
-                            </constraints>
-                            <items>
-                                <tabBarItem title="Characters" image="person.2.fill" catalog="system" id="TGk-gr-Fml" userLabel="Character"/>
-                                <tabBarItem title="Locations" image="location.fill" catalog="system" selectedImage="location.viewfinder" id="D7M-xQ-EuT" userLabel="Location"/>
-                                <tabBarItem title="Episodes" image="book.fill" catalog="system" selectedImage="book" id="aZ2-LE-iNM" userLabel="Episode"/>
-                                <tabBarItem systemItem="search" id="v4d-aL-DZA" userLabel="Search"/>
-                            </items>
-                        </tabBar>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6a-YP-Fk1">
-                            <rect key="frame" x="136.66666666666666" y="149" width="119.99999999999997" height="56"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W83-jZ-jRX">
-                                    <rect key="frame" x="6" y="6" width="108" height="44"/>
-                                    <color key="tintColor" name="rickHair"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Buscar">
-                                        <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
-                                    </buttonConfiguration>
-                                    <connections>
-                                        <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="VYo-OJ-cnH"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="W83-jZ-jRX" secondAttribute="trailing" constant="6" id="ElL-w1-Jas"/>
-                                <constraint firstAttribute="width" constant="120" id="SYb-4m-Ahc"/>
-                                <constraint firstAttribute="height" constant="56" id="dqt-Xp-rUP"/>
-                                <constraint firstItem="W83-jZ-jRX" firstAttribute="leading" secondItem="k6a-YP-Fk1" secondAttribute="leading" constant="6" id="vRB-O8-GVv"/>
-                                <constraint firstAttribute="bottom" secondItem="W83-jZ-jRX" secondAttribute="bottom" constant="6" id="wHa-ih-xkg"/>
-                                <constraint firstItem="W83-jZ-jRX" firstAttribute="top" secondItem="k6a-YP-Fk1" secondAttribute="top" constant="6" id="xQZ-Jx-EZc"/>
-                            </constraints>
-                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W83-jZ-jRX">
+                            <rect key="frame" x="6" y="6" width="108" height="44"/>
+                            <color key="tintColor" name="rickHair"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Buscar">
+                                <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="VYo-OJ-cnH"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="TUz-tH-2r7" secondAttribute="bottom" id="3Uy-Nm-qhe"/>
-                        <constraint firstItem="3AQ-uN-mhU" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" id="GfL-Ve-axg"/>
-                        <constraint firstAttribute="bottom" secondItem="3AQ-uN-mhU" secondAttribute="bottom" id="MpA-M3-jOK"/>
-                        <constraint firstItem="Pmf-Ti-3mS" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" constant="16" id="QtG-0x-QYk"/>
-                        <constraint firstItem="k6a-YP-Fk1" firstAttribute="centerX" secondItem="dur-Lz-Tp1" secondAttribute="centerX" id="Rfc-xc-h1W"/>
-                        <constraint firstItem="TDi-9t-Un2" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" constant="16" id="WCI-6B-56X"/>
-                        <constraint firstAttribute="trailing" secondItem="3AQ-uN-mhU" secondAttribute="trailing" id="g3l-Vb-iHs"/>
-                        <constraint firstItem="uWc-sw-MPM" firstAttribute="top" secondItem="dur-Lz-Tp1" secondAttribute="top" constant="32" id="icd-xC-iBa"/>
-                        <constraint firstItem="TDi-9t-Un2" firstAttribute="top" secondItem="k6a-YP-Fk1" secondAttribute="bottom" constant="79" id="mC3-mx-iGj"/>
-                        <constraint firstItem="3AQ-uN-mhU" firstAttribute="top" secondItem="TDi-9t-Un2" secondAttribute="bottom" id="nT1-ox-XF0"/>
-                        <constraint firstAttribute="trailing" secondItem="Pmf-Ti-3mS" secondAttribute="trailing" constant="16" id="nax-xR-dX1"/>
-                        <constraint firstItem="TUz-tH-2r7" firstAttribute="leading" secondItem="dur-Lz-Tp1" secondAttribute="leading" id="njn-On-8ta"/>
-                        <constraint firstAttribute="trailing" secondItem="TDi-9t-Un2" secondAttribute="trailing" constant="16" id="pNQ-L6-E46"/>
-                        <constraint firstItem="Pmf-Ti-3mS" firstAttribute="top" secondItem="uWc-sw-MPM" secondAttribute="bottom" constant="24" id="rbB-7g-JAD"/>
-                        <constraint firstItem="TUz-tH-2r7" firstAttribute="top" secondItem="dur-Lz-Tp1" secondAttribute="top" id="tmN-BS-cpw"/>
-                        <constraint firstItem="k6a-YP-Fk1" firstAttribute="top" secondItem="Pmf-Ti-3mS" secondAttribute="bottom" constant="16" id="uqL-At-muE"/>
-                        <constraint firstItem="uWc-sw-MPM" firstAttribute="centerX" secondItem="dur-Lz-Tp1" secondAttribute="centerX" id="xIY-8q-bDo"/>
-                        <constraint firstAttribute="trailing" secondItem="TUz-tH-2r7" secondAttribute="trailing" id="xnX-hC-dap"/>
+                        <constraint firstAttribute="trailing" secondItem="W83-jZ-jRX" secondAttribute="trailing" constant="6" id="ElL-w1-Jas"/>
+                        <constraint firstAttribute="width" constant="120" id="SYb-4m-Ahc"/>
+                        <constraint firstAttribute="height" constant="56" id="dqt-Xp-rUP"/>
+                        <constraint firstItem="W83-jZ-jRX" firstAttribute="leading" secondItem="k6a-YP-Fk1" secondAttribute="leading" constant="6" id="vRB-O8-GVv"/>
+                        <constraint firstAttribute="bottom" secondItem="W83-jZ-jRX" secondAttribute="bottom" constant="6" id="wHa-ih-xkg"/>
+                        <constraint firstItem="W83-jZ-jRX" firstAttribute="top" secondItem="k6a-YP-Fk1" secondAttribute="top" constant="6" id="xQZ-Jx-EZc"/>
                     </constraints>
                 </view>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pmf-Ti-3mS">
+                    <rect key="frame" x="16" y="91" width="361" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="2ut-Ea-84B"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="TDi-9t-Un2">
+                    <rect key="frame" x="16" y="282" width="361" height="480"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="480" id="BVW-Lv-vtO"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LAM-x0-CC1">
+                        <size key="itemSize" width="160" height="100"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3AQ-uN-mhU">
+                    <rect key="frame" x="0.0" y="762" width="393" height="56"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="LeB-bZ-onN"/>
+                    </constraints>
+                    <items>
+                        <tabBarItem title="Characters" image="person.2.fill" catalog="system" id="TGk-gr-Fml" userLabel="Character"/>
+                        <tabBarItem title="Locations" image="location.fill" catalog="system" selectedImage="location.viewfinder" id="D7M-xQ-EuT" userLabel="Location"/>
+                        <tabBarItem title="Episodes" image="book.fill" catalog="system" selectedImage="book" id="aZ2-LE-iNM" userLabel="Episode"/>
+                        <tabBarItem systemItem="search" id="v4d-aL-DZA" userLabel="Search"/>
+                    </items>
+                </tabBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="dur-Lz-Tp1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7pO-6b-XfD"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dur-Lz-Tp1" secondAttribute="trailing" id="Bd5-Av-m8H"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dur-Lz-Tp1" secondAttribute="bottom" id="KEy-fW-2ZO"/>
-                <constraint firstItem="dur-Lz-Tp1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kxX-FC-LJv"/>
+                <constraint firstItem="Pmf-Ti-3mS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="1Mg-2a-lls"/>
+                <constraint firstItem="k6a-YP-Fk1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6dt-SI-FaU"/>
+                <constraint firstItem="TUz-tH-2r7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AHP-qL-H4Q"/>
+                <constraint firstItem="TUz-tH-2r7" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="P3i-tC-yU0"/>
+                <constraint firstItem="3AQ-uN-mhU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="R1p-h9-Aqj"/>
+                <constraint firstItem="TUz-tH-2r7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Ske-MH-ame"/>
+                <constraint firstItem="3AQ-uN-mhU" firstAttribute="top" secondItem="TDi-9t-Un2" secondAttribute="bottom" id="bQ0-JB-yEV"/>
+                <constraint firstItem="k6a-YP-Fk1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="124" id="bTp-Wa-HbM"/>
+                <constraint firstItem="3AQ-uN-mhU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="cdc-Ic-RZK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pmf-Ti-3mS" secondAttribute="trailing" constant="16" id="ebc-fr-e0g"/>
+                <constraint firstItem="TDi-9t-Un2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="h51-co-THW"/>
+                <constraint firstItem="Pmf-Ti-3mS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="hr5-wp-AeI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TDi-9t-Un2" secondAttribute="trailing" constant="16" id="mY2-fy-tAe"/>
+                <constraint firstItem="TUz-tH-2r7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="nmB-xV-FJg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3AQ-uN-mhU" secondAttribute="bottom" id="uxo-Ru-kdx"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

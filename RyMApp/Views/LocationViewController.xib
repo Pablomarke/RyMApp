@@ -13,7 +13,6 @@
                 <outlet property="backImage" destination="zVT-A5-vHH" id="5H8-wz-4sh"/>
                 <outlet property="locationTabBar" destination="ct0-bV-OcU" id="89E-ia-k8d"/>
                 <outlet property="locationTable" destination="fjx-N9-0Lg" id="oXq-6t-yOE"/>
-                <outlet property="titleLabel" destination="7rh-Gg-rec" id="xnY-vm-REf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,16 +24,6 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zVT-A5-vHH">
                     <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rh-Gg-rec">
-                    <rect key="frame" x="116.66666666666669" y="107" width="160" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="32" id="k0v-7F-xI8"/>
-                        <constraint firstAttribute="width" constant="160" id="prk-rV-tKv"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct0-bV-OcU">
                     <rect key="frame" x="0.0" y="762" width="393" height="56"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,14 +34,14 @@
                         <tabBarItem title="Characters" image="person.2.fill" catalog="system" id="TEj-dZ-UcU" userLabel="Character"/>
                         <tabBarItem title="Locations" image="location.fill" catalog="system" selectedImage="location.viewfinder" id="7bc-ju-acM" userLabel="Location"/>
                         <tabBarItem title="Episodes" image="book.fill" catalog="system" selectedImage="book" id="MML-oy-gNu" userLabel="Episode"/>
-                        <tabBarItem systemItem="search" id="Sin-tm-S07" userLabel="Search"/>
+                        <tabBarItem title="Search" image="magnifyingglass" catalog="system" id="Sin-tm-S07" userLabel="Search"/>
                     </items>
                 </tabBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fjx-N9-0Lg">
-                    <rect key="frame" x="16" y="222" width="361" height="540"/>
+                    <rect key="frame" x="16" y="106" width="361" height="656"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="540" id="baf-Mz-4S1"/>
+                        <constraint firstAttribute="height" constant="656" id="baf-Mz-4S1"/>
                     </constraints>
                 </tableView>
             </subviews>
@@ -60,13 +49,11 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zVT-A5-vHH" secondAttribute="bottom" id="1xj-j6-jHp"/>
-                <constraint firstItem="7rh-Gg-rec" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7hL-y5-B7u"/>
                 <constraint firstItem="ct0-bV-OcU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="9rh-xN-VD5"/>
                 <constraint firstItem="zVT-A5-vHH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Obp-3g-1aZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zVT-A5-vHH" secondAttribute="trailing" id="QrT-d6-wDo"/>
                 <constraint firstItem="ct0-bV-OcU" firstAttribute="top" secondItem="fjx-N9-0Lg" secondAttribute="bottom" id="hkp-YJ-Gyf"/>
                 <constraint firstItem="ct0-bV-OcU" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="jUl-lY-4dL"/>
-                <constraint firstItem="7rh-Gg-rec" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="48" id="oar-Sm-S7e"/>
                 <constraint firstItem="ct0-bV-OcU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qbe-2P-r85"/>
                 <constraint firstItem="fjx-N9-0Lg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="rVI-Jq-MuQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fjx-N9-0Lg" secondAttribute="trailing" constant="16" id="tnK-kl-Tc7"/>
@@ -80,6 +67,7 @@
         <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
         <image name="location.viewfinder" catalog="system" width="128" height="115"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person.2.fill" catalog="system" width="128" height="81"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
