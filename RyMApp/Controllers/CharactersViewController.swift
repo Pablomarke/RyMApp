@@ -73,8 +73,9 @@ class CharactersViewController: UIViewController {
             self.collectionCharacters.reloadData()
             self.countPage += 1
             self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
-            if self.model.info?.prev != nil {
-                self.backButton.isHidden = false
+            self.backButton.isHidden = false
+            if self.model.info?.next == nil {
+                self.nextButton.isHidden = true
             }
         } failure: { error in
             print("Error")
@@ -87,6 +88,7 @@ class CharactersViewController: UIViewController {
             self.collectionCharacters.reloadData()
             self.countPage -= 1
             self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
+            self.nextButton.isHidden = false
             if self.model.info?.prev == nil {
                 self.backButton.isHidden = true
             }

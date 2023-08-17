@@ -25,7 +25,7 @@ class TableViewCell: UITableViewCell {
         dataView.layer.cornerRadius = 12
         dataView.backgroundColor = UIColor(named: "rickHair")
         
-        titleLabel.textColor = UIColor(named: "dark")
+        titleLabel.textColor = .black
         dataLabel.textColor = UIColor(named: "dark")
         self.backgroundColor = UIColor.clear
     }

@@ -11,12 +11,6 @@ struct AllCharacters: Decodable {
     let results: [Character]?
     let info: ApiInfo?
     
-    init(results: [Character]?,
-         info: ApiInfo?) {
-        self.info = info
-        self.results = results
-    }
-    
     enum CodingKeys: CodingKey {
         case info
         case results

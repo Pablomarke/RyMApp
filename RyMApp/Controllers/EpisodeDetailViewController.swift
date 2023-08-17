@@ -32,8 +32,10 @@ class EpisodeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "dark")
-        topView.backgroundColor = .clear
-        characterLabel.text = "Personajes"
+        topView.backgroundColor = UIColor(named: "dark")
+        topView.layer.cornerRadius = 22
+        characterLabel.text = "Personajes :"
+        characterLabel.textColor = UIColor(named: "rickHair")
         backImage.image = UIImage(named: "r1")
         backImage.contentMode =  .scaleToFill
         topView.backgroundColor = .clear
@@ -43,7 +45,7 @@ class EpisodeDetailViewController: UIViewController {
         nameLabel.textColor = UIColor(named: "rickHair")
         nameLabel.numberOfLines = 2
         episodeLabel.text = model.episode
-        estrenoLabel.text = "" //por hacer
+        estrenoLabel.text = model.air_date
         
         collectionCharacters.dataSource = self
         collectionCharacters.delegate = self

@@ -34,3 +34,13 @@ struct Location: Decodable {
         case url
     }
 }
+
+struct SimpleLocation: Decodable {
+    let name: String
+    let url: String
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case url
+    }
+}

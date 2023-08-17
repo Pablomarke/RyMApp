@@ -8,10 +8,10 @@
 import UIKit
 
 class EpisodesViewController: UIViewController {
+    
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var episodeTable: UITableView!
     @IBOutlet weak var tabBarEpisode: UITabBar!
-    
     @IBOutlet weak var buttonSeason: UIButton!
     @IBOutlet weak var seasonMenu: UIMenu!
     
@@ -107,6 +107,8 @@ class EpisodesViewController: UIViewController {
         
         buttonSeason.menu = menu
         buttonSeason.showsMenuAsPrimaryAction = true
+        buttonSeason.backgroundColor = UIColor(named: "rickHair")
+        buttonSeason.layer.cornerRadius = 24
     }
     
 }

@@ -62,6 +62,13 @@
                     </menu>
                     <state key="normal" title="Button"/>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vCE-fj-d1h">
+                    <rect key="frame" x="182" y="85" width="13" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24.670000000000002" id="KjI-ZL-AEG"/>
+                        <constraint firstAttribute="width" constant="13" id="oPX-pV-vhs"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -69,6 +76,8 @@
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="EOI-bb-ehR"/>
                 <constraint firstItem="oNE-Et-lQ7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="F15-50-nog"/>
                 <constraint firstItem="8MO-6y-0kI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="FDQ-Qh-BiY"/>
+                <constraint firstItem="vCE-fj-d1h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="Gcl-mW-eSf"/>
+                <constraint firstItem="vCE-fj-d1h" firstAttribute="leading" secondItem="oNE-Et-lQ7" secondAttribute="trailing" constant="-2" id="NM5-af-8eK"/>
                 <constraint firstItem="8MO-6y-0kI" firstAttribute="top" secondItem="oNE-Et-lQ7" secondAttribute="bottom" constant="32" id="R2U-ei-edI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8MO-6y-0kI" secondAttribute="trailing" constant="16" id="RZb-hM-uIK"/>
                 <constraint firstItem="4qV-DQ-zLL" firstAttribute="top" secondItem="8MO-6y-0kI" secondAttribute="bottom" id="c0G-eY-53Q"/>
@@ -82,6 +91,7 @@
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="book.fill" catalog="system" width="128" height="95"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="location.fill" catalog="system" width="128" height="119"/>
         <image name="location.viewfinder" catalog="system" width="128" height="115"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>

@@ -35,10 +35,8 @@ class SearchViewController: UIViewController {
     // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "dark")
         self.view.backgroundColor = UIColor(named: "dark")
-        
         
         ///Title
         self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
@@ -48,22 +46,23 @@ class SearchViewController: UIViewController {
         
         ///SearchText
         searchText.placeholder = "Introduce nombre"
-        searchText.layer.cornerRadius = 32
+        searchText.layer.cornerRadius = 40
         searchText.backgroundColor = UIColor(named: "rickHair")
         
         backImage.image = UIImage(named: "r3")
         backImage.contentMode = .scaleAspectFill
         
         ///Button
-        buttonView.backgroundColor = UIColor(named: "dark")
+        buttonView.backgroundColor = UIColor(named: "rickHair")
         buttonView.layer.cornerRadius = 24
         searchButton.titleLabel?.text = "Buscar"
+        searchButton.tintColor = .black
         
         ///Tab bar
         tabBarSearch.delegate = self
         tabBarSearch.tintColor = UIColor(named: "rickHair")
         tabBarSearch.barTintColor = UIColor(named: "dark")
-       tabBarSearch.isTranslucent = false
+        tabBarSearch.isTranslucent = false
 
         ///Search Collection
         searchCollection.backgroundColor = UIColor.clear
@@ -80,6 +79,7 @@ class SearchViewController: UIViewController {
     @IBAction func searchAction(_ sender: Any) {
         let newName = searchText.text
         NetworkApi.shared.searchCharacters(name: newName!) { allCharacters in
+            self.model = allCharacters
             self.searchCollection.reloadData()
             self.searchText.backgroundColor = UIColor(named: "rickHair")
             self.searchCollection.isHidden = false

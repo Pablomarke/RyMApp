@@ -106,7 +106,7 @@ class NetworkApi {
                           success: @escaping(_ episodes: [Episode]) -> (),
                           failure: @escaping(_ error: Error?) -> ()) {
     
-            var seasonsUrl = baseUrl + "episode/\(season)"
+        let seasonsUrl = baseUrl + "episode/\(season)"
         AF.request(seasonsUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: [Episode].self, decoder: DataDecoder()) { response in
             if let season = response.value {
                 success(season)
@@ -168,4 +168,15 @@ class NetworkApi {
         }
     }
     
+    func pagesLocation(url: String, succes: @escaping (_ allLocations: AllLocations) -> (),
+                  failure: @escaping(_ error: Error?) -> ()) {
+        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllLocations.self, decoder: DataDecoder()) {
+            response in
+            if let allLocations = response.value {
+                succes(allLocations)
+            } else {
+                failure(response.error)
+            }
+        }
+    }
 }

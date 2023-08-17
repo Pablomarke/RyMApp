@@ -12,28 +12,28 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var buttonLabel: UILabel!
-    @IBOutlet weak var homeLabel: UILabel!
+    @IBOutlet weak var buttonImage: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+       
         backImage.image = UIImage(named: "w1")
         backImage.contentMode = .scaleToFill
-        
         buttonLabel.text = "Entrar"
         buttonLabel.font = UIFont(name: "Get Schwifty Regular", size: 32)
         buttonLabel.textAlignment = .center
-        homeButton.tintColor = UIColor(named: "rickHair")
-        
-        
+        homeButton.tintColor = .clear
+        buttonImage.backgroundColor = UIColor(named: "rickHair")
+        buttonImage.layer.cornerRadius = 60
     }
     
     @IBAction func homeBAction(_ sender: Any) {
         
         NetworkApi.shared.getAllCharacters { allCharacters in
             let allCharacters = CharactersViewController(allCharacters)
-            self.navigationController?.pushViewController(allCharacters, animated: true)
+            self.navigationController?.pushViewController(allCharacters,
+                                                          animated: true)
         } failure: { error in
             print("Error")
         }
