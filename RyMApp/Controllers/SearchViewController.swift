@@ -105,15 +105,8 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.CharacterView.kf.setImage(with: urlImage)
         cell.characterName.text = model.results![indexPath.row].name
         cell.characterStatus.text = model.results![indexPath.row].status
-        if cell.characterStatus.text == "Alive" {
-            cell.statusView.backgroundColor = .green
-        } else if cell.characterStatus.text == "Dead"{
-            cell.statusView.backgroundColor = .red
-        } else {
-            cell.statusView.backgroundColor = .gray
-            cell.statusView.layer.cornerRadius = 6
-            cell.characterStatus.textColor = .black
-        }
+        cell.statusView.backgroundColor = model.results![indexPath.row].statusColor()
+       
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

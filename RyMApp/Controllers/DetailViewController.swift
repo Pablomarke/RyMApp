@@ -134,17 +134,10 @@ class DetailViewController: UIViewController {
         
         let imageUrl = model.image
         imageDetail.kf.setImage(with: URL(string: imageUrl))
+    
+        colorStatus.backgroundColor = model.statusColor()
+        colorCharacter.backgroundColor = model.statusColor()
         
-        if model.status == "Alive" {
-            colorStatus.backgroundColor = .green
-            colorCharacter.backgroundColor = .green
-        } else if model.status == "Dead" {
-            colorStatus.backgroundColor = .red
-            colorCharacter.backgroundColor = .red
-        } else if model.status == "unknown" {
-            colorStatus.backgroundColor = .gray
-            colorCharacter.backgroundColor = .gray
-        }
         speciesLabel.text = model.species
         if model.type == "" {
             typeLabel.text = "---"

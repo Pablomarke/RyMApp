@@ -37,4 +37,15 @@ struct Character: Decodable {
     }
 }
 
-
+extension Character {
+    func statusColor() -> UIColor {
+        if status == "Alive" {
+            return .green
+            
+        } else if status == "Dead"{
+            return .red
+        } else {
+            return .gray
+        }
+    }
+}

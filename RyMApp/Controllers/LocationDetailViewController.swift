@@ -79,16 +79,7 @@ extension LocationDetailViewController: UICollectionViewDelegate, UICollectionVi
             let urlImage = URL(string: character.image)
             cell.CharacterView.kf.setImage(with: urlImage)
             cell.characterStatus.text = character.status
-            if cell.characterStatus.text == "Alive" {
-                cell.statusView.backgroundColor = .green
-            } else if cell.characterStatus.text == "Dead"{
-                cell.statusView.backgroundColor = .red
-            } else {
-                cell.statusView.backgroundColor = .gray
-                cell.statusView.layer.cornerRadius = 6
-                cell.characterStatus.textColor = .black
-            }
-            
+            cell.statusView.backgroundColor = character.statusColor()
         } failure: { error in
             cell.characterName.text = "Error"
         }

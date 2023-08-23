@@ -125,16 +125,10 @@ extension CharactersViewController: UICollectionViewDataSource {
         let urlImage = URL(string: model.results![indexPath.row].image)
         cell.CharacterView.kf.setImage(with: urlImage)
         cell.characterStatus.text = model.results![indexPath.row].status
+        cell.statusView.backgroundColor = model.results![indexPath.row].statusColor()
+        cell.statusView.layer.cornerRadius = 6
+        cell.characterStatus.textColor = .black
         
-        if cell.characterStatus.text == "Alive" {
-            cell.statusView.backgroundColor = .green
-        } else if cell.characterStatus.text == "Dead"{
-            cell.statusView.backgroundColor = .red
-        } else {
-            cell.statusView.backgroundColor = .gray
-            cell.statusView.layer.cornerRadius = 6
-            cell.characterStatus.textColor = .black
-        }
         return cell
     }
 }
