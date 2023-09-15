@@ -79,8 +79,8 @@ extension EpisodeDetailViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         NetworkApi.shared.getCharacterUrl(url: model.characters[indexPath.row]) { character in
             let detailedView = DetailViewController(model: character)
-            self.navigationController?.pushViewController(detailedView,
-                                                          animated: true)
+            self.navigationController?.showDetailViewController(detailedView,
+                                            sender: nil)
         } failure: { error in
             self.characterLabel.text = "Error"
         }

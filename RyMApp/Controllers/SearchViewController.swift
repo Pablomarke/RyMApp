@@ -109,11 +109,12 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
        
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
         NetworkApi.shared.getCharacter(id: model.results![indexPath.row].id) { character in
             let detailedView = DetailViewController(model: character)
-            self.navigationController?.pushViewController(detailedView,
-                                                          animated: true)
+            self.navigationController?.showDetailViewController(detailedView,
+                                                                sender: nil)
         } failure: { error in
             print("Error")
         }

@@ -182,10 +182,10 @@
 				390D94C02A861DFB0091336F /* ApiInfo.swift */,
 				39AE69CA2A73EF9000E3D09A /* AllCharacter.swift */,
 				390D94C42A861E530091336F /* AllEpisodes.swift */,
-				390D94C22A861E2C0091336F /* AllLocations.swift */,
-				39D05DC92A727F9D00468A9E /* Character.swift */,
 				39DA13142A83EB34009073E0 /* Episode.swift */,
+				390D94C22A861E2C0091336F /* AllLocations.swift */,
 				39DA13122A83E45D009073E0 /* Location.swift */,
+				39D05DC92A727F9D00468A9E /* Character.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

@@ -174,8 +174,8 @@ extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NetworkApi.shared.getEpisode(url: model.episode[indexPath.row]) { episode in
             let nav1 = EpisodeDetailViewController(episode)
-            self.navigationController?.pushViewController(nav1,
-                                                          animated: true)
+            self.navigationController?.showDetailViewController(nav1,
+                                                                sender: nil)
         } failure: { error in
             self.nameLabel.text = "Error"
         }

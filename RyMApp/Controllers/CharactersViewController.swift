@@ -104,8 +104,8 @@ extension CharactersViewController: UICollectionViewDelegate {
         
         NetworkApi.shared.getCharacter(id: model.results![indexPath.row].id) { character in
             let detailedView = DetailViewController(model: character)
-            self.navigationController?.pushViewController(detailedView,
-                                                          animated: true)
+            self.navigationController?.show(detailedView,
+                                            sender: nil)
         } failure: { error in
             print("Error")
         }

@@ -63,7 +63,6 @@ class EpisodesViewController: UIViewController {
             NetworkApi.shared.getArrayEpisodes(season: "12,13,14,15,16,17,18,19,20,21") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
-                
             } failure: { error in
                 print("Error")
             }
@@ -73,7 +72,6 @@ class EpisodesViewController: UIViewController {
             NetworkApi.shared.getArrayEpisodes(season: "22,23,24,25,26,27,28,29,30,31") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
-                
             } failure: { error in
                 print("Error")
                 
@@ -83,7 +81,6 @@ class EpisodesViewController: UIViewController {
             NetworkApi.shared.getArrayEpisodes(season: "32,33,34,35,36,37,38,39,40,41") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
-                
             } failure: { error in
                 print("Error")
             }
@@ -93,14 +90,10 @@ class EpisodesViewController: UIViewController {
             NetworkApi.shared.getArrayEpisodes(season: "42,43,44,45,46,47,48,49,50,51") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
-                
             } failure: { error in
                 print("Error")
-                
             }
         }
-
-
            let menu = UIMenu(title: "Selecciona Temporada",
                              options: .displayInline,
                              children: [item1, item2, item3, item4, item5])
@@ -110,7 +103,6 @@ class EpisodesViewController: UIViewController {
         buttonSeason.backgroundColor = UIColor(named: "rickHair")
         buttonSeason.layer.cornerRadius = 24
     }
-    
 }
 
 extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -130,15 +122,13 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
-        
         NetworkApi.shared.getEpisode(url: (model[indexPath.row].url)) { episode in
             let detail = EpisodeDetailViewController(episode)
-            self.navigationController?.pushViewController(detail,
-                                                          animated: true)
+            self.navigationController?.show(detail,
+                                            sender: nil)
         } failure: { error in
             print("Error")
         }
-        
     }
 }
 

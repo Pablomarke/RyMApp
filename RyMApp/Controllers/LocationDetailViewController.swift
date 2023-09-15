@@ -66,14 +66,16 @@ class LocationDetailViewController: UIViewController {
     }
 }
 
-extension LocationDetailViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension LocationDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return model.residents.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = residentsCollection.dequeueReusableCell(withReuseIdentifier: "RC", for: indexPath) as! CharacterCell
-        
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = residentsCollection.dequeueReusableCell(withReuseIdentifier: "RC",
+                                                           for: indexPath) as! CharacterCell
         NetworkApi.shared.getCharacterUrl(url: model.residents[indexPath.row]) { character in
             cell.characterName.text = character.name
             let urlImage = URL(string: character.image)
@@ -85,4 +87,5 @@ extension LocationDetailViewController: UICollectionViewDelegate, UICollectionVi
         }
         return cell
     }
+  
 }

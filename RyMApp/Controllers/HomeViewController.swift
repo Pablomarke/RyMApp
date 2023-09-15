@@ -31,9 +31,9 @@ class HomeViewController: UIViewController {
     @IBAction func homeBAction(_ sender: Any) {
         
         NetworkApi.shared.getAllCharacters { allCharacters in
-            let allCharacters = CharactersViewController(allCharacters)
-            self.navigationController?.pushViewController(allCharacters,
-                                                          animated: true)
+            let viewController = CharactersViewController(allCharacters)
+            self.navigationController?.setViewControllers([viewController],
+                                                          animated: true) 
         } failure: { error in
             print("Error")
         }

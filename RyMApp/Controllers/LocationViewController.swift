@@ -116,8 +116,8 @@ extension LocationViewController: UITableViewDelegate, UITableViewDataSource {
                    didSelectRowAt indexPath: IndexPath) {
         NetworkApi.shared.getLocationUrl(url: (model.results[indexPath.row].url)) { locations in
             let detail = LocationDetailViewController(locations)
-            self.navigationController?.pushViewController(detail,
-                                                          animated: true)
+            self.navigationController?.show(detail,
+                                            sender: nil)
         } failure: { error in
             print("Error")
         }
