@@ -59,7 +59,6 @@ class LocationDetailViewController: UIViewController {
 
         residentsLabel.textColor = UIColor(named: "rickHair")
         residentsCollection.backgroundColor = .clear
-        residentsCollection.delegate = self
         residentsCollection.dataSource = self
         residentsCollection.register(UINib(nibName: "CharacterCell", bundle: nil),
                                      forCellWithReuseIdentifier: "RC")

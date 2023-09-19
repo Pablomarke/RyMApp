@@ -122,6 +122,7 @@ extension CharactersViewController: UICollectionViewDataSource {
                                                             for: indexPath) as! CharacterCell
         
         cell.characterName.text = model.results![indexPath.row].name
+        cell.characterName.numberOfLines = 2
         let urlImage = URL(string: model.results![indexPath.row].image)
         cell.CharacterView.kf.setImage(with: urlImage)
         cell.characterStatus.text = model.results![indexPath.row].status
