@@ -19,6 +19,7 @@ struct ApiInfo: Decodable {
         self.next = next
         self.prev = prev
     }
+    
     enum CodingKeys: CodingKey {
         case count
         case pages
