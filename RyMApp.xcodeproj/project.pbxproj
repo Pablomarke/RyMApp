@@ -145,6 +145,7 @@
 		399C33B52B15123700DA0F45 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				39D05DA02A727E0400468A9E /* LaunchScreen.storyboard */,
 				39AE69C92A73E89A00E3D09A /* CustomsCells */,
 				399C33B62B1521EE00DA0F45 /* Home */,
 				399C33B72B15220200DA0F45 /* CharactersView */,
@@ -233,19 +234,13 @@
 		399C33BE2B15230300DA0F45 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				39D05D9E2A727E0400468A9E /* Assets.xcassets */,
+				391802AB2A76B013006BE05A /* Fonts */,
 				39AE69BF2A73E4A200E3D09A /* Models */,
 				39AE69C02A73E4BE00E3D09A /* Networking */,
 				391DA3092A73B778006C9CCF /* DataDecoder.swift */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		39AE69BD2A73E46C00E3D09A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				39D05DA02A727E0400468A9E /* LaunchScreen.storyboard */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		39AE69BF2A73E4A200E3D09A /* Models */ = {
@@ -306,10 +301,7 @@
 			children = (
 				39D05D952A727E0300468A9E /* AppDelegate.swift */,
 				399C33BE2B15230300DA0F45 /* Domain */,
-				391802AB2A76B013006BE05A /* Fonts */,
 				399C33B52B15123700DA0F45 /* UI */,
-				39AE69BD2A73E46C00E3D09A /* Views */,
-				39D05D9E2A727E0400468A9E /* Assets.xcassets */,
 				39D05DA32A727E0400468A9E /* Info.plist */,
 			);
 			path = RyMApp;
