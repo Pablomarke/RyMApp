@@ -17,10 +17,19 @@ class HomeViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewStyle()
+        buttonStyle()
+    }
+    
+    // MARK: - Funciones -
+    func viewStyle(){
         backImage.image = UIImage(
             named: "w1"
         )
         backImage.contentMode = .scaleToFill
+    }
+    
+    func buttonStyle(){
         buttonLabel.text = "Entrar"
         buttonLabel.font = font.size32
         buttonLabel.textAlignment = .center
@@ -28,7 +37,6 @@ class HomeViewController: UIViewController {
         buttonImage.backgroundColor = color.secondColor
         buttonImage.layer.cornerRadius = 60
     }
-    
     // MARK: - Botones -
     @IBAction func homeBAction(
         _ sender: Any
