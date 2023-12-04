@@ -22,15 +22,10 @@ class HomeViewController: UIViewController {
         )
         backImage.contentMode = .scaleToFill
         buttonLabel.text = "Entrar"
-        buttonLabel.font = UIFont(
-            name: "Get Schwifty Regular",
-            size: 32
-        )
+        buttonLabel.font = font.size32
         buttonLabel.textAlignment = .center
         homeButton.tintColor = .clear
-        buttonImage.backgroundColor = UIColor(
-            named: "rickHair"
-        )
+        buttonImage.backgroundColor = color.secondColor
         buttonImage.layer.cornerRadius = 60
     }
     

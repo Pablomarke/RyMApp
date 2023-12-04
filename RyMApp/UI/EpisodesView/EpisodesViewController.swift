@@ -33,15 +33,15 @@ class EpisodesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
+        self.navigationController?.navigationBar.tintColor = color.mainColor
         navigationItem.title = "Episodios"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "rickHair")]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         
-        self.view.backgroundColor = UIColor(named: "dark")
-        tabBarEpisode.barTintColor = UIColor(named: "dark")
+        self.view.backgroundColor = color.mainColor
+        tabBarEpisode.barTintColor = color.mainColor
         tabBarEpisode.isTranslucent = false
-        tabBarEpisode.tintColor = UIColor(named: "rickHair")
+        tabBarEpisode.tintColor = color.secondColor
         
         episodeTable.dataSource = self
         episodeTable.delegate = self
@@ -89,7 +89,7 @@ class EpisodesViewController: UIViewController {
         
         buttonSeason.menu = menu
         buttonSeason.showsMenuAsPrimaryAction = true
-        buttonSeason.backgroundColor = UIColor(named: "rickHair")
+        buttonSeason.backgroundColor = color.secondColor
         buttonSeason.layer.cornerRadius = 24
     }
 }

@@ -19,7 +19,7 @@ class CharacterCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backView.backgroundColor = UIColor(named: "dark")
+        backView.backgroundColor = color.mainColor
         characterName.numberOfLines = 2
         characterName.textColor = .white
         backView.layer.cornerRadius = 16

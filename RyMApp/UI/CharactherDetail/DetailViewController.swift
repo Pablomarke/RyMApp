@@ -83,13 +83,8 @@ class DetailViewController: UIViewController {
         imageDetail.layer.cornerRadius = 90
         colorCharacter.layer.cornerRadius = 90
         colorStatus.layer.cornerRadius = 20
-        nameLabel.font = UIFont(
-            name: "Get Schwifty Regular",
-            size: 36
-        )
-        nameLabel.textColor = UIColor(
-            named: "rickHair"
-        )
+        nameLabel.font = font.size36
+        nameLabel.textColor = color.secondColor
         
         // Tabla
         episodeTable.dataSource = self
@@ -113,67 +108,37 @@ class DetailViewController: UIViewController {
         // Vista Datos importantes
         speciesView.layer.cornerRadius = 15
         tSpeciesView.layer.cornerRadius = 15
-        speciesLabel.textColor = UIColor(
-            named: "rickHair"
-        )
-        speciesView.backgroundColor = UIColor(
-            named: "dark"
-        )
-        tSpeciesView.backgroundColor = UIColor(
-            named: "dark"
-        )
+        speciesLabel.textColor = color.mainColor
+        speciesView.backgroundColor = color.secondColor
+        tSpeciesView.backgroundColor = color.secondColor
         tSpeciesLabel.text = "Specie"
         
         typeView.layer.cornerRadius = 15
         tTypeView.layer.cornerRadius = 15
-        typeLabel.textColor = UIColor(
-            named: "rickHair"
-        )
-        typeView.backgroundColor = UIColor(
-            named: "dark"
-        )
-        tTypeView.backgroundColor = UIColor(
-            named: "dark"
-        )
+        typeLabel.textColor = color.mainColor
+        typeView.backgroundColor = color.secondColor
+        tTypeView.backgroundColor = color.secondColor
         tTypeLabel.text = "Type"
         
         genderView.layer.cornerRadius = 15
         tGendeView.layer.cornerRadius = 15
-        genderLabel.textColor = UIColor(
-            named: "rickHair"
-        )
-        genderView.backgroundColor = UIColor(
-            named: "dark"
-        )
-        tGendeView.backgroundColor = UIColor(
-            named: "dark"
-        )
+        genderLabel.textColor = color.mainColor
+        genderView.backgroundColor = color.secondColor
+        tGendeView.backgroundColor = color.secondColor
         tGenderLabel.text = "Gender"
         
         locationView.layer.cornerRadius = 15
         tLocationView.layer.cornerRadius = 15
-        locationNameLabel.textColor = UIColor(
-            named: "rickHair"
-        )
-        locationView.backgroundColor = UIColor(
-            named: "dark"
-        )
-        tLocationView.backgroundColor = UIColor(
-            named: "dark"
-        )
+        locationNameLabel.textColor = color.mainColor
+        locationView.backgroundColor = color.secondColor
+        tLocationView.backgroundColor = color.secondColor
         tLocationLabel.text = "Location"
         
         originView.layer.cornerRadius = 15
         tOriginaView.layer.cornerRadius = 15
-        originLabel.textColor = UIColor(
-            named: "rickHair"
-        )
-        originView.backgroundColor = UIColor(
-            named: "dark"
-        )
-        tOriginaView.backgroundColor = UIColor(
-            named: "dark"
-        )
+        originLabel.textColor = color.mainColor
+        originView.backgroundColor = color.secondColor
+        tOriginaView.backgroundColor = color.secondColor
         tOriginLabel.text = "Origin"
         
     }
@@ -192,9 +157,7 @@ class DetailViewController: UIViewController {
         locationNameLabel.text = model.location.name
         originLabel.text = model.origin.name
         
-        self.view.backgroundColor = UIColor(
-            named: "dark"
-        )
+        self.view.backgroundColor = color.mainColor
         colorStatus.backgroundColor = model.statusColor()
         colorCharacter.backgroundColor = model.statusColor()
         

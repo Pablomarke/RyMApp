@@ -36,21 +36,20 @@ class LocationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(named: "dark")
+        self.view.backgroundColor = color.mainColor
         backImage.image = UIImage(named: "w10")
         backImage.contentMode = .scaleToFill
         
         topView.backgroundColor = .clear
-        nameLabel.font = UIFont(name: "Get Schwifty Regular",
-                                size: 24)
-        nameLabel.textColor = UIColor(named: "rickHair")
+        nameLabel.font = font.size24
+        nameLabel.textColor = color.secondColor
         nameLabel.numberOfLines = 2
         nameLabel.text = model.name
         typeLabel.text = model.type
-        typeLabel.textColor = UIColor(named: "rickHair")
+        typeLabel.textColor = color.secondColor
         typeLabel.numberOfLines = 2
         dimensionLabel.text = model.dimension
-        dimensionLabel.textColor = UIColor(named: "rickHair")
+        dimensionLabel.textColor = color.secondColor
         dimensionLabel.numberOfLines = 2
         
         if model.residents.count != 0 {
@@ -59,7 +58,7 @@ class LocationDetailViewController: UIViewController {
             residentsLabel.text = "No hay residentes"
         }
         
-        residentsLabel.textColor = UIColor(named: "rickHair")
+        residentsLabel.textColor = color.secondColor
         residentsCollection.backgroundColor = .clear
        
         residentsCollection.dataSource = self

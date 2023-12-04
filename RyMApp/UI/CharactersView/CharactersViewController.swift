@@ -43,12 +43,10 @@ class CharactersViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(named: "dark")
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
+        self.view.backgroundColor = color.mainColor
+        self.navigationController?.navigationBar.tintColor = color.mainColor
         navigationItem.title = "Personajes"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(
-            named: "rickHair"
-        )]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         
         if model.info?.prev == nil || model.info?.next == nil {
@@ -75,23 +73,14 @@ class CharactersViewController: UIViewController {
         )
         
         characterBar.delegate = self
-        characterBar.tintColor = UIColor(
-            named: "rickHair"
-        )
-        characterBar.barTintColor = UIColor(
-            named: "dark"
-        )
+        characterBar.tintColor = color.secondColor
+        characterBar.barTintColor = color.mainColor
         characterBar.isTranslucent = false
         
         pageView.backgroundColor = .clear
         pagesLabel.text = "\(countPage) / \(model.info?.pages ?? 1)"
-        pagesLabel.textColor = UIColor(
-            named: "rickHair"
-        )
-        pagesLabel.font = UIFont(
-            name: "Get Schwifty Regular",
-            size: 24
-        )
+        pagesLabel.textColor = color.secondColor
+        pagesLabel.font = font.size24
     }
     
     // MARK: - Funciones -

@@ -17,22 +17,21 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        contentView.backgroundColor = UIColor(named: "myClear")
+        contentView.backgroundColor = color.clearColor
 
         titleView.layer.cornerRadius = 12
-        titleView.backgroundColor = UIColor(named: "rickHair")
+        titleView.backgroundColor = color.secondColor
         
         dataView.layer.cornerRadius = 12
-        dataView.backgroundColor = UIColor(named: "rickHair")
+        dataView.backgroundColor = color.secondColor
         
         titleLabel.textColor = .black
-        dataLabel.textColor = UIColor(named: "dark")
+        dataLabel.textColor = color.mainColor
         self.backgroundColor = UIColor.clear
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        
+        // TODO
     }
-    
 }

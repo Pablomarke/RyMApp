@@ -43,17 +43,11 @@ class EpisodeDetailViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(
-            named: "dark"
-        )
-        topView.backgroundColor = UIColor(
-            named: "dark"
-        )
+        self.view.backgroundColor = color.mainColor
+        topView.backgroundColor = color.secondColor
         topView.layer.cornerRadius = 22
         characterLabel.text = "Personajes :"
-        characterLabel.textColor = UIColor(
-            named: "rickHair"
-        )
+        characterLabel.textColor = color.secondColor
         backImage.image = UIImage(
             named: "r1"
         )
@@ -61,13 +55,8 @@ class EpisodeDetailViewController: UIViewController {
         topView.backgroundColor = .clear
         
         nameLabel.text = model.name
-        nameLabel.font = UIFont(
-            name: "Get Schwifty Regular",
-            size: 24
-        )
-        nameLabel.textColor = UIColor(
-            named: "rickHair"
-        )
+        nameLabel.font = font.size24
+        nameLabel.textColor = color.secondColor
         nameLabel.numberOfLines = 2
         episodeLabel.text = model.episode
         estrenoLabel.text = model.air_date
