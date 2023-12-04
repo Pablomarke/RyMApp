@@ -128,11 +128,8 @@ extension SearchViewController: UITabBarDelegate {
                                                               animated: true)
             }
             case "Search" :
-            NetworkApi.shared.getAllCharacters { allCharacters in
-                let myView = SearchViewController(allCharacters)
-                self.navigationController?.setViewControllers([myView],
-                                                              animated: true)
-            }
+                break
+                
             case "Episodes" :
             NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
                 let myView = EpisodesViewController(episodes)

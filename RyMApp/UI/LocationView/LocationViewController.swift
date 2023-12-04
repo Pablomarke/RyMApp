@@ -184,11 +184,7 @@ extension LocationViewController: UITabBarDelegate {
                                                               animated: true)
             }
             case "Locations" :
-            NetworkApi.shared.getAllLocations() { locations in
-                let myView = LocationViewController( locations)
-                self.navigationController?.setViewControllers([myView],
-                                                              animated: true)
-            }
+                break
             case .none:
                 break
             case .some(_):

@@ -179,11 +179,8 @@ extension CharactersViewController: UITabBarDelegate {
     ) {
         switch item.title {
             case "Characters" :
-            NetworkApi.shared.getAllCharacters { allCharacters in
-                let myView = CharactersViewController(allCharacters)
-                self.navigationController?.setViewControllers([myView],
-                                                              animated: true)
-            }
+                break
+            
             case "Search" :
             NetworkApi.shared.getAllCharacters { allCharacters in
                 let myView = SearchViewController(allCharacters)

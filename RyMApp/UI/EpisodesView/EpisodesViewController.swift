@@ -136,11 +136,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
                                                                animated: true)
              }
              case "Episodes" :
-             NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
-                 let myView = EpisodesViewController(episodes)
-                 self.navigationController?.setViewControllers([myView],
-                                                               animated: true)
-             }
+                 break
              case "Locations" :
              NetworkApi.shared.getAllLocations() { locations in
                  let myView = LocationViewController( locations)
