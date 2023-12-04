@@ -140,8 +140,7 @@ extension LocationViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "TBC"
         ) as! TableViewCell
-        cell.titleLabel.text = model.results[indexPath.row].type
-        cell.dataLabel.text =  model.results[indexPath.row].name
+        cell.syncLocationWithCell(model: model.results[indexPath.row])
         return cell
     }
 }

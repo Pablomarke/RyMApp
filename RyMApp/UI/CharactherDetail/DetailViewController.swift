@@ -103,7 +103,6 @@ class DetailViewController: UIViewController {
         episodeTable.backgroundView = UIView.init(
             frame: CGRect.zero
         )
-        // detailTable.layer.cornerRadius = 20
         
         // Vista Datos importantes
         speciesView.layer.cornerRadius = 15
@@ -189,8 +188,7 @@ extension DetailViewController: UITableViewDataSource {
         NetworkApi.shared.getEpisode(
             url: model.episode[indexPath.row]
         ) { episode in
-            detailCell.dataLabel.text = episode.name
-            detailCell.titleLabel.text = episode.episode
+            detailCell.syncEpisodeWithCell(model: episode)
         }
         return detailCell
     }

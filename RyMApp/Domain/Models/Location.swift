@@ -44,3 +44,4 @@ struct SimpleLocation: Decodable {
         case url
     }
 }
+

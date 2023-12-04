@@ -103,9 +103,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = episodeTable.dequeueReusableCell(withIdentifier: "TC") as! TableViewCell?
-        cell?.titleLabel.text = model[indexPath.row].episode
-        cell?.dataLabel.text = model[indexPath.row].name
-        cell?.titleLabel.textColor = .black
+        cell?.syncEpisodeWithCell(model: model[indexPath.row])
         return cell!
     }
     

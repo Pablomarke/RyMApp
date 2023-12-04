@@ -8,6 +8,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    //MARK: - IBOutlets -
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
@@ -28,6 +29,16 @@ class TableViewCell: UITableViewCell {
         titleLabel.textColor = .black
         dataLabel.textColor = color.mainColor
         self.backgroundColor = UIColor.clear
+    }
+    // MARK: - Funciones -
+    func syncEpisodeWithCell(model: Episode) {
+        titleLabel.text = model.episode
+        dataLabel.text = model.name
+    }
+    
+    func syncLocationWithCell(model: Location){
+        titleLabel.text = model.type
+        dataLabel.text = model.name
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

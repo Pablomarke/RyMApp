@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class CharacterCell: UICollectionViewCell {
-
+    //MARK: - IBOutlets -
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var CharacterView: UIImageView!
     @IBOutlet weak var characterName: UILabel!
@@ -29,6 +29,7 @@ class CharacterCell: UICollectionViewCell {
         statusView.layer.cornerRadius = 8
     }
     
+    // MARK: - Funciones -
     func syncCellWithModel(model: Character) {
         characterName.text = model.name
         let urlImage = URL(string: model.image)
