@@ -121,10 +121,6 @@ class NetworkApi {
        
     }
     
-    
-    
-    
-    
     // MARK: Pages
     func pages(url: String, completion: @escaping (_ allCharacters: AllCharacters) -> ()) {
         
@@ -134,13 +130,24 @@ class NetworkApi {
        
     }
     func getCharacterUrl(url: String, completion: @escaping (_ character: Character) -> ()) {
+        guard let url = URL(string: url) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+                guard let character = try? DataDecoder().decode(Character.self, from: data) else { return }
+                completion(character)
+            }
+        }.resume()
         
     }
     func getLocationUrl(url: String, completion: @escaping (_ location: Location) -> ()) {
         
     }
     func getAllLocationsUrl(url: String, completion: @escaping (_ locations: AllLocations) -> ()) {
-        
         let allLUrl = baseUrl + "episode/"
         
     }

@@ -99,6 +99,8 @@ class CharactersViewController: UIViewController {
         )
     }
     
+    // MARK: - Funciones -
+    
     // MARK: - Botones -
     @IBAction func nextButtonAction(
         _ sender: Any
