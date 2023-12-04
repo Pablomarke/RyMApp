@@ -48,7 +48,7 @@ class EpisodesViewController: UIViewController {
         episodeTable.register(UINib(nibName: "TableViewCell",
                                     bundle: nil), forCellReuseIdentifier: "TC")
         episodeTable.backgroundColor = .clear
-        //tabBarEpisode.delegate = self
+        tabBarEpisode.delegate = self
         
         let item1 = UIAction(title: "Temporada 1") { (action) in
             NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
@@ -119,41 +119,42 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-/*
  extension EpisodesViewController: UITabBarDelegate {
- func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
- if item.title == "Characters" {
- NetworkApi.shared.getAllCharacters { allCharacters in
- let myView = CharactersViewController(allCharacters)
- self.navigationController?.pushViewController(myView,
- animated: true)
- } failure: { error in
- print("Error")
+     func tabBar(
+         _ tabBar: UITabBar,
+         didSelect item: UITabBarItem
+     ) {
+         switch item.title {
+             case "Characters" :
+             NetworkApi.shared.getAllCharacters { allCharacters in
+                 let myView = CharactersViewController(allCharacters)
+                 self.navigationController?.setViewControllers([myView],
+                                                               animated: true)
+             }
+             case "Search" :
+             NetworkApi.shared.getAllCharacters { allCharacters in
+                 let myView = SearchViewController(allCharacters)
+                 self.navigationController?.setViewControllers([myView],
+                                                               animated: true)
+             }
+             case "Episodes" :
+             NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
+                 let myView = EpisodesViewController(episodes)
+                 self.navigationController?.setViewControllers([myView],
+                                                               animated: true)
+             }
+             case "Locations" :
+             NetworkApi.shared.getAllLocations() { locations in
+                 let myView = LocationViewController( locations)
+                 self.navigationController?.setViewControllers([myView],
+                                                               animated: true)
+             }
+             case .none:
+                 break
+             case .some(_):
+                 break
+         }
+     }
  }
- } else if item.title == "Search" {
- NetworkApi.shared.getAllCharacters { allCharacters in
- let myView = SearchViewController(allCharacters)
- self.navigationController?.pushViewController(myView,
- animated: true)
- } failure: { error in
- print("Error")
- }
- } else if item.title == "Episodes" {
- NetworkApi.shared.getArrayEpisodes(season: "1") { episodes in
- let myView = EpisodesViewController(episodes)
- self.navigationController?.pushViewController(myView,
- animated: true)
- } failure: { error in
- print("Error")
- }
- } else if item.title == "Locations" {
- NetworkApi.shared.getAllLocations() { locations in
- let myView = LocationViewController(locations)
- self.navigationController?.pushViewController(myView,
- animated: true)
- } failure: { error in
- print("Error")
- }
- }
- */
+ 
 

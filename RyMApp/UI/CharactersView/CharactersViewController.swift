@@ -194,35 +194,35 @@ extension CharactersViewController: UITabBarDelegate {
         _ tabBar: UITabBar,
         didSelect item: UITabBarItem
     ) {
-        if item.title == "Characters"{
+        switch item.title {
+            case "Characters" :
             NetworkApi.shared.getAllCharacters { allCharacters in
-                let myView = CharactersViewController(
-                    allCharacters
-                )
-                self.navigationController?.pushViewController(
-                    myView,
-                    animated: true
-                )
+                let myView = CharactersViewController(allCharacters)
+                self.navigationController?.setViewControllers([myView],
+                                                              animated: true)
             }
-        } else if item.title == "Search" {
+            case "Search" :
             NetworkApi.shared.getAllCharacters { allCharacters in
                 let myView = SearchViewController(allCharacters)
-                self.navigationController?.pushViewController(myView,
+                self.navigationController?.setViewControllers([myView],
                                                               animated: true)
             }
-        } else if item.title == "Episodes" {
+            case "Episodes" :
             NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
                 let myView = EpisodesViewController(episodes)
-                self.navigationController?.pushViewController(myView,
+                self.navigationController?.setViewControllers([myView],
                                                               animated: true)
             }
-            
-        } else if item.title == "Locations" {
+            case "Locations" :
             NetworkApi.shared.getAllLocations() { locations in
                 let myView = LocationViewController( locations)
-                self.navigationController?.pushViewController(myView,
+                self.navigationController?.setViewControllers([myView],
                                                               animated: true)
             }
+            case .none:
+                break
+            case .some(_):
+                break
         }
     }
 }
