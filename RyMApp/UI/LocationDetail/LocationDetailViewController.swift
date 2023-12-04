@@ -81,11 +81,7 @@ extension LocationDetailViewController: UICollectionViewDataSource {
         let cell = residentsCollection.dequeueReusableCell(withReuseIdentifier: "RC",
                                                            for: indexPath) as! CharacterCell
         NetworkApi.shared.getCharacterUrl(url: model.residents[indexPath.row]) { character in
-            cell.characterName.text = character.name
-            let urlImage = URL(string: character.image)
-            cell.CharacterView.kf.setImage(with: urlImage)
-            cell.characterStatus.text = character.status
-            cell.statusView.backgroundColor = character.statusColor()
+            cell.syncCellWithModel(model: character)
         }
         return cell
     }

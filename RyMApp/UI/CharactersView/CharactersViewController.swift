@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class CharactersViewController: UIViewController {
     //MARK: - IBOutlets -
@@ -44,12 +43,8 @@ class CharactersViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(
-            named: "dark"
-        )
-        self.navigationController?.navigationBar.tintColor = UIColor(
-            named: "rickHair"
-        )
+        self.view.backgroundColor = UIColor(named: "dark")
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "rickHair")
         navigationItem.title = "Personajes"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(
             named: "rickHair"
@@ -151,19 +146,7 @@ extension CharactersViewController: UICollectionViewDataSource {
             withReuseIdentifier: "CellC",
             for: indexPath
         ) as! CharacterCell
-        
-        cell.characterName.text = model.results![indexPath.row].name
-        cell.characterName.numberOfLines = 2
-        let urlImage = URL(
-            string: model.results![indexPath.row].image
-        )
-        cell.CharacterView.kf.setImage(
-            with: urlImage
-        )
-        cell.characterStatus.text = model.results![indexPath.row].status
-        cell.statusView.backgroundColor = model.results![indexPath.row].statusColor()
-        cell.statusView.layer.cornerRadius = 6
-        cell.characterStatus.textColor = .black
+        cell.syncCellWithModel(model: model.results![indexPath.row])
         return cell
     }
 }

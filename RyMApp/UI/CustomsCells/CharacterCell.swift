@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CharacterCell: UICollectionViewCell {
 
@@ -21,11 +22,18 @@ class CharacterCell: UICollectionViewCell {
         backView.backgroundColor = UIColor(named: "dark")
         characterName.numberOfLines = 2
         characterName.textColor = .white
-        
         backView.layer.cornerRadius = 16
         backView.layer.cornerRadius = 16
+        characterStatus.textColor = .black
         CharacterView.layer.cornerRadius = 40
         statusView.layer.cornerRadius = 8
     }
-
+    
+    func syncCellWithModel(model: Character) {
+        characterName.text = model.name
+        let urlImage = URL(string: model.image)
+        CharacterView.kf.setImage(with: urlImage)
+        characterStatus.text = model.status
+        statusView.backgroundColor = model.statusColor()
+    }
 }
