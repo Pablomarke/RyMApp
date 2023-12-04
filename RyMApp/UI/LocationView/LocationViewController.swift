@@ -97,38 +97,42 @@ class LocationViewController: UIViewController {
     @IBAction func nextBAct(
         _ sender: Any
     ) {
-        /*   NetworkApi.shared.pagesLocation(url: (model.info.next)!) { AllLocations in
-         
-         self.model = AllLocations
-         self.locationTable.reloadData()
-         self.pageCount += 1
-         self.pageLabel.text = "\(self.pageCount) / \(self.model.info.pages )"
-         self.backButton.isHidden = false
-         if self.model.info.next == nil {
-         self.nextButton.isHidden = true
-         }
-         } failure: { error in
-         print("Error")
-         }*/
+        NetworkApi.shared.pagesLocation(
+            url: (
+                model.info.next
+            )!
+        ) { AllLocations in
+            
+            self.model = AllLocations
+            self.locationTable.reloadData()
+            self.pageCount += 1
+            self.pageLabel.text = "\(self.pageCount) / \(self.model.info.pages )"
+            self.backButton.isHidden = false
+            if self.model.info.next == nil {
+                self.nextButton.isHidden = true
+            }
+        }
     }
     
     @IBAction func backBAct(
         _ sender: Any
     ) {
-        /* NetworkApi.shared.pagesLocation(url: (model.info.prev)!) { AllLocations in
-         
-         self.model = AllLocations
-         self.locationTable.reloadData()
-         self.pageCount -= 1
-         self.pageLabel.text = "\(self.pageCount) / \(self.model.info.pages )"
-         self.nextButton.isHidden = false
-         if self.model.info.prev == nil {
-         
-         self.backButton.isHidden = true
-         }
-         } failure: { error in
-         print("Error")
-         }*/
+        NetworkApi.shared.pagesLocation(
+            url: (
+                model.info.prev
+            )!
+        ) { AllLocations in
+            
+            self.model = AllLocations
+            self.locationTable.reloadData()
+            self.pageCount -= 1
+            self.pageLabel.text = "\(self.pageCount) / \(self.model.info.pages )"
+            self.nextButton.isHidden = false
+            if self.model.info.prev == nil {
+                
+                self.backButton.isHidden = true
+            }
+        }
     }
 }
 

@@ -110,9 +110,19 @@ class NetworkApi {
     func getArrayEpisodes(season: String,
                           completion: @escaping(_ episodes: [Episode]) -> ()
                           ) {
-        
         let seasonsUrl = baseUrl + endpoint.allEpisodes + "\(season)"
+        guard let url = URL(string: seasonsUrl) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
         
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+                guard let episodes = try? DataDecoder().decode([Episode].self, from: data) else { return }
+                completion(episodes)
+            }
+        }.resume()
     }
     
     // MARK: Locations
@@ -151,7 +161,20 @@ class NetworkApi {
     }
     
     func pagesLocation(url: String, completion: @escaping (_ allLocations: AllLocations) -> ()) {
-       
+        guard let url = URL(string: url) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
+        
+        URLSession.shared.dataTask(with: urlRequest) {data,response,error in
+           DispatchQueue.main.async {
+                guard let data,
+                      (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+
+                guard let allLocations = try? DataDecoder().decode(AllLocations.self ,from: data) else { return }
+                completion(allLocations)
+            }
+        }.resume()
     }
     
     func getCharacterUrl(url: String, completion: @escaping (_ character: Character) -> ()) {
