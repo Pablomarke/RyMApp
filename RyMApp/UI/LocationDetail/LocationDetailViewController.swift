@@ -9,8 +9,7 @@ import UIKit
 import Kingfisher
 
 class LocationDetailViewController: UIViewController {
-
-    
+    //MARK: - IBOutlets -
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -19,8 +18,10 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var residentsLabel: UILabel!
     @IBOutlet weak var residentsCollection: UICollectionView!
     
+    // MARK: - Propiedades -
     var model: Location
     
+    // MARK: - Init -
     init(_ model: Location) {
         self.model = model
         super.init(nibName: nil,
@@ -31,6 +32,7 @@ class LocationDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,7 +58,7 @@ class LocationDetailViewController: UIViewController {
         } else {
             residentsLabel.text = "No hay residentes"
         }
-
+        
         residentsLabel.textColor = UIColor(named: "rickHair")
         residentsCollection.backgroundColor = .clear
         residentsCollection.dataSource = self
@@ -65,6 +67,7 @@ class LocationDetailViewController: UIViewController {
     }
 }
 
+// MARK: - Extension de datasource -
 extension LocationDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -81,10 +84,7 @@ extension LocationDetailViewController: UICollectionViewDataSource {
             cell.CharacterView.kf.setImage(with: urlImage)
             cell.characterStatus.text = character.status
             cell.statusView.backgroundColor = character.statusColor()
-        } failure: { error in
-            cell.characterName.text = "Error"
         }
         return cell
     }
-  
 }
