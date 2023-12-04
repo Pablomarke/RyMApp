@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class SearchViewController: UIViewController {
     //MARK: - IBOutlets -
@@ -98,12 +97,8 @@ extension SearchViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "CellC",
                                                             for: indexPath) as! CharacterCell
-        let urlImage = URL(string: model.results![indexPath.row].image)
-        cell.CharacterView.kf.setImage(with: urlImage)
-        cell.characterName.text = model.results![indexPath.row].name
-        cell.characterStatus.text = model.results![indexPath.row].status
-        cell.statusView.backgroundColor = model.results![indexPath.row].statusColor()
-       
+        
+        cell.syncCellWithModel(model: model.results![indexPath.row])
         return cell
     }
 }

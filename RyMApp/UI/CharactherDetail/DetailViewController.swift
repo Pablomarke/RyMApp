@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class DetailViewController: UIViewController {
     
@@ -105,39 +104,29 @@ class DetailViewController: UIViewController {
         )
         
         // Vista Datos importantes
-        speciesView.layer.cornerRadius = 15
-        tSpeciesView.layer.cornerRadius = 15
+        speciesView.corner15Second()
+        tSpeciesView.corner15Second()
         speciesLabel.textColor = color.mainColor
-        speciesView.backgroundColor = color.secondColor
-        tSpeciesView.backgroundColor = color.secondColor
         tSpeciesLabel.text = "Specie"
         
-        typeView.layer.cornerRadius = 15
-        tTypeView.layer.cornerRadius = 15
+        typeView.corner15Second()
+        tTypeView.corner15Second()
         typeLabel.textColor = color.mainColor
-        typeView.backgroundColor = color.secondColor
-        tTypeView.backgroundColor = color.secondColor
         tTypeLabel.text = "Type"
         
-        genderView.layer.cornerRadius = 15
-        tGendeView.layer.cornerRadius = 15
+        genderView.corner15Second()
+        tGendeView.corner15Second()
         genderLabel.textColor = color.mainColor
-        genderView.backgroundColor = color.secondColor
-        tGendeView.backgroundColor = color.secondColor
         tGenderLabel.text = "Gender"
         
-        locationView.layer.cornerRadius = 15
-        tLocationView.layer.cornerRadius = 15
+        locationView.corner15Second()
+        tLocationView.corner15Second()
         locationNameLabel.textColor = color.mainColor
-        locationView.backgroundColor = color.secondColor
-        tLocationView.backgroundColor = color.secondColor
         tLocationLabel.text = "Location"
         
-        originView.layer.cornerRadius = 15
-        tOriginaView.layer.cornerRadius = 15
+        originView.corner15Second()
+        tOriginaView.corner15Second()
         originLabel.textColor = color.mainColor
-        originView.backgroundColor = color.secondColor
-        tOriginaView.backgroundColor = color.secondColor
         tOriginLabel.text = "Origin"
         
     }
