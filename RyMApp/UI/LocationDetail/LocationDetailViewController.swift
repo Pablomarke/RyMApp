@@ -61,7 +61,9 @@ class LocationDetailViewController: UIViewController {
         
         residentsLabel.textColor = UIColor(named: "rickHair")
         residentsCollection.backgroundColor = .clear
+       
         residentsCollection.dataSource = self
+        residentsCollection.delegate = self
         residentsCollection.register(UINib(nibName: "CharacterCell", bundle: nil),
                                      forCellWithReuseIdentifier: "RC")
     }
@@ -86,5 +88,15 @@ extension LocationDetailViewController: UICollectionViewDataSource {
             cell.statusView.backgroundColor = character.statusColor()
         }
         return cell
+    }
+}
+
+extension LocationDetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        NetworkApi.shared.getCharacterUrl(url: model.residents[indexPath.row]) { character in
+            let detailView = DetailViewController(model: character)
+            self.navigationController?.showDetailViewController(detailView,
+                                                                sender: nil)
+        }
     }
 }

@@ -73,7 +73,7 @@ class EpisodeDetailViewController: UIViewController {
         estrenoLabel.text = model.air_date
         
         collectionCharacters.dataSource = self
-        //collectionCharacters.delegate = self
+        collectionCharacters.delegate = self
         collectionCharacters.backgroundColor = .clear
         collectionCharacters.register(
             UINib(
@@ -118,7 +118,7 @@ extension EpisodeDetailViewController: UICollectionViewDataSource {
         return cell
     }
 }
-/*
+
 // MARK: - Extension de delegado -
 extension EpisodeDetailViewController: UICollectionViewDelegate{
     func collectionView(
@@ -131,11 +131,11 @@ extension EpisodeDetailViewController: UICollectionViewDelegate{
             let detailedView = DetailViewController(
                 model: character
             )
-            self.navigationController?.show(
+            self.navigationController?.showDetailViewController(
                 detailedView,
                 sender: nil
             )
         }
     }
-}*/
+}
 

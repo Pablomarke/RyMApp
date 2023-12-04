@@ -77,7 +77,6 @@ class SearchViewController: UIViewController {
     
     // MARK: - Botones -
     @IBAction func searchAction(_ sender: Any) {
-        print("ok")
         let newName = searchText.text
         NetworkApi.shared.searchCharacters(name: newName!) { allCharacters in
             self.model = allCharacters
