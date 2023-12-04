@@ -18,23 +18,33 @@ class CharacterCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        cellStyle()
         
+    }
+    
+    // MARK: - Funciones -
+    func cellStyle(){
         backView.backgroundColor = color.mainColor
         characterName.numberOfLines = 2
         characterName.textColor = .white
-        backView.layer.cornerRadius = 16
         backView.layer.cornerRadius = 16
         characterStatus.textColor = .black
         CharacterView.layer.cornerRadius = 40
         statusView.layer.cornerRadius = 8
     }
     
-    // MARK: - Funciones -
     func syncCellWithModel(model: Character) {
         characterName.text = model.name
         let urlImage = URL(string: model.image)
         CharacterView.kf.setImage(with: urlImage)
         characterStatus.text = model.status
         statusView.backgroundColor = model.statusColor()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        characterName.text = nil
+        characterStatus.text = nil
+        statusView.backgroundColor = nil
     }
 }
