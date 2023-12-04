@@ -93,7 +93,18 @@ class NetworkApi {
     }
     
     func getEpisode(url: String, completion: @escaping (_ episode: Episode) -> ()) {
+        guard let url = URL(string: url) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
         
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+                guard let episodes = try? DataDecoder().decode(Episode.self, from: data) else { return }
+                completion(episodes)
+            }
+        }.resume()
     }
     
     func getArrayEpisodes(season: String,

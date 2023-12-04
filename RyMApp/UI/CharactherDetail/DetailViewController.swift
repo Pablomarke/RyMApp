@@ -10,6 +10,7 @@ import Kingfisher
 
 class DetailViewController: UIViewController {
     
+    //MARK: - IBOutlets -
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageDetail: UIImageView!
@@ -48,93 +49,152 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tOriginaView: UIView!
     @IBOutlet weak var tOriginLabel: UILabel!
     
+    // MARK: - Propiedades -
     var model: Character
     
-    init(model: Character) {
+    // MARK: - Init -
+    init(
+        model: Character
+    ) {
         self.model = model
-        super.init(nibName: nil,
-                   bundle: nil)
+        super.init(
+            nibName: nil,
+            bundle: nil
+        )
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(
+        coder: NSCoder
+    ) {
+        fatalError(
+            "init(coder:) has not been implemented"
+        )
     }
     
+    // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
+        syncCharacterModelwithView()
         
-        syncModel()
-        
-        backImage.image = UIImage(named: "w6")
+        backImage.image = UIImage(
+            named: "w6"
+        )
         backImage.contentMode = .scaleToFill
-        
         imageDetail.layer.cornerRadius = 90
         colorCharacter.layer.cornerRadius = 90
         colorStatus.layer.cornerRadius = 20
-        nameLabel.font = UIFont(name: "Get Schwifty Regular", size: 36)
-        nameLabel.textColor = UIColor(named: "rickHair")
+        nameLabel.font = UIFont(
+            name: "Get Schwifty Regular",
+            size: 36
+        )
+        nameLabel.textColor = UIColor(
+            named: "rickHair"
+        )
         
         // Tabla
         episodeTable.dataSource = self
         episodeTable.delegate = self
-        episodeTable.register(UINib(nibName: "TableViewCell",
-                                    bundle: nil),
-                              forCellReuseIdentifier: "detailCell")
+        episodeTable.register(
+            UINib(
+                nibName: "TableViewCell",
+                bundle: nil
+            ),
+            forCellReuseIdentifier: "detailCell"
+        )
         
-        episodeTable.backgroundColor = UIColor(named: "myClear")
-        episodeTable.backgroundView = UIView.init(frame: CGRect.zero)
+        episodeTable.backgroundColor = UIColor(
+            named: "myClear"
+        )
+        episodeTable.backgroundView = UIView.init(
+            frame: CGRect.zero
+        )
         // detailTable.layer.cornerRadius = 20
         
         // Vista Datos importantes
-        
-        
         speciesView.layer.cornerRadius = 15
         tSpeciesView.layer.cornerRadius = 15
-        speciesLabel.textColor = UIColor(named: "rickHair")
-        speciesView.backgroundColor = UIColor(named: "dark")
-        tSpeciesView.backgroundColor = UIColor(named: "dark")
+        speciesLabel.textColor = UIColor(
+            named: "rickHair"
+        )
+        speciesView.backgroundColor = UIColor(
+            named: "dark"
+        )
+        tSpeciesView.backgroundColor = UIColor(
+            named: "dark"
+        )
         tSpeciesLabel.text = "Specie"
         
         typeView.layer.cornerRadius = 15
         tTypeView.layer.cornerRadius = 15
-        typeLabel.textColor = UIColor(named: "rickHair")
-        typeView.backgroundColor = UIColor(named: "dark")
-        tTypeView.backgroundColor = UIColor(named: "dark")
+        typeLabel.textColor = UIColor(
+            named: "rickHair"
+        )
+        typeView.backgroundColor = UIColor(
+            named: "dark"
+        )
+        tTypeView.backgroundColor = UIColor(
+            named: "dark"
+        )
         tTypeLabel.text = "Type"
         
         genderView.layer.cornerRadius = 15
         tGendeView.layer.cornerRadius = 15
-        genderLabel.textColor = UIColor(named: "rickHair")
-        genderView.backgroundColor = UIColor(named: "dark")
-        tGendeView.backgroundColor = UIColor(named: "dark")
+        genderLabel.textColor = UIColor(
+            named: "rickHair"
+        )
+        genderView.backgroundColor = UIColor(
+            named: "dark"
+        )
+        tGendeView.backgroundColor = UIColor(
+            named: "dark"
+        )
         tGenderLabel.text = "Gender"
         
         locationView.layer.cornerRadius = 15
         tLocationView.layer.cornerRadius = 15
-        locationNameLabel.textColor = UIColor(named: "rickHair")
-        locationView.backgroundColor = UIColor(named: "dark")
-        tLocationView.backgroundColor = UIColor(named: "dark")
+        locationNameLabel.textColor = UIColor(
+            named: "rickHair"
+        )
+        locationView.backgroundColor = UIColor(
+            named: "dark"
+        )
+        tLocationView.backgroundColor = UIColor(
+            named: "dark"
+        )
         tLocationLabel.text = "Location"
         
         originView.layer.cornerRadius = 15
         tOriginaView.layer.cornerRadius = 15
-        originLabel.textColor = UIColor(named: "rickHair")
-        originView.backgroundColor = UIColor(named: "dark")
-        tOriginaView.backgroundColor = UIColor(named: "dark")
+        originLabel.textColor = UIColor(
+            named: "rickHair"
+        )
+        originView.backgroundColor = UIColor(
+            named: "dark"
+        )
+        tOriginaView.backgroundColor = UIColor(
+            named: "dark"
+        )
         tOriginLabel.text = "Origin"
         
     }
     
-    func syncModel() {
-        
-        self.view.backgroundColor = UIColor(named: "dark")
-        
+    // MARK: - Funciones -
+    func syncCharacterModelwithView() {
         nameLabel.text = model.name
         statusLabel.text = model.status
-        
         let imageUrl = model.image
-        imageDetail.kf.setImage(with: URL(string: imageUrl))
-    
+        imageDetail.kf.setImage(
+            with: URL(
+                string: imageUrl
+            )
+        )
+        genderLabel.text = model.gender
+        locationNameLabel.text = model.location.name
+        originLabel.text = model.origin.name
+        
+        self.view.backgroundColor = UIColor(
+            named: "dark"
+        )
         colorStatus.backgroundColor = model.statusColor()
         colorCharacter.backgroundColor = model.statusColor()
         
@@ -144,41 +204,51 @@ class DetailViewController: UIViewController {
         } else {
             typeLabel.text = model.type
         }
-        genderLabel.text = model.gender
-        locationNameLabel.text = model.location.name
-        originLabel.text = model.origin.name
     }
 }
-
+// MARK: - Extension de datasource -
 extension DetailViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         return model.episode.count
     }
     
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         
-        let detailCell = episodeTable.dequeueReusableCell(withIdentifier: "detailCell") as! TableViewCell
-        NetworkApi.shared.getEpisode(url: model.episode[indexPath.row]) { episode in
+        let detailCell = episodeTable.dequeueReusableCell(
+            withIdentifier: "detailCell"
+        ) as! TableViewCell
+        NetworkApi.shared.getEpisode(
+            url: model.episode[indexPath.row]
+        ) { episode in
             detailCell.dataLabel.text = episode.name
             detailCell.titleLabel.text = episode.episode
-        } failure: { error in
-            detailCell.dataLabel.text = "Error"
         }
         return detailCell
     }
 }
 
+// MARK: - Extension de delegado -
 extension DetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NetworkApi.shared.getEpisode(url: model.episode[indexPath.row]) { episode in
-            let nav1 = EpisodeDetailViewController(episode)
-            self.navigationController?.showDetailViewController(nav1,
-                                                                sender: nil)
-        } failure: { error in
-            self.nameLabel.text = "Error"
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        NetworkApi.shared.getEpisode(
+            url: model.episode[indexPath.row]
+        ) { episode in
+            let episodeNav = EpisodeDetailViewController(
+                episode
+            )
+            self.navigationController?.showDetailViewController(
+                episodeNav,
+                sender: nil
+            )
         }
-
     }
 }
