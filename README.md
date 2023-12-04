@@ -23,6 +23,9 @@ Cambios visuales en toda la app y navegación.
 
 <img src="https://github.com/Pablomarke/GitImages/blob/main/rym/newdetail.png" width="150" />
 
+#### Version 1.2
+Eliminada dependencia de Alamfoire. Todas las llamadas a la api se hacen con URLSession.
+
 ***
 #### Version 1.3 (no implementada)
 - Optimizar el codigo
@@ -40,4 +43,4 @@ Cambios visuales en toda la app y navegación.
 - Ninguna, esta API no necesita APIKEY.
 
 ### Instalación
-- Necesitarás instalar las librerias de [Alamofire](https://github.com/Alamofire/Alamofire) y [kingFisher](https://github.com/onevcat/Kingfisher).
+- Necesitarás instalar las libreria de [kingFisher](https://github.com/onevcat/Kingfisher).
