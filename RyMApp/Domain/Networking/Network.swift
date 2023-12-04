@@ -6,11 +6,10 @@
 //
 
 import Foundation
-//import Alamofire
 
 class NetworkApi {
     static let shared = NetworkApi()
-    private let cstatusOk = 200...299
+    private let cstatusOk = 200
     private let baseUrl = "https://rickandmortyapi.com/api/"
     
     enum endpoint {
@@ -18,206 +17,559 @@ class NetworkApi {
         static let allEpisodes = "episode/"
         static let name = "character/?name="
         static let allLocations = "location/"
-        
     }
     enum httpMethods {
         static let get = "GET"
     }
     
     // MARK: Characters
-    func getAllCharacters(completion: @escaping (AllCharacters) -> Void){
+    func getAllCharacters(
+        completion: @escaping (
+            AllCharacters
+        ) -> Void
+    ){
         let characterURl = baseUrl + endpoint.allCharacters
-        guard let url = URL(string: characterURl) else {return}
-        var urlRequest = URLRequest(url: url )
+        guard let url = URL(
+            string: characterURl
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) {data,response,error in
-           DispatchQueue.main.async {
-                guard let data,
-                      (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-
-                guard let allCharacters = try? DataDecoder().decode(AllCharacters.self ,from: data) else { return }
-                completion(allCharacters)
-            }
-        }.resume()
-    }
-
-    func getCharacter(id: Int, completion: @escaping (_ character: Character) -> ()){
-        let idUrl = baseUrl + endpoint.allCharacters + "\(id)"
-        guard let url = URL(string: idUrl) else {return}
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = httpMethods.get
-        
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
             DispatchQueue.main.async {
-                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-                guard let character = try? DataDecoder().decode(Character.self, from: data) else { return }
-                completion(character)
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                
+                guard let allCharacters = try? DataDecoder().decode(
+                    AllCharacters.self ,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    allCharacters
+                )
             }
         }.resume()
     }
     
-    func searchCharacters(name: String, completion: @escaping (_ allCharacters: AllCharacters) -> ()) {
-        let searchUrl = baseUrl + endpoint.name + "\(name)"
-        guard let url = URL(string: searchUrl) else {return}
-        var urlRequest = URLRequest(url: url)
+    func getCharacter(
+        id: Int,
+        completion: @escaping (
+            _ character: Character
+        ) -> ()
+    ){
+        let idUrl = baseUrl + endpoint.allCharacters + "\(id)"
+        guard let url = URL(
+            string: idUrl
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
             DispatchQueue.main.async {
-                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-                guard let character = try? DataDecoder().decode(AllCharacters.self, from: data) else { return }
-                completion(character)
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                guard let character = try? DataDecoder().decode(
+                    Character.self,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    character
+                )
+            }
+        }.resume()
+    }
+    
+    func searchCharacters(
+        name: String,
+        completion: @escaping (
+            _ allCharacters: AllCharacters
+        ) -> ()
+    ) {
+        let searchUrl = baseUrl + endpoint.name + "\(name)"
+        guard let url = URL(
+            string: searchUrl
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
+        urlRequest.httpMethod = httpMethods.get
+        
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
+            DispatchQueue.main.async {
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                guard let character = try? DataDecoder().decode(
+                    AllCharacters.self,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    character
+                )
             }
         }.resume()
     }
     
     // MARK: Episodes
-    func getAllEpisodes(completion: @escaping (_ episodes: AllEpisodes) -> ()){
+    func getAllEpisodes(
+        completion: @escaping (
+            _ episodes: AllEpisodes
+        ) -> ()
+    ){
         let allEpisodesUrl = baseUrl + endpoint.allEpisodes
-        guard let url = URL(string: allEpisodesUrl) else {return}
-        var urlRequest = URLRequest(url: url)
+        guard let url = URL(
+            string: allEpisodesUrl
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
             DispatchQueue.main.async {
-                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-                guard let character = try? DataDecoder().decode(AllEpisodes.self, from: data) else { return }
-                completion(character)
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                guard let character = try? DataDecoder().decode(
+                    AllEpisodes.self,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    character
+                )
             }
         }.resume()
     }
     
-    func getEpisode(url: String, completion: @escaping (_ episode: Episode) -> ()) {
-        guard let url = URL(string: url) else {return}
-        var urlRequest = URLRequest(url: url)
+    func getEpisode(
+        url: String,
+        completion: @escaping (
+            _ episode: Episode
+        ) -> ()
+    ) {
+        guard let url = URL(
+            string: url
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
             DispatchQueue.main.async {
-                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-                guard let episodes = try? DataDecoder().decode(Episode.self, from: data) else { return }
-                completion(episodes)
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                guard let episodes = try? DataDecoder().decode(
+                    Episode.self,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    episodes
+                )
             }
         }.resume()
     }
     
-    func getArrayEpisodes(season: String,
-                          completion: @escaping(_ episodes: [Episode]) -> ()
-                          ) {
+    func getArrayEpisodes(
+        season: String,
+        completion: @escaping(
+            _ episodes: [Episode]
+        ) -> ()
+    ) {
         let seasonsUrl = baseUrl + endpoint.allEpisodes + "\(season)"
-        guard let url = URL(string: seasonsUrl) else {return}
-        var urlRequest = URLRequest(url: url)
+        guard let url = URL(
+            string: seasonsUrl
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
             DispatchQueue.main.async {
-                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-                guard let episodes = try? DataDecoder().decode([Episode].self, from: data) else { return }
-                completion(episodes)
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                guard let episodes = try? DataDecoder().decode(
+                    [Episode].self,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    episodes
+                )
             }
         }.resume()
     }
     
     // MARK: Locations
-    func getAllLocations(completion: @escaping(_ location: AllLocations) -> ()) {
+    func getAllLocations(
+        completion: @escaping(
+            _ location: AllLocations
+        ) -> ()
+    ) {
         let locationsUrl = baseUrl + endpoint.allLocations
-        guard let url = URL(string: locationsUrl) else {return}
-        var urlRequest = URLRequest(url: url)
+        guard let url = URL(
+            string: locationsUrl
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
             DispatchQueue.main.async {
-                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-                guard let locations = try? DataDecoder().decode(AllLocations.self, from: data) else { return }
-                completion(locations)
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                guard let locations = try? DataDecoder().decode(
+                    AllLocations.self,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    locations
+                )
             }
         }.resume()
     }
     
     // MARK: Pages
-    func pages(url: String, completion: @escaping (_ allCharacters: AllCharacters) -> ()) {
-        guard let url = URL(string: url) else {return}
-        var urlRequest = URLRequest(url: url)
+    func pages(
+        url: String,
+        completion: @escaping (
+            _ allCharacters: AllCharacters
+        ) -> ()
+    ) {
+        guard let url = URL(
+            string: url
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) {data,response,error in
-           DispatchQueue.main.async {
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
+            DispatchQueue.main.async {
                 guard let data,
-                      (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-
-                guard let allCharacters = try? DataDecoder().decode(AllCharacters.self ,from: data) else { return }
-                completion(allCharacters)
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                
+                guard let allCharacters = try? DataDecoder().decode(
+                    AllCharacters.self ,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    allCharacters
+                )
             }
         }.resume()
     }
     
-    func pagesLocation(url: String, completion: @escaping (_ allLocations: AllLocations) -> ()) {
-        guard let url = URL(string: url) else {return}
-        var urlRequest = URLRequest(url: url)
+    func pagesLocation(
+        url: String,
+        completion: @escaping (
+            _ allLocations: AllLocations
+        ) -> ()
+    ) {
+        guard let url = URL(
+            string: url
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) {data,response,error in
-           DispatchQueue.main.async {
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
+            DispatchQueue.main.async {
                 guard let data,
-                      (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-
-                guard let allLocations = try? DataDecoder().decode(AllLocations.self ,from: data) else { return }
-                completion(allLocations)
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                
+                guard let allLocations = try? DataDecoder().decode(
+                    AllLocations.self ,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    allLocations
+                )
             }
         }.resume()
     }
     
-    func getCharacterUrl(url: String, completion: @escaping (_ character: Character) -> ()) {
-        guard let url = URL(string: url) else {return}
-        var urlRequest = URLRequest(url: url)
+    func getCharacterUrl(
+        url: String,
+        completion: @escaping (
+            _ character: Character
+        ) -> ()
+    ) {
+        guard let url = URL(
+            string: url
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
             DispatchQueue.main.async {
-                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-                guard let character = try? DataDecoder().decode(Character.self, from: data) else { return }
-                completion(character)
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                guard let character = try? DataDecoder().decode(
+                    Character.self,
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    character
+                )
             }
         }.resume()
     }
     
-    func getLocationUrl(url: String, completion: @escaping (_ location: Location) -> ()) {
-        guard let url = URL(string: url) else {return}
-        var urlRequest = URLRequest(url: url)
+    func getLocationUrl(
+        url: String,
+        completion: @escaping (
+            _ location: Location
+        ) -> ()
+    ) {
+        guard let url = URL(
+            string: url
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
             DispatchQueue.main.async {
-                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-                guard let location = try? DataDecoder().decode(Location.self, from: data) else { return }
-                completion(location)
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                guard let location = try? DataDecoder().decode(
+                    Location.self,
+                    
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    location
+                )
             }
         }.resume()
     }
     
-    func getAllLocationsUrl(url: String, completion: @escaping (_ locations: AllLocations) -> ()) {
-        guard let url = URL(string: url) else {return}
-        var urlRequest = URLRequest(url: url)
+    func getAllLocationsUrl(
+        url: String,
+        completion: @escaping (
+            _ locations: AllLocations
+        ) -> ()
+    ) {
+        guard let url = URL(
+            string: url
+        ) else {
+            return
+        }
+        var urlRequest = URLRequest(
+            url: url
+        )
         urlRequest.httpMethod = httpMethods.get
         
-        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        URLSession.shared.dataTask(
+            with: urlRequest
+        ) {
+            data,
+            response,
+            error in
             DispatchQueue.main.async {
-                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
-                guard error == nil else {return}
-                guard let locations = try? DataDecoder().decode(AllLocations.self, from: data) else { return }
-                completion(locations)
+                guard let data,
+                      (
+                        response as? HTTPURLResponse
+                      )?.statusCode == self.cstatusOk else {
+                    return
+                }
+                guard error == nil else {
+                    return
+                }
+                guard let locations = try? DataDecoder().decode(
+                    AllLocations.self,
+                    
+                    from: data
+                ) else {
+                    return
+                }
+                completion(
+                    locations
+                )
             }
         }.resume()
     }
