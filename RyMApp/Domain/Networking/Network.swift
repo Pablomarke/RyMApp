@@ -118,17 +118,42 @@ class NetworkApi {
     // MARK: Locations
     func getAllLocations(completion: @escaping(_ location: AllLocations) -> ()) {
         let locationsUrl = baseUrl + endpoint.allLocations
-       
+        guard let url = URL(string: locationsUrl) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+                guard let locations = try? DataDecoder().decode(AllLocations.self, from: data) else { return }
+                completion(locations)
+            }
+        }.resume()
     }
     
     // MARK: Pages
     func pages(url: String, completion: @escaping (_ allCharacters: AllCharacters) -> ()) {
+        guard let url = URL(string: url) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
         
+        URLSession.shared.dataTask(with: urlRequest) {data,response,error in
+           DispatchQueue.main.async {
+                guard let data,
+                      (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+
+                guard let allCharacters = try? DataDecoder().decode(AllCharacters.self ,from: data) else { return }
+                completion(allCharacters)
+            }
+        }.resume()
     }
     
     func pagesLocation(url: String, completion: @escaping (_ allLocations: AllLocations) -> ()) {
        
     }
+    
     func getCharacterUrl(url: String, completion: @escaping (_ character: Character) -> ()) {
         guard let url = URL(string: url) else {return}
         var urlRequest = URLRequest(url: url)
@@ -142,14 +167,36 @@ class NetworkApi {
                 completion(character)
             }
         }.resume()
-        
     }
+    
     func getLocationUrl(url: String, completion: @escaping (_ location: Location) -> ()) {
+        guard let url = URL(string: url) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
         
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+                guard let location = try? DataDecoder().decode(Location.self, from: data) else { return }
+                completion(location)
+            }
+        }.resume()
     }
+    
     func getAllLocationsUrl(url: String, completion: @escaping (_ locations: AllLocations) -> ()) {
-        let allLUrl = baseUrl + "episode/"
+        guard let url = URL(string: url) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
         
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+                guard let locations = try? DataDecoder().decode(AllLocations.self, from: data) else { return }
+                completion(locations)
+            }
+        }.resume()
     }
 }
 

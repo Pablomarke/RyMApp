@@ -105,35 +105,32 @@ class CharactersViewController: UIViewController {
     @IBAction func nextButtonAction(
         _ sender: Any
     ) {
-        /* NetworkApi.shared.pages(url: (model.info?.next)!) { allCharacters in
-         self.model = allCharacters
-         self.collectionCharacters.reloadData()
-         self.countPage += 1
-         self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
-         self.backButton.isHidden = false
-         if self.model.info?.next == nil {
-         self.nextButton.isHidden = true
-         }
-         } failure: { error in
-         print("Error")
-         }*/
+        NetworkApi.shared.pages(url: (model.info?.next)!) { allCharacters in
+            self.model = allCharacters
+            self.collectionCharacters.reloadData()
+            self.countPage += 1
+            self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
+            self.backButton.isHidden = false
+            if self.model.info?.next == nil {
+                self.nextButton.isHidden = true
+            }
+            self.collectionCharacters.reloadData()
+        }
     }
     
     @IBAction func backButtonAction(
         _ sender: Any
     ) {
-        /*   NetworkApi.shared.pages(url: (model.info?.prev)!) { allCharacters in
-         self.model = allCharacters
-         self.collectionCharacters.reloadData()
-         self.countPage -= 1
-         self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
-         self.nextButton.isHidden = false
-         if self.model.info?.prev == nil {
-         self.backButton.isHidden = true
-         }
-         } failure: { error in
-         print("Error")
-         }*/
+        NetworkApi.shared.pages(url: (model.info?.prev)!) { allCharacters in
+            self.model = allCharacters
+            self.countPage -= 1
+            self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
+            self.nextButton.isHidden = false
+            if self.model.info?.prev == nil {
+                self.backButton.isHidden = true
+            }
+            self.collectionCharacters.reloadData()
+        }
     }
 }
 
@@ -177,7 +174,6 @@ extension CharactersViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        ///TODO: puede que este id de error, hay que revisarlo
         NetworkApi.shared.getCharacter(
             id: model.results![indexPath.row].id
         ) { character in
