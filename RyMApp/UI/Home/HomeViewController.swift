@@ -14,10 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var buttonLabel: UILabel!
     @IBOutlet weak var buttonImage: UIView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         backImage.image = UIImage(named: "w1")
         backImage.contentMode = .scaleToFill
         buttonLabel.text = "Entrar"
@@ -29,13 +27,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func homeBAction(_ sender: Any) {
-        
+        print("ok")
         NetworkApi.shared.getAllCharacters { allCharacters in
             let viewController = CharactersViewController(allCharacters)
             self.navigationController?.setViewControllers([viewController],
-                                                          animated: true) 
-        } failure: { error in
-            print("Error")
+                                                          animated: true)
         }
     }
 }
+
+        

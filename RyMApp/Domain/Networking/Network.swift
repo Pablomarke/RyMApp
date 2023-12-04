@@ -6,177 +6,132 @@
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 
 class NetworkApi {
-    
     static let shared = NetworkApi()
     private let cstatusOk = 200...299
     private let baseUrl = "https://rickandmortyapi.com/api/"
     
+    enum endpoint {
+        static let allCharacters = "character/"
+        static let allEpisodes = "episode/"
+        static let name = "character/?name="
+        static let allLocations = "location/"
+        
+    }
+    enum httpMethods {
+        static let get = "GET"
+    }
     
     // MARK: Characters
-    func getAllCharacters(success: @escaping (_ allCharacters: AllCharacters) -> (),
-                          failure: @escaping(_ error: Error?) -> ()) {
-        let allCUrl = baseUrl + "character/"
-        AF.request(allCUrl,
-                   method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self,
-                                                                                   decoder: DataDecoder()) { response in
-                       
-                       if let allCharacters = response.value {
-                           success(allCharacters)
-                       } else {
-                           failure(response.error)
-                       }
-                   }
+    func getAllCharacters(completion: @escaping (AllCharacters) -> Void){
+        let characterURl = baseUrl + endpoint.allCharacters
+        guard let url = URL(string: characterURl) else {return}
+        var urlRequest = URLRequest(url: url )
+        urlRequest.httpMethod = httpMethods.get
         
-    }
-    
-    func getCharacter(id: Int, success: @escaping (_ character: Character) -> (), failure: @escaping(_ error: Error?) -> () ){
-        
-        let newUrl = baseUrl + "character/\(id)"
-        
-        AF.request(newUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable (of: Character.self, decoder: DataDecoder()) { response in
-            
-            if let character = response.value {
-                success(character)
-                
-            } else {
-                failure(response.error)
+        URLSession.shared.dataTask(with: urlRequest) {data,response,error in
+           DispatchQueue.main.async {
+                guard let data,
+                      (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+
+                guard let allCharacters = try? DataDecoder().decode(AllCharacters.self ,from: data) else { return }
+                completion(allCharacters)
             }
-        }
+        }.resume()
     }
-    
-    
-    
-    func searchCharacters(name: String, success: @escaping (_ allCharacters: AllCharacters) -> (), failure: @escaping(_ error: Error?) -> ()) {
-        let searchUrl = baseUrl + "character/?name=\(name)"
+
+    func getCharacter(id: Int, completion: @escaping (_ character: Character) -> ()){
+        let idUrl = baseUrl + endpoint.allCharacters + "\(id)"
+        guard let url = URL(string: idUrl) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
         
-        AF.request(searchUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
-            if let allCharacters = response.value {
-                success(allCharacters)
-            } else {
-                failure(response.error)
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+                guard let character = try? DataDecoder().decode(Character.self, from: data) else { return }
+                completion(character)
             }
-        }
+        }.resume()
     }
     
-    func getCharacterUrl(url: String, success: @escaping (_ character: Character) -> (),
-                         failure: @escaping(_ error: Error?) -> ()) {
+    func searchCharacters(name: String, completion: @escaping (_ allCharacters: AllCharacters) -> ()) {
+        let searchUrl = baseUrl + "\(name)"
+        guard let url = URL(string: searchUrl) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
         
-        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Character.self, decoder: DataDecoder()) { response in
-            if let character = response.value {
-                success(character)
-            } else {
-                failure(response.error)
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+                guard let character = try? DataDecoder().decode(AllCharacters.self, from: data) else { return }
+                completion(character)
             }
-        }
+        }.resume()
     }
-    
     
     // MARK: Episodes
-    func getAllEpisodes(success: @escaping (_ episodes: AllEpisodes) -> (),
-                        failure: @escaping(_ error: Error?) -> ()){
-        let allEUrl = baseUrl + "episode/"
+    func getAllEpisodes(completion: @escaping (_ episodes: AllEpisodes) -> ()){
+        let allEpisodesUrl = baseUrl + endpoint.allEpisodes
+        guard let url = URL(string: allEpisodesUrl) else {return}
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethods.get
         
-        AF.request(allEUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllEpisodes.self, decoder: DataDecoder()) {
-            response in
-            
-            if let episodes = response.value {
-                success(episodes)
-            } else {
-                failure(response.error)
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data, (response as? HTTPURLResponse)?.statusCode == 200 else { return }
+                guard error == nil else {return}
+                guard let character = try? DataDecoder().decode(AllEpisodes.self, from: data) else { return }
+                completion(character)
             }
-        }
+        }.resume()
     }
     
-    func getEpisode(url: String, success: @escaping (_ episode: Episode) -> (),
-                    failure: @escaping(_ error: Error?) -> ()) {
+    func getEpisode(url: String, completion: @escaping (_ episode: Episode) -> ()) {
         
-        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Episode.self, decoder: DataDecoder()) { response in
-            if let episode = response.value {
-                success(episode)
-            } else {
-                failure(response.error)
-            }
-        }
     }
     
     func getArrayEpisodes(season: String,
-                          success: @escaping(_ episodes: [Episode]) -> (),
-                          failure: @escaping(_ error: Error?) -> ()) {
-    
-        let seasonsUrl = baseUrl + "episode/\(season)"
-        AF.request(seasonsUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: [Episode].self, decoder: DataDecoder()) { response in
-            if let season = response.value {
-                success(season)
-            } else {
-                failure(response.error)
-            }
-        }
+                          completion: @escaping(_ episodes: [Episode]) -> ()
+                          ) {
+        
+        let seasonsUrl = baseUrl + endpoint.allEpisodes + "\(season)"
+        
     }
     
     // MARK: Locations
-    func getAllLocations(succes: @escaping(_ location: AllLocations) -> (),
-                         failure: @escaping(_ error: Error?) -> ()) {
-        let locationsUrl = baseUrl + "location"
-        AF.request(locationsUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllLocations.self, decoder: DataDecoder()) { response in
-            if let allLocations = response.value {
-                succes(allLocations)
-            } else {
-                failure(response.error)
-            }
-        }
+    func getAllLocations(completion: @escaping(_ location: AllLocations) -> ()) {
+        let locationsUrl = baseUrl + endpoint.allLocations
+       
     }
     
-    func getLocationsUrl(url: String, success: @escaping (_ locations: AllLocations) -> (),
-                         failure:@escaping(_ error: Error?) -> ()) {
-        
-        let allLUrl = baseUrl + "episode/"
-        AF.request(allLUrl, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllLocations.self, decoder: DataDecoder()) {
-            response in
-            
-            if let locations = response.value {
-                success(locations)
-            } else {
-                failure(response.error)
-            }
-        }
-    }
-
-    func getLocationUrl(url: String, success: @escaping (_ location: Location) -> (), failure: @escaping(_ error: Error?) -> ()) {
-        
-        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: Location.self, decoder: DataDecoder()) { response in
-            if let location = response.value {
-                success(location)
-            } else {
-                failure(response.error)
-            }
-        }
-    }
+    
+    
+    
     
     // MARK: Pages
-    func pages(url: String, success: @escaping (_ allCharacters: AllCharacters) -> (),
-               failure: @escaping(_ error: Error?) -> ()) {
+    func pages(url: String, completion: @escaping (_ allCharacters: AllCharacters) -> ()) {
         
-        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllCharacters.self, decoder: DataDecoder()) { response in
-            if let allCharacters = response.value {
-                success(allCharacters)
-            } else {
-                failure(response.error)
-            }
-        }
     }
     
-    func pagesLocation(url: String, succes: @escaping (_ allLocations: AllLocations) -> (),
-                  failure: @escaping(_ error: Error?) -> ()) {
-        AF.request(url, method: .get).validate(statusCode: cstatusOk).responseDecodable(of: AllLocations.self, decoder: DataDecoder()) {
-            response in
-            if let allLocations = response.value {
-                succes(allLocations)
-            } else {
-                failure(response.error)
-            }
-        }
+    func pagesLocation(url: String, completion: @escaping (_ allLocations: AllLocations) -> ()) {
+       
+    }
+    func getCharacterUrl(url: String, completion: @escaping (_ character: Character) -> ()) {
+        
+    }
+    func getLocationUrl(url: String, completion: @escaping (_ location: Location) -> ()) {
+        
+    }
+    func getAllLocationsUrl(url: String, completion: @escaping (_ locations: AllLocations) -> ()) {
+        
+        let allLUrl = baseUrl + "episode/"
+        
     }
 }
+
