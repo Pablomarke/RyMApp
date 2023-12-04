@@ -33,7 +33,7 @@ class EpisodesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = color.mainColor
+        self.navigationController?.navigationBar.tintColor = color.secondColor
         navigationItem.title = "Episodios"
         let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]

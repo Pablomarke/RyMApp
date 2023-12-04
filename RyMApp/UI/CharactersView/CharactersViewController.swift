@@ -44,7 +44,7 @@ class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = color.mainColor
-        self.navigationController?.navigationBar.tintColor = color.mainColor
+        self.navigationController?.navigationBar.tintColor = color.secondColor
         navigationItem.title = "Personajes"
         let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]

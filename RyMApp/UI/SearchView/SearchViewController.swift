@@ -39,7 +39,7 @@ class SearchViewController: UIViewController {
         self.view.backgroundColor = color.mainColor
         
         ///Title
-        self.navigationController?.navigationBar.tintColor = color.mainColor
+        self.navigationController?.navigationBar.tintColor = color.secondColor
         navigationItem.title = "Buscador"
         let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
