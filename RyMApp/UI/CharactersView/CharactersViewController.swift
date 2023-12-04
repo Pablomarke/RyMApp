@@ -43,21 +43,26 @@ class CharactersViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewStyle()
+        collectionStyle()
+        pagesStyle()
+        characterBarStyle()
+    }
+    
+    // MARK: - Funciones -
+    func viewStyle(){
+        backImage.image = UIImage(
+            named: "w2"
+        )
+        backImage.contentMode = .scaleToFill
         self.view.backgroundColor = color.mainColor
         self.navigationController?.navigationBar.tintColor = color.secondColor
         navigationItem.title = "Personajes"
         let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
-        
-        if model.info?.prev == nil || model.info?.next == nil {
-            backButton.isHidden = true
-        }
-        
-        backImage.image = UIImage(
-            named: "w2"
-        )
-        backImage.contentMode = .scaleToFill
-        
+    }
+    
+    func collectionStyle(){
         collectionCharacters.backgroundColor = UIColor.clear
         collectionCharacters.backgroundView = UIView.init(
             frame: CGRect.zero
@@ -71,25 +76,31 @@ class CharactersViewController: UIViewController {
             ),
             forCellWithReuseIdentifier: "CellC"
         )
-        
-        characterBar.delegate = self
-        characterBar.tintColor = color.secondColor
-        characterBar.barTintColor = color.mainColor
-        characterBar.isTranslucent = false
-        
+    }
+    
+    func pagesStyle(){
         pageView.backgroundColor = .clear
         pagesLabel.text = "\(countPage) / \(model.info?.pages ?? 1)"
         pagesLabel.textColor = color.secondColor
         pagesLabel.font = font.size24
+        
+        if model.info?.prev == nil || model.info?.next == nil {
+            backButton.isHidden = true
+        }
     }
     
-    // MARK: - Funciones -
+    func characterBarStyle(){
+        characterBar.delegate = self
+        characterBar.tintColor = color.secondColor
+        characterBar.barTintColor = color.mainColor
+        characterBar.isTranslucent = false
+    }
     
     // MARK: - Botones -
     @IBAction func nextButtonAction(
         _ sender: Any
     ) {
-        NetworkApi.shared.pages(url: (model.info?.next)!) { allCharacters in
+        NetworkApi.shared.pages(url: (model.info?.next ?? "")) { allCharacters in
             self.model = allCharacters
             self.collectionCharacters.reloadData()
             self.countPage += 1
@@ -124,7 +135,7 @@ extension CharactersViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return model.results!.count
+        return model.results?.count ?? 0
     }
     
     func collectionView(
@@ -147,7 +158,7 @@ extension CharactersViewController: UICollectionViewDelegate {
         didSelectItemAt indexPath: IndexPath
     ) {
         NetworkApi.shared.getCharacter(
-            id: model.results![indexPath.row].id
+            id: model.results?[indexPath.row].id ?? 1
         ) { character in
             let detailedView = DetailViewController(
                 model: character
