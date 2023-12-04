@@ -60,7 +60,7 @@ class NetworkApi {
     }
     
     func searchCharacters(name: String, completion: @escaping (_ allCharacters: AllCharacters) -> ()) {
-        let searchUrl = baseUrl + "\(name)"
+        let searchUrl = baseUrl + endpoint.name + "\(name)"
         guard let url = URL(string: searchUrl) else {return}
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethods.get

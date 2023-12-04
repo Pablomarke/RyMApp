@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class SearchViewController: UIViewController {
-    // Outlets
+    //MARK: - IBOutlets -
     @IBOutlet weak var tabBarSearch: UITabBar!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchText: UITextField!
@@ -17,10 +17,10 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var buttonView: UIView!
     
-  
-    //Modelo
+    // MARK: - Propiedades -
     var model: AllCharacters
     
+    // MARK: - Init -
     init(_ model: AllCharacters) {
         self.model = model
         
@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // ViewDidLoad
+    // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor(named: "dark")
@@ -75,26 +75,23 @@ class SearchViewController: UIViewController {
         searchCollection.isHidden = true
     }
     
-    //Button search
+    // MARK: - Botones -
     @IBAction func searchAction(_ sender: Any) {
+        print("ok")
         let newName = searchText.text
         NetworkApi.shared.searchCharacters(name: newName!) { allCharacters in
             self.model = allCharacters
             self.searchCollection.reloadData()
             self.searchText.backgroundColor = UIColor(named: "rickHair")
             self.searchCollection.isHidden = false
-        } failure: { error in
-            self.searchText.backgroundColor = .red
-            self.searchCollection.isHidden = true
-            self.searchText.text = "No hay resultados"
         }
     }
 }
-
-extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+// MARK: - Extension de datasource -
+extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return model.results!.count
+        return model.results?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -109,14 +106,16 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
        
         return cell
     }
+}
+
+// MARK: - Extension de delegado -
+extension SearchViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         NetworkApi.shared.getCharacter(id: model.results![indexPath.row].id) { character in
             let detailedView = DetailViewController(model: character)
             self.navigationController?.showDetailViewController(detailedView,
                                                                 sender: nil)
-        } failure: { error in
-            print("Error")
         }
     }
 }
@@ -128,33 +127,29 @@ extension SearchViewController: UITabBarDelegate {
                 let myView = CharactersViewController(allCharacters)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
-            } failure: { error in
-                print("Error")
             }
         } else if item.title == "Search" {
             NetworkApi.shared.getAllCharacters { allCharacters in
                 let myView = SearchViewController(allCharacters)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
-            } failure: { error in
-                print("Error")
-            }
+            } 
         } else if item.title == "Episodes" {
-            NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
+         /*   NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
                 let myView = EpisodesViewController(episodes)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
                 print("Error")
-            }
+            }*/
         } else if item.title == "Locations" {
-            NetworkApi.shared.getAllLocations() { locations in
+          /*  NetworkApi.shared.getAllLocations() { locations in
                 let myView = LocationViewController(locations)
                 self.navigationController?.pushViewController(myView,
                                                               animated: true)
             } failure: { error in
                 print("Error")
-            }
+            }*/
         }
     }
 }

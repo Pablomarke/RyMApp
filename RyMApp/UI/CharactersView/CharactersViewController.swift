@@ -205,31 +205,24 @@ extension CharactersViewController: UITabBarDelegate {
                 )
             }
         } else if item.title == "Search" {
-            /* NetworkApi.shared.getAllCharacters { allCharacters in
-             let myView = SearchViewController(allCharacters)
-             self.navigationController?.pushViewController(myView,
-             animated: true)
-             } failure: { error in
-             print("Error")
-             }*/
+            NetworkApi.shared.getAllCharacters { allCharacters in
+                let myView = SearchViewController(allCharacters)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            }
         } else if item.title == "Episodes" {
-            /*   NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
-             let myView = EpisodesViewController(episodes)
-             self.navigationController?.pushViewController(myView,
-             animated: true)
-             } failure: { error in
-             print("Error")
-             }*/
+            NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
+                let myView = EpisodesViewController(episodes)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            }
             
         } else if item.title == "Locations" {
-            /*    NetworkApi.shared.getAllLocations() { locations in
-             let myView = LocationViewController( locations)
-             self.navigationController?.pushViewController(myView,
-             animated: true)
-             } failure: { error in
-             print("Error")
-             }*/
+            NetworkApi.shared.getAllLocations() { locations in
+                let myView = LocationViewController( locations)
+                self.navigationController?.pushViewController(myView,
+                                                              animated: true)
+            }
         }
-        
     }
 }
