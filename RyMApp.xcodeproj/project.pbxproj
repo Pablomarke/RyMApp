@@ -140,6 +140,38 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		393525CD2B1E6E8D005848B4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				39AE69C02A73E4BE00E3D09A /* Networking */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		393525CF2B1E6F04005848B4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				39D05D952A727E0300468A9E /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		393525D02B1E6F2D005848B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		393525D12B1E6F39005848B4 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				391802AB2A76B013006BE05A /* Fonts */,
+				39D05D9E2A727E0400468A9E /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		399C33B52B15123700DA0F45 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,11 +264,10 @@
 		399C33BE2B15230300DA0F45 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				39D05D9E2A727E0400468A9E /* Assets.xcassets */,
-				391802AB2A76B013006BE05A /* Fonts */,
 				39AE69BF2A73E4A200E3D09A /* Models */,
-				39AE69C02A73E4BE00E3D09A /* Networking */,
-				391DA3092A73B778006C9CCF /* DataDecoder.swift */,
+				393525CD2B1E6E8D005848B4 /* Data */,
+				393525D12B1E6F39005848B4 /* Assets */,
+				393525D02B1E6F2D005848B4 /* Extensions */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -244,6 +275,7 @@
 		39AE69BF2A73E4A200E3D09A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				391DA3092A73B778006C9CCF /* DataDecoder.swift */,
 				390D94C02A861DFB0091336F /* ApiInfo.swift */,
 				39AE69CA2A73EF9000E3D09A /* AllCharacter.swift */,
 				39D05DC92A727F9D00468A9E /* Character.swift */,
@@ -297,7 +329,7 @@
 		39D05D942A727E0300468A9E /* RyMApp */ = {
 			isa = PBXGroup;
 			children = (
-				39D05D952A727E0300468A9E /* AppDelegate.swift */,
+				393525CF2B1E6F04005848B4 /* App */,
 				399C33BE2B15230300DA0F45 /* Domain */,
 				399C33B52B15123700DA0F45 /* UI */,
 				39D05DA32A727E0400468A9E /* Info.plist */,
