@@ -61,12 +61,9 @@ class CharactersViewController: UIViewController {
         collectionCharacters.dataSource = self
         collectionCharacters.delegate = self
         collectionCharacters.register(
-            UINib(
-                nibName: CharacterCell.identifier,
-                bundle: nil
-            ),
-            forCellWithReuseIdentifier: CharacterCell.identifier
-        )
+            UINib( nibName: CharacterCell.identifier,
+                   bundle: nil),
+            forCellWithReuseIdentifier: CharacterCell.identifier)
     }
     
     func pagesStyle(){
@@ -87,56 +84,61 @@ class CharactersViewController: UIViewController {
         characterBar.isTranslucent = false
     }
     
-    // MARK: - Botones -
-    @IBAction func nextButtonAction(
-        _ sender: Any
-    ) {
+    func nextPage(){
         NetworkApi.shared.pages(url: (model.info?.next ?? "")) { allCharacters in
             self.model = allCharacters
-            self.collectionCharacters.reloadData()
             self.countPage += 1
-            self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
-            self.backButton.isHidden = false
-            if self.model.info?.next == nil {
-                self.nextButton.isHidden = true
-            }
+            self.showBackButton()
             self.collectionCharacters.reloadData()
         }
     }
     
-    @IBAction func backButtonAction(
-        _ sender: Any
-    ) {
+    func prevPage(){
         NetworkApi.shared.pages(url: (model.info?.prev)!) { allCharacters in
             self.model = allCharacters
             self.countPage -= 1
-            self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
-            self.nextButton.isHidden = false
-            if self.model.info?.prev == nil {
-                self.backButton.isHidden = true
-            }
+            self.showPrevButton()
             self.collectionCharacters.reloadData()
         }
+    }
+    
+    func showBackButton(){
+        self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
+        self.backButton.isHidden = false
+        if self.model.info?.next == nil {
+            self.nextButton.isHidden = true
+        }
+    }
+    
+    func showPrevButton(){
+        self.pagesLabel.text = "\(self.countPage) / \(self.model.info?.pages ?? 1)"
+        self.nextButton.isHidden = false
+        if self.model.info?.prev == nil {
+            self.backButton.isHidden = true
+        }
+    }
+    
+    // MARK: - Botones -
+    @IBAction func nextButtonAction(_ sender: Any) {
+        nextPage()
+    }
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        prevPage()
     }
 }
 
 // MARK: - Extension de datasource -
 extension CharactersViewController: UICollectionViewDataSource {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return model.results?.count ?? 0
     }
     
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        let cell = collectionCharacters.dequeueReusableCell(
-            withReuseIdentifier: CharacterCell.identifier,
-            for: indexPath
-        ) as! CharacterCell
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionCharacters.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
+                                                            for: indexPath) as! CharacterCell
         cell.syncCellWithModel(model: model.results![indexPath.row])
         return cell
     }
@@ -144,52 +146,43 @@ extension CharactersViewController: UICollectionViewDataSource {
 
 // MARK: - Extension de delegado -
 extension CharactersViewController: UICollectionViewDelegate {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        didSelectItemAt indexPath: IndexPath
-    ) {
-        NetworkApi.shared.getCharacter(
-            id: model.results?[indexPath.row].id ?? 1
-        ) { character in
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        NetworkApi.shared.getCharacter(id: model.results?[indexPath.row].id ?? 1) { character in
             let detailedView = DetailViewController(
-                model: character
-            )
-            self.navigationController?.show(
-                detailedView,
-                sender: nil
-            )
+                model: character)
+            self.navigationController?.show(detailedView,
+                                            sender: nil)
         }
     }
 }
 
 // MARK: - Extension de tabBar -
 extension CharactersViewController: UITabBarDelegate {
-    func tabBar(
-        _ tabBar: UITabBar,
-        didSelect item: UITabBarItem
-    ) {
+    func tabBar(_ tabBar: UITabBar,
+                didSelect item: UITabBarItem) {
         switch item.title {
             case "Characters" :
                 break
-            
+                
             case "Search" :
-            NetworkApi.shared.getAllCharacters { allCharacters in
-                let myView = SearchViewController(allCharacters)
-                self.navigationController?.setViewControllers([myView],
-                                                              animated: true)
-            }
+                NetworkApi.shared.getAllCharacters { allCharacters in
+                    let myView = SearchViewController(allCharacters)
+                    self.navigationController?.setViewControllers([myView],
+                                                                  animated: true)
+                }
             case "Episodes" :
-            NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
-                let myView = EpisodesViewController(episodes)
-                self.navigationController?.setViewControllers([myView],
-                                                              animated: true)
-            }
+                NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
+                    let myView = EpisodesViewController(episodes)
+                    self.navigationController?.setViewControllers([myView],
+                                                                  animated: true)
+                }
             case "Locations" :
-            NetworkApi.shared.getAllLocations() { locations in
-                let myView = LocationViewController( locations)
-                self.navigationController?.setViewControllers([myView],
-                                                              animated: true)
-            }
+                NetworkApi.shared.getAllLocations() { locations in
+                    let myView = LocationViewController( locations)
+                    self.navigationController?.setViewControllers([myView],
+                                                                  animated: true)
+                }
             case .none:
                 break
             case .some(_):
