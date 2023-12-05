@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AllLocations: Decodable {
+struct AllLocations: Codable {
     let info: ApiInfo
     let results: [Location]
     

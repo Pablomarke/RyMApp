@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AllEpisodes: Decodable {
+struct AllEpisodes: Codable {
     let info: ApiInfo
     let results: [Episode]?
     

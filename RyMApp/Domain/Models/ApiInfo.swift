@@ -7,18 +7,11 @@
 
 import Foundation
 
-struct ApiInfo: Decodable {
+struct ApiInfo: Codable {
     let count: Int
     let pages: Int
     let next: String?
     let prev: String?
-    
-    init(count: Int, pages: Int, next: String?, prev: String?) {
-        self.count = count
-        self.pages = pages
-        self.next = next
-        self.prev = prev
-    }
     
     enum CodingKeys: CodingKey {
         case count
