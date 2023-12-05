@@ -188,6 +188,16 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		397666022B1F439D009457C6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				393525D02B1E6F2D005848B4 /* Extensions */,
+				393525D12B1E6F39005848B4 /* Assets */,
+				393525D22B1E804A005848B4 /* Constants */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		399C33B52B15123700DA0F45 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,11 +290,8 @@
 		399C33BE2B15230300DA0F45 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				393525D22B1E804A005848B4 /* Constants */,
 				39AE69BF2A73E4A200E3D09A /* Models */,
 				393525CD2B1E6E8D005848B4 /* Data */,
-				393525D12B1E6F39005848B4 /* Assets */,
-				393525D02B1E6F2D005848B4 /* Extensions */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -347,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				393525CF2B1E6F04005848B4 /* App */,
+				397666022B1F439D009457C6 /* Resources */,
 				399C33BE2B15230300DA0F45 /* Domain */,
 				399C33B52B15123700DA0F45 /* UI */,
 				39D05DA32A727E0400468A9E /* Info.plist */,
