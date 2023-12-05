@@ -94,7 +94,8 @@ class EpisodesViewController: UIViewController {
     }
 }
 
-extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
+extension EpisodesViewController: UITableViewDelegate, 
+                                    UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return model.count
@@ -102,9 +103,11 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = episodeTable.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as! TableViewCell?
-        cell?.syncEpisodeWithCell(model: model[indexPath.row])
-        return cell!
+        guard let cell = episodeTable.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as? TableViewCell else {
+            return UITableViewCell()
+        }
+        cell.syncEpisodeWithCell(model: model[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView,

@@ -131,13 +131,12 @@ extension LocationViewController: UITableViewDataSource {
         return model.results.count
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: TableViewCell.identifier
-        ) as! TableViewCell
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as? TableViewCell else {
+            return UITableViewCell()
+        }
+        
         cell.syncLocationWithCell(model: model.results[indexPath.row])
         return cell
     }

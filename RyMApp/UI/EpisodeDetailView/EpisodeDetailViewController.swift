@@ -73,24 +73,20 @@ class EpisodeDetailViewController: UIViewController {
 
 // MARK: - Extension de datasource -
 extension EpisodeDetailViewController: UICollectionViewDataSource {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return model.characters.count
     }
     
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        let cell = collectionCharacters.dequeueReusableCell(
-            withReuseIdentifier: CharacterCell.identifier,
-            for: indexPath
-        ) as! CharacterCell
-        NetworkApi.shared.getCharacterUrl(
-            url: model.characters[indexPath.row]
-        ) { character in
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionCharacters.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
+                                                                  for: indexPath) as? CharacterCell else {
+            return UICollectionViewCell()
+        }
+                                                                  
+        NetworkApi.shared.getCharacterUrl(url: model.characters[indexPath.row]) { character in
             cell.syncCellWithModel(model: character)
         }
         return cell
@@ -99,20 +95,12 @@ extension EpisodeDetailViewController: UICollectionViewDataSource {
 
 // MARK: - Extension de delegado -
 extension EpisodeDetailViewController: UICollectionViewDelegate{
-    func collectionView(
-        _ collectionView: UICollectionView,
-        didSelectItemAt indexPath: IndexPath
-    ) {
-        NetworkApi.shared.getCharacterUrl(
-            url: model.characters[indexPath.row]
-        ) { character in
-            let detailedView = DetailViewController(
-                model: character
-            )
-            self.navigationController?.showDetailViewController(
-                detailedView,
-                sender: nil
-            )
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        NetworkApi.shared.getCharacterUrl(url: model.characters[indexPath.row]) { character in
+            let detailedView = DetailViewController(model: character)
+            self.navigationController?.showDetailViewController(detailedView,
+                                                                sender: nil)
         }
     }
 }

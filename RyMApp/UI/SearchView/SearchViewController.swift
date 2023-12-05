@@ -94,10 +94,15 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
-                                                            for: indexPath) as! CharacterCell
+        guard let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
+                                                              for: indexPath) as? CharacterCell else {
+            return UICollectionViewCell()
+        }
         
-        cell.syncCellWithModel(model: model.results![indexPath.row])
+        if let modelForCell = model.results?[indexPath.row] {
+            cell.syncCellWithModel(model: modelForCell)
+        }
+            
         return cell
     }
 }
@@ -106,10 +111,12 @@ extension SearchViewController: UICollectionViewDataSource {
 extension SearchViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        NetworkApi.shared.getCharacter(id: model.results![indexPath.row].id) { character in
-            let detailedView = DetailViewController(model: character)
-            self.navigationController?.showDetailViewController(detailedView,
-                                                                sender: nil)
+        if let myID = model.results?[indexPath.row].id {
+            NetworkApi.shared.getCharacter(id: myID ) { character in
+                let detailedView = DetailViewController(model: character)
+                self.navigationController?.showDetailViewController(detailedView,
+                                                                    sender: nil)
+            }
         }
     }
 }

@@ -24,9 +24,8 @@ class CharactersViewController: UIViewController {
     // MARK: - Init -
     init(_ model: AllCharacters) {
         self.model = model
-        super.init(
-            nibName: nil,
-            bundle: nil)
+        super.init(nibName: nil,
+                   bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -65,7 +64,7 @@ class CharactersViewController: UIViewController {
     
     func pagesStyle(){
         pageView.backgroundColor = .clear
-        pagesLabel.text = "\(countPage) / \(model.info?.pages ?? 1)"
+        pagesLabel.text = "\(countPage) / \(model.info?.pages  ?? 1)"
         pagesLabel.textColor = Color.secondColor
         pagesLabel.font = Font.size24
         
@@ -91,7 +90,7 @@ class CharactersViewController: UIViewController {
     }
     
     func prevPage(){
-        NetworkApi.shared.pages(url: (model.info?.prev)!) { allCharacters in
+        NetworkApi.shared.pages(url: (model.info?.prev ?? "")) { allCharacters in
             self.model = allCharacters
             self.countPage -= 1
             self.showPrevButton()
@@ -134,9 +133,14 @@ extension CharactersViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionCharacters.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
-                                                            for: indexPath) as! CharacterCell
-        cell.syncCellWithModel(model: model.results![indexPath.row])
+        guard let cell = collectionCharacters.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
+                                                                  for: indexPath) as? CharacterCell else {
+            return UICollectionViewCell()
+        }
+        
+        if let cellModel = model.results?[indexPath.row] {
+            cell.syncCellWithModel(model: cellModel)
+        } 
         return cell
     }
 }
