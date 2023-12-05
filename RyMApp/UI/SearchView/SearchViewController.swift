@@ -48,7 +48,7 @@ class SearchViewController: UIViewController {
         searchText.layer.cornerRadius = 40
         searchText.backgroundColor = color.secondColor
         
-        backImage.image = UIImage(named: "r3")
+        backImage.image = localImages.searchImage
         backImage.contentMode = .scaleAspectFill
         
         ///Button

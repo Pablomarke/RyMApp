@@ -75,9 +75,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         syncCharacterModelwithView()
         
-        backImage.image = UIImage(
-            named: "w6"
-        )
+        backImage.image = localImages.detailImage
         backImage.contentMode = .scaleToFill
         imageDetail.layer.cornerRadius = 90
         colorCharacter.layer.cornerRadius = 90

@@ -51,9 +51,7 @@ class CharactersViewController: UIViewController {
     
     // MARK: - Funciones -
     func viewStyle(){
-        backImage.image = UIImage(
-            named: "w2"
-        )
+        backImage.image = localImages.charactersImage
         backImage.contentMode = .scaleToFill
         self.view.backgroundColor = color.mainColor
         self.navigationController?.navigationBar.tintColor = color.secondColor

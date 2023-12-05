@@ -36,7 +36,7 @@ class LocationDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = color.mainColor
-        backImage.image = UIImage(named: "w10")
+        backImage.image = localImages.locationDetailImage
         backImage.contentMode = .scaleToFill
         
         topView.backgroundColor = .clear

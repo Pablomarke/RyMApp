@@ -23,9 +23,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Funciones -
     func viewStyle(){
-        backImage.image = UIImage(
-            named: "w1"
-        )
+        backImage.image = localImages.homeImage
         backImage.contentMode = .scaleToFill
     }
     

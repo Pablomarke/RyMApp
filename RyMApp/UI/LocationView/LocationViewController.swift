@@ -52,9 +52,7 @@ class LocationViewController: UIViewController {
         
         self.view.backgroundColor = color.mainColor
         
-        backImage.image = UIImage(
-            named: "w8"
-        )
+        backImage.image = localImages.locationEpisodeImage
         
         locationTabBar.delegate = self
         locationTabBar.isTranslucent = false

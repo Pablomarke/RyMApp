@@ -32,7 +32,7 @@ class EpisodesViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        backImage.image = localImages.locationEpisodeImage
         self.navigationController?.navigationBar.tintColor = color.secondColor
         navigationItem.title = "Episodios"
         let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]

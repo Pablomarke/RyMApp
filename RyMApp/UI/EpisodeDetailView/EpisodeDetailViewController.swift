@@ -47,9 +47,7 @@ class EpisodeDetailViewController: UIViewController {
         topView.layer.cornerRadius = 22
         characterLabel.text = "Personajes :"
         characterLabel.textColor = color.secondColor
-        backImage.image = UIImage(
-            named: "r1"
-        )
+        backImage.image = localImages.episodeDetailImage
         backImage.contentMode =  .scaleToFill
         topView.backgroundColor = .clear
         
