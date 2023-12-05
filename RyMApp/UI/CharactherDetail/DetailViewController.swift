@@ -100,28 +100,28 @@ class DetailViewController: UIViewController {
         )
         
         // Vista Datos importantes
-        speciesView.corner15Second()
-        tSpeciesView.corner15Second()
+        speciesView.cornerToView()
+        tSpeciesView.cornerToView()
         speciesLabel.textColor = Color.mainColor
         tSpeciesLabel.text = "Specie"
         
-        typeView.corner15Second()
-        tTypeView.corner15Second()
+        typeView.cornerToView()
+        tTypeView.cornerToView()
         typeLabel.textColor = Color.mainColor
         tTypeLabel.text = "Type"
         
-        genderView.corner15Second()
-        tGendeView.corner15Second()
+        genderView.cornerToView()
+        tGendeView.cornerToView()
         genderLabel.textColor = Color.mainColor
         tGenderLabel.text = "Gender"
         
-        locationView.corner15Second()
-        tLocationView.corner15Second()
+        locationView.cornerToView()
+        tLocationView.cornerToView()
         locationNameLabel.textColor = Color.mainColor
         tLocationLabel.text = "Location"
         
-        originView.corner15Second()
-        tOriginaView.corner15Second()
+        originView.cornerToView()
+        tOriginaView.cornerToView()
         originLabel.textColor = Color.mainColor
         tOriginLabel.text = "Origin"
         

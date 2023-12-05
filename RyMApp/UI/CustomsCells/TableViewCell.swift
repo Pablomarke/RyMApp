@@ -27,8 +27,8 @@ class TableViewCell: UITableViewCell {
         self.backgroundColor = UIColor.clear
         titleLabel.textColor = .black
         dataLabel.textColor = Color.mainColor
-        titleView.corner12()
-        dataView.corner12()
+        titleView.cornerToTableView()
+        dataView.cornerToTableView()
 
     }
     override func prepareForReuse() {

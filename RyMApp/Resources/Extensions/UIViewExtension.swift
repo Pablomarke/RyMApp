@@ -9,13 +9,13 @@ import UIKit
 
 extension UIView {
     
-    func corner12(){
-        self.layer.cornerRadius = 12
+    func cornerToTableView(corner: Int = 12){
+        self.layer.cornerRadius = CGFloat(corner)
         self.backgroundColor = Color.secondColor
     }
     
-    func corner15Second(){
-        self.layer.cornerRadius = 15
+    func cornerToView(corner: Int = 15){
+        self.layer.cornerRadius = CGFloat(corner)
         self.backgroundColor = Color.secondColor
     }
 }
