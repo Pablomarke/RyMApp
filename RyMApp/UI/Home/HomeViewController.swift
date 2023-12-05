@@ -36,19 +36,17 @@ class HomeViewController: UIViewController {
         buttonImage.layer.cornerRadius = 60
     }
     
-    // MARK: - Botones -
-    @IBAction func homeBAction(
-        _ sender: Any
-    ) {
+    func navigateToCharacters(){
         NetworkApi.shared.getAllCharacters { allCharacters in
-            let viewController = CharactersViewController(
-                allCharacters
-            )
-            self.navigationController?.setViewControllers(
-                [viewController],
-                animated: true
-            )
+            let viewController = CharactersViewController(allCharacters)
+            self.navigationController?.setViewControllers([viewController],
+                                                          animated: true)
         }
+    }
+    
+    // MARK: - Botones -
+    @IBAction func homeBAction(_ sender: Any) {
+        navigateToCharacters()
     }
 }
 
