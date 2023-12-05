@@ -14,6 +14,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var dataView: UIView!
     
+    static let identifier: String = "TableViewCell"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,16 +24,20 @@ class TableViewCell: UITableViewCell {
     // MARK: - Funciones -
     func cellStyle(){
         contentView.backgroundColor = color.clearColor
+        self.backgroundColor = UIColor.clear
         titleLabel.textColor = .black
         dataLabel.textColor = color.mainColor
-        self.backgroundColor = UIColor.clear
-        
         titleView.corner12()
         dataView.corner12()
-        
-        
+
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleLabel.text = nil
+        dataLabel.text = nil
     }
     
+    // MARK: - Funciones -
     func syncEpisodeWithCell(model: Episode) {
         titleLabel.text = model.episode
         dataLabel.text = model.name
@@ -41,17 +46,6 @@ class TableViewCell: UITableViewCell {
     func syncLocationWithCell(model: Location){
         titleLabel.text = model.type
         dataLabel.text = model.name
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        titleLabel.text = nil
-        dataLabel.text = nil
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // TODO
     }
 }
 

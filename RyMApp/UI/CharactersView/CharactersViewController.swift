@@ -71,10 +71,10 @@ class CharactersViewController: UIViewController {
         collectionCharacters.delegate = self
         collectionCharacters.register(
             UINib(
-                nibName: "CharacterCell",
+                nibName: CharacterCell.identifier,
                 bundle: nil
             ),
-            forCellWithReuseIdentifier: "CellC"
+            forCellWithReuseIdentifier: CharacterCell.identifier
         )
     }
     
@@ -143,7 +143,7 @@ extension CharactersViewController: UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell = collectionCharacters.dequeueReusableCell(
-            withReuseIdentifier: "CellC",
+            withReuseIdentifier: CharacterCell.identifier,
             for: indexPath
         ) as! CharacterCell
         cell.syncCellWithModel(model: model.results![indexPath.row])

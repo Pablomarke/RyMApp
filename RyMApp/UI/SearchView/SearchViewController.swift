@@ -68,9 +68,9 @@ class SearchViewController: UIViewController {
         searchCollection.backgroundView = UIView.init(frame: CGRect.zero)
         searchCollection.dataSource = self
         searchCollection.delegate = self
-        searchCollection.register(UINib(nibName: "CharacterCell",
+        searchCollection.register(UINib(nibName: CharacterCell.identifier,
                                         bundle: nil),
-                                      forCellWithReuseIdentifier: "CellC")
+                                      forCellWithReuseIdentifier: CharacterCell.identifier)
         searchCollection.isHidden = true
     }
     
@@ -95,7 +95,7 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: "CellC",
+        let cell = searchCollection.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
                                                             for: indexPath) as! CharacterCell
         
         cell.syncCellWithModel(model: model.results![indexPath.row])

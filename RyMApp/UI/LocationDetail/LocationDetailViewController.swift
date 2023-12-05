@@ -62,8 +62,8 @@ class LocationDetailViewController: UIViewController {
        
         residentsCollection.dataSource = self
         residentsCollection.delegate = self
-        residentsCollection.register(UINib(nibName: "CharacterCell", bundle: nil),
-                                     forCellWithReuseIdentifier: "RC")
+        residentsCollection.register(UINib(nibName: CharacterCell.identifier, bundle: nil),
+                                     forCellWithReuseIdentifier: CharacterCell.identifier)
     }
 }
 
@@ -76,7 +76,7 @@ extension LocationDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = residentsCollection.dequeueReusableCell(withReuseIdentifier: "RC",
+        let cell = residentsCollection.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
                                                            for: indexPath) as! CharacterCell
         NetworkApi.shared.getCharacterUrl(url: model.residents[indexPath.row]) { character in
             cell.syncCellWithModel(model: character)

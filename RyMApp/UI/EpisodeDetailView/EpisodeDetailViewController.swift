@@ -65,10 +65,10 @@ class EpisodeDetailViewController: UIViewController {
         collectionCharacters.backgroundColor = .clear
         collectionCharacters.register(
             UINib(
-                nibName: "CharacterCell",
+                nibName: CharacterCell.identifier,
                 bundle: nil
             ),
-            forCellWithReuseIdentifier: "CC"
+            forCellWithReuseIdentifier: CharacterCell.identifier
         )
     }
 }
@@ -87,7 +87,7 @@ extension EpisodeDetailViewController: UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cell = collectionCharacters.dequeueReusableCell(
-            withReuseIdentifier: "CC",
+            withReuseIdentifier: CharacterCell.identifier,
             for: indexPath
         ) as! CharacterCell
         NetworkApi.shared.getCharacterUrl(

@@ -45,8 +45,8 @@ class EpisodesViewController: UIViewController {
         
         episodeTable.dataSource = self
         episodeTable.delegate = self
-        episodeTable.register(UINib(nibName: "TableViewCell",
-                                    bundle: nil), forCellReuseIdentifier: "TC")
+        episodeTable.register(UINib(nibName: TableViewCell.identifier,
+                                    bundle: nil), forCellReuseIdentifier: TableViewCell.identifier)
         episodeTable.backgroundColor = .clear
         tabBarEpisode.delegate = self
         
@@ -102,7 +102,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = episodeTable.dequeueReusableCell(withIdentifier: "TC") as! TableViewCell?
+        let cell = episodeTable.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as! TableViewCell?
         cell?.syncEpisodeWithCell(model: model[indexPath.row])
         return cell!
     }

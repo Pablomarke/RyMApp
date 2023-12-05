@@ -64,10 +64,10 @@ class LocationViewController: UIViewController {
         locationTable.delegate = self
         locationTable.register(
             UINib(
-                nibName: "TableViewCell",
+                nibName: TableViewCell.identifier,
                 bundle: nil
             ),
-            forCellReuseIdentifier: "TBC"
+            forCellReuseIdentifier: TableViewCell.identifier
         )
         locationTable.backgroundColor = .clear
         
@@ -138,7 +138,7 @@ extension LocationViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "TBC"
+            withIdentifier: TableViewCell.identifier
         ) as! TableViewCell
         cell.syncLocationWithCell(model: model.results[indexPath.row])
         return cell

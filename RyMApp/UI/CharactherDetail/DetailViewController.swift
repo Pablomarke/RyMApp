@@ -90,15 +90,13 @@ class DetailViewController: UIViewController {
         episodeTable.delegate = self
         episodeTable.register(
             UINib(
-                nibName: "TableViewCell",
+                nibName: TableViewCell.identifier,
                 bundle: nil
             ),
-            forCellReuseIdentifier: "detailCell"
+            forCellReuseIdentifier: TableViewCell.identifier
         )
         
-        episodeTable.backgroundColor = UIColor(
-            named: "myClear"
-        )
+        episodeTable.backgroundColor = color.clearColor
         episodeTable.backgroundView = UIView.init(
             frame: CGRect.zero
         )
@@ -172,7 +170,7 @@ extension DetailViewController: UITableViewDataSource {
     ) -> UITableViewCell {
         
         let detailCell = episodeTable.dequeueReusableCell(
-            withIdentifier: "detailCell"
+            withIdentifier: TableViewCell.identifier
         ) as! TableViewCell
         NetworkApi.shared.getEpisode(
             url: model.episode[indexPath.row]

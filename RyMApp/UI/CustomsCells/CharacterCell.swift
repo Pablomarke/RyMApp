@@ -16,10 +16,22 @@ class CharacterCell: UICollectionViewCell {
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var characterStatus: UILabel!
     
+    // MARK: - Propiedades -
+    
+    static let identifier: String = "CharacterCell"
+    
+    // MARK: - Funciones -
     override func awakeFromNib() {
         super.awakeFromNib()
         cellStyle()
         
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        characterName.text = nil
+        characterStatus.text = nil
+        statusView.backgroundColor = nil
     }
     
     // MARK: - Funciones -
@@ -41,10 +53,5 @@ class CharacterCell: UICollectionViewCell {
         statusView.backgroundColor = model.statusColor()
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        characterName.text = nil
-        characterStatus.text = nil
-        statusView.backgroundColor = nil
-    }
+    
 }

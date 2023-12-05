@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
         buttonImage.backgroundColor = color.secondColor
         buttonImage.layer.cornerRadius = 60
     }
+    
     // MARK: - Botones -
     @IBAction func homeBAction(
         _ sender: Any
