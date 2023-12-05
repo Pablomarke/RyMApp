@@ -79,17 +79,12 @@ class DetailViewController: UIViewController {
         locationNameLabel.text = model.location.name
         originLabel.text = model.origin.name
         speciesLabel.text = model.species
-        
-        let imageUrl = model.image
-        imageDetail.kf.setImage(with: URL(string: imageUrl))
+        typeLabel.text = model.typeForVoidString()
         colorStatus.backgroundColor = model.statusColor()
         colorCharacter.backgroundColor = model.statusColor()
         
-        if model.type == "" {
-            typeLabel.text = "---"
-        } else {
-            typeLabel.text = model.type
-        }
+        let imageUrl = model.image
+        imageDetail.kf.setImage(with: URL(string: imageUrl))
     }
     
     func createTableAndStyle(){
@@ -134,7 +129,7 @@ class DetailViewController: UIViewController {
         backImage.contentMode = .scaleToFill
         imageDetail.cornerToImagedetailViews()
         colorCharacter.cornerToImagedetailViews()
-        colorStatus.layer.cornerRadius = 20
+        colorStatus.cornerToImagedetailViews(corner: 20)
         nameLabel.font = Font.size36
         nameLabel.textColor = Color.secondColor
     }

@@ -16,7 +16,7 @@ struct Character: Codable {
     let created: Date
     let species: String
     let gender: String
-    let type: String
+    var type: String
     let location: SimpleLocation
     let origin: SimpleLocation
     let episode: [String]
@@ -44,6 +44,14 @@ extension Character {
             return .red
         } else {
             return .gray
+        }
+    }
+    
+    mutating func typeForVoidString() -> String{
+        if type == "" {
+            return "---"
+        } else {
+            return type
         }
     }
 }
