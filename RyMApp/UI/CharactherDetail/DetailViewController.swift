@@ -75,13 +75,13 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         syncCharacterModelwithView()
         
-        backImage.image = localImages.detailImage
+        backImage.image = LocalImages.detailImage
         backImage.contentMode = .scaleToFill
         imageDetail.layer.cornerRadius = 90
         colorCharacter.layer.cornerRadius = 90
         colorStatus.layer.cornerRadius = 20
-        nameLabel.font = font.size36
-        nameLabel.textColor = color.secondColor
+        nameLabel.font = Font.size36
+        nameLabel.textColor = Color.secondColor
         
         // Tabla
         episodeTable.dataSource = self
@@ -94,7 +94,7 @@ class DetailViewController: UIViewController {
             forCellReuseIdentifier: TableViewCell.identifier
         )
         
-        episodeTable.backgroundColor = color.clearColor
+        episodeTable.backgroundColor = Color.clearColor
         episodeTable.backgroundView = UIView.init(
             frame: CGRect.zero
         )
@@ -102,27 +102,27 @@ class DetailViewController: UIViewController {
         // Vista Datos importantes
         speciesView.corner15Second()
         tSpeciesView.corner15Second()
-        speciesLabel.textColor = color.mainColor
+        speciesLabel.textColor = Color.mainColor
         tSpeciesLabel.text = "Specie"
         
         typeView.corner15Second()
         tTypeView.corner15Second()
-        typeLabel.textColor = color.mainColor
+        typeLabel.textColor = Color.mainColor
         tTypeLabel.text = "Type"
         
         genderView.corner15Second()
         tGendeView.corner15Second()
-        genderLabel.textColor = color.mainColor
+        genderLabel.textColor = Color.mainColor
         tGenderLabel.text = "Gender"
         
         locationView.corner15Second()
         tLocationView.corner15Second()
-        locationNameLabel.textColor = color.mainColor
+        locationNameLabel.textColor = Color.mainColor
         tLocationLabel.text = "Location"
         
         originView.corner15Second()
         tOriginaView.corner15Second()
-        originLabel.textColor = color.mainColor
+        originLabel.textColor = Color.mainColor
         tOriginLabel.text = "Origin"
         
     }
@@ -141,7 +141,7 @@ class DetailViewController: UIViewController {
         locationNameLabel.text = model.location.name
         originLabel.text = model.origin.name
         
-        self.view.backgroundColor = color.mainColor
+        self.view.backgroundColor = Color.mainColor
         colorStatus.backgroundColor = model.statusColor()
         colorCharacter.backgroundColor = model.statusColor()
         

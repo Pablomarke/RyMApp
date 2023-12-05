@@ -23,16 +23,16 @@ class HomeViewController: UIViewController {
     
     // MARK: - Funciones -
     func viewStyle(){
-        backImage.image = localImages.homeImage
+        backImage.image = LocalImages.homeImage
         backImage.contentMode = .scaleToFill
     }
     
     func buttonStyle(){
         buttonLabel.text = "Entrar"
-        buttonLabel.font = font.size32
+        buttonLabel.font = Font.size32
         buttonLabel.textAlignment = .center
         homeButton.tintColor = .clear
-        buttonImage.backgroundColor = color.secondColor
+        buttonImage.backgroundColor = Color.secondColor
         buttonImage.layer.cornerRadius = 60
     }
     

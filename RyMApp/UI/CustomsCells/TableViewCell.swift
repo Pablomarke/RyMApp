@@ -23,10 +23,10 @@ class TableViewCell: UITableViewCell {
     }
     // MARK: - Funciones -
     func cellStyle(){
-        contentView.backgroundColor = color.clearColor
+        contentView.backgroundColor = Color.clearColor
         self.backgroundColor = UIColor.clear
         titleLabel.textColor = .black
-        dataLabel.textColor = color.mainColor
+        dataLabel.textColor = Color.mainColor
         titleView.corner12()
         dataView.corner12()
 

@@ -22,22 +22,15 @@ class CharactersViewController: UIViewController {
     var countPage = 1
     
     // MARK: - Init -
-    init(
-        _ model: AllCharacters
-    ) {
+    init(_ model: AllCharacters) {
         self.model = model
         super.init(
             nibName: nil,
-            bundle: nil
-        )
+            bundle: nil)
     }
     
-    required init?(
-        coder: NSCoder
-    ) {
-        fatalError(
-            "init(coder:) has not been implemented"
-        )
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Ciclo de vida -
@@ -51,12 +44,12 @@ class CharactersViewController: UIViewController {
     
     // MARK: - Funciones -
     func viewStyle(){
-        backImage.image = localImages.charactersImage
+        backImage.image = LocalImages.charactersImage
         backImage.contentMode = .scaleToFill
-        self.view.backgroundColor = color.mainColor
-        self.navigationController?.navigationBar.tintColor = color.secondColor
+        self.view.backgroundColor = Color.mainColor
+        self.navigationController?.navigationBar.tintColor = Color.secondColor
         navigationItem.title = "Personajes"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
     }
     
@@ -79,8 +72,8 @@ class CharactersViewController: UIViewController {
     func pagesStyle(){
         pageView.backgroundColor = .clear
         pagesLabel.text = "\(countPage) / \(model.info?.pages ?? 1)"
-        pagesLabel.textColor = color.secondColor
-        pagesLabel.font = font.size24
+        pagesLabel.textColor = Color.secondColor
+        pagesLabel.font = Font.size24
         
         if model.info?.prev == nil || model.info?.next == nil {
             backButton.isHidden = true
@@ -89,8 +82,8 @@ class CharactersViewController: UIViewController {
     
     func characterBarStyle(){
         characterBar.delegate = self
-        characterBar.tintColor = color.secondColor
-        characterBar.barTintColor = color.mainColor
+        characterBar.tintColor = Color.secondColor
+        characterBar.barTintColor = Color.mainColor
         characterBar.isTranslucent = false
     }
     

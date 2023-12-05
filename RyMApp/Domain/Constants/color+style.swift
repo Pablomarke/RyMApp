@@ -7,12 +7,13 @@
 
 import UIKit
 
-enum color {
-   static let mainColor = UIColor(named: "dark")
-   static let secondColor = UIColor(named: "rickHair")
+enum Color {
+    static let mainColor = UIColor(named: "dark")
+    static let secondColor = UIColor(named: "rickHair")
     static let clearColor = UIColor(named: "myClear")
 }
-enum font {
+
+enum Font {
     static let size24 = UIFont(
         name: "Get Schwifty Regular",
         size: 24

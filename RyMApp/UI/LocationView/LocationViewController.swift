@@ -45,18 +45,18 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.tintColor = color.secondColor
+        self.navigationController?.navigationBar.tintColor = Color.secondColor
         navigationItem.title = "Localizaciones"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         
-        self.view.backgroundColor = color.mainColor
+        self.view.backgroundColor = Color.mainColor
         
-        backImage.image = localImages.locationEpisodeImage
+        backImage.image = LocalImages.locationEpisodeImage
         
         locationTabBar.delegate = self
         locationTabBar.isTranslucent = false
-        locationTabBar.barTintColor = color.mainColor
+        locationTabBar.barTintColor = Color.mainColor
         
         locationTable.dataSource = self
         locationTable.delegate = self
@@ -71,8 +71,8 @@ class LocationViewController: UIViewController {
         
         pagesView.backgroundColor = .clear
         pageLabel.text = "\(pageCount) / \(model.info.pages)"
-        pageLabel.textColor = color.secondColor
-        pageLabel.font = font.size24
+        pageLabel.textColor = Color.secondColor
+        pageLabel.font = Font.size24
         if model.info.prev == nil {
             backButton.isHidden = true
         }

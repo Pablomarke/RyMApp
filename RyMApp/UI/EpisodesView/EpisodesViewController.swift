@@ -32,16 +32,16 @@ class EpisodesViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
-        backImage.image = localImages.locationEpisodeImage
-        self.navigationController?.navigationBar.tintColor = color.secondColor
+        backImage.image = LocalImages.locationEpisodeImage
+        self.navigationController?.navigationBar.tintColor = Color.secondColor
         navigationItem.title = "Episodios"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         
-        self.view.backgroundColor = color.mainColor
-        tabBarEpisode.barTintColor = color.mainColor
+        self.view.backgroundColor = Color.mainColor
+        tabBarEpisode.barTintColor = Color.mainColor
         tabBarEpisode.isTranslucent = false
-        tabBarEpisode.tintColor = color.secondColor
+        tabBarEpisode.tintColor = Color.secondColor
         
         episodeTable.dataSource = self
         episodeTable.delegate = self
@@ -89,7 +89,7 @@ class EpisodesViewController: UIViewController {
         
         buttonSeason.menu = menu
         buttonSeason.showsMenuAsPrimaryAction = true
-        buttonSeason.backgroundColor = color.secondColor
+        buttonSeason.backgroundColor = Color.secondColor
         buttonSeason.layer.cornerRadius = 24
     }
 }

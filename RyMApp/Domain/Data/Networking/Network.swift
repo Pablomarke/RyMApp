@@ -12,13 +12,14 @@ class NetworkApi {
     private let cstatusOk = 200
     private let baseUrl = "https://rickandmortyapi.com/api/"
     
-    enum endpoint {
+    enum Endpoint {
         static let allCharacters = "character/"
         static let allEpisodes = "episode/"
         static let name = "character/?name="
         static let allLocations = "location/"
     }
-    enum httpMethods {
+    
+    enum HttpMethods {
         static let get = "GET"
     }
     
@@ -28,7 +29,7 @@ class NetworkApi {
             AllCharacters
         ) -> Void
     ){
-        let characterURl = baseUrl + endpoint.allCharacters
+        let characterURl = baseUrl + Endpoint.allCharacters
         guard let url = URL(
             string: characterURl
         ) else {
@@ -37,7 +38,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -75,7 +76,7 @@ class NetworkApi {
             _ character: Character
         ) -> ()
     ){
-        let idUrl = baseUrl + endpoint.allCharacters + "\(id)"
+        let idUrl = baseUrl + Endpoint.allCharacters + "\(id)"
         guard let url = URL(
             string: idUrl
         ) else {
@@ -84,7 +85,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -121,7 +122,7 @@ class NetworkApi {
             _ allCharacters: AllCharacters
         ) -> ()
     ) {
-        let searchUrl = baseUrl + endpoint.name + "\(name)"
+        let searchUrl = baseUrl + Endpoint.name + "\(name)"
         guard let url = URL(
             string: searchUrl
         ) else {
@@ -130,7 +131,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -167,7 +168,7 @@ class NetworkApi {
             _ episodes: AllEpisodes
         ) -> ()
     ){
-        let allEpisodesUrl = baseUrl + endpoint.allEpisodes
+        let allEpisodesUrl = baseUrl + Endpoint.allEpisodes
         guard let url = URL(
             string: allEpisodesUrl
         ) else {
@@ -176,7 +177,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -221,7 +222,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -258,7 +259,7 @@ class NetworkApi {
             _ episodes: [Episode]
         ) -> ()
     ) {
-        let seasonsUrl = baseUrl + endpoint.allEpisodes + "\(season)"
+        let seasonsUrl = baseUrl + Endpoint.allEpisodes + "\(season)"
         guard let url = URL(
             string: seasonsUrl
         ) else {
@@ -267,7 +268,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -304,7 +305,7 @@ class NetworkApi {
             _ location: AllLocations
         ) -> ()
     ) {
-        let locationsUrl = baseUrl + endpoint.allLocations
+        let locationsUrl = baseUrl + Endpoint.allLocations
         guard let url = URL(
             string: locationsUrl
         ) else {
@@ -313,7 +314,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -359,7 +360,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -405,7 +406,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -451,7 +452,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -496,7 +497,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest
@@ -542,7 +543,7 @@ class NetworkApi {
         var urlRequest = URLRequest(
             url: url
         )
-        urlRequest.httpMethod = httpMethods.get
+        urlRequest.httpMethod = HttpMethods.get
         
         URLSession.shared.dataTask(
             with: urlRequest

@@ -34,33 +34,33 @@ class SearchViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = color.mainColor
-        self.view.backgroundColor = color.mainColor
+        self.navigationController?.navigationBar.barTintColor = Color.mainColor
+        self.view.backgroundColor = Color.mainColor
         
-        ///Title
-        self.navigationController?.navigationBar.tintColor = color.secondColor
+        //Title
+        self.navigationController?.navigationBar.tintColor = Color.secondColor
         navigationItem.title = "Buscador"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: color.secondColor]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         
-        ///SearchText
+        //SearchText
         searchText.placeholder = "Introduce nombre"
         searchText.layer.cornerRadius = 40
-        searchText.backgroundColor = color.secondColor
+        searchText.backgroundColor = Color.secondColor
         
-        backImage.image = localImages.searchImage
+        backImage.image = LocalImages.searchImage
         backImage.contentMode = .scaleAspectFill
         
         ///Button
-        buttonView.backgroundColor = color.secondColor
+        buttonView.backgroundColor = Color.secondColor
         buttonView.layer.cornerRadius = 24
         searchButton.titleLabel?.text = "Buscar"
         searchButton.tintColor = .black
         
         ///Tab bar
         tabBarSearch.delegate = self
-        tabBarSearch.tintColor = color.secondColor
-        tabBarSearch.barTintColor = color.mainColor
+        tabBarSearch.tintColor = Color.secondColor
+        tabBarSearch.barTintColor = Color.mainColor
         tabBarSearch.isTranslucent = false
 
         ///Search Collection
@@ -80,7 +80,7 @@ class SearchViewController: UIViewController {
         NetworkApi.shared.searchCharacters(name: newName!) { allCharacters in
             self.model = allCharacters
             self.searchCollection.reloadData()
-            self.searchText.backgroundColor = color.secondColor
+            self.searchText.backgroundColor = Color.secondColor
             self.searchCollection.isHidden = false
         }
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum localImages {
+enum LocalImages {
     static let homeImage = UIImage(named: "w1")
     static let charactersImage = UIImage(named: "w2")
     static let detailImage = UIImage(named: "w6")

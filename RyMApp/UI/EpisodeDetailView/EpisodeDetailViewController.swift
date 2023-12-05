@@ -42,18 +42,18 @@ class EpisodeDetailViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = color.mainColor
-        topView.backgroundColor = color.secondColor
+        self.view.backgroundColor = Color.mainColor
+        topView.backgroundColor = Color.secondColor
         topView.layer.cornerRadius = 22
         characterLabel.text = "Personajes :"
-        characterLabel.textColor = color.secondColor
-        backImage.image = localImages.episodeDetailImage
+        characterLabel.textColor = Color.secondColor
+        backImage.image = LocalImages.episodeDetailImage
         backImage.contentMode =  .scaleToFill
         topView.backgroundColor = .clear
         
         nameLabel.text = model.name
-        nameLabel.font = font.size24
-        nameLabel.textColor = color.secondColor
+        nameLabel.font = Font.size24
+        nameLabel.textColor = Color.secondColor
         nameLabel.numberOfLines = 2
         episodeLabel.text = model.episode
         estrenoLabel.text = model.air_date

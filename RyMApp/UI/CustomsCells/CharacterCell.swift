@@ -36,7 +36,7 @@ class CharacterCell: UICollectionViewCell {
     
     // MARK: - Funciones -
     func cellStyle(){
-        backView.backgroundColor = color.mainColor
+        backView.backgroundColor = Color.mainColor
         characterName.numberOfLines = 2
         characterName.textColor = .white
         backView.layer.cornerRadius = 16
