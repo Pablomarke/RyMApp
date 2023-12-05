@@ -18,4 +18,8 @@ extension UIView {
         self.layer.cornerRadius = CGFloat(corner)
         self.backgroundColor = Color.secondColor
     }
+    
+    func cornerToImagedetailViews(corner: Int = 90){
+        self.layer.cornerRadius = CGFloat(corner)
+    }
 }

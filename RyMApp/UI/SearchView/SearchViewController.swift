@@ -64,8 +64,7 @@ class SearchViewController: UIViewController {
         tabBarSearch.isTranslucent = false
 
         ///Search Collection
-        searchCollection.backgroundColor = UIColor.clear
-        searchCollection.backgroundView = UIView.init(frame: CGRect.zero)
+        searchCollection.clearBackground()
         searchCollection.dataSource = self
         searchCollection.delegate = self
         searchCollection.register(UINib(nibName: CharacterCell.identifier,

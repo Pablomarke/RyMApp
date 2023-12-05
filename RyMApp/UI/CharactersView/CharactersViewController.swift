@@ -54,10 +54,7 @@ class CharactersViewController: UIViewController {
     }
     
     func collectionStyle(){
-        collectionCharacters.backgroundColor = UIColor.clear
-        collectionCharacters.backgroundView = UIView.init(
-            frame: CGRect.zero
-        )
+        collectionCharacters.clearBackground()
         collectionCharacters.dataSource = self
         collectionCharacters.delegate = self
         collectionCharacters.register(
@@ -164,25 +161,25 @@ extension CharactersViewController: UITabBarDelegate {
         switch item.title {
             case "Characters" :
                 break
-                
+            
             case "Search" :
-                NetworkApi.shared.getAllCharacters { allCharacters in
-                    let myView = SearchViewController(allCharacters)
-                    self.navigationController?.setViewControllers([myView],
-                                                                  animated: true)
-                }
+            NetworkApi.shared.getAllCharacters { allCharacters in
+                let myView = SearchViewController(allCharacters)
+                self.navigationController?.setViewControllers([myView],
+                                                              animated: true)
+            }
             case "Episodes" :
-                NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
-                    let myView = EpisodesViewController(episodes)
-                    self.navigationController?.setViewControllers([myView],
-                                                                  animated: true)
-                }
+            NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
+                let myView = EpisodesViewController(episodes)
+                self.navigationController?.setViewControllers([myView],
+                                                              animated: true)
+            }
             case "Locations" :
-                NetworkApi.shared.getAllLocations() { locations in
-                    let myView = LocationViewController( locations)
-                    self.navigationController?.setViewControllers([myView],
-                                                                  animated: true)
-                }
+            NetworkApi.shared.getAllLocations() { locations in
+                let myView = LocationViewController( locations)
+                self.navigationController?.setViewControllers([myView],
+                                                              animated: true)
+            }
             case .none:
                 break
             case .some(_):
