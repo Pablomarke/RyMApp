@@ -22,7 +22,6 @@ class SearchViewController: UIViewController {
     // MARK: - Init -
     init(_ model: AllCharacters) {
         self.model = model
-        
         super.init(nibName: nil,
                    bundle: nil)
     }
@@ -34,58 +33,76 @@ class SearchViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewStyle()
+        searchTextStyle()
+        createButtonStyle()
+        createTabBar()
+        createSearchCollection()
+    }
+    
+    // MARK: - Funciones -
+    func viewStyle(){
         self.navigationController?.navigationBar.barTintColor = Color.mainColor
         self.view.backgroundColor = Color.mainColor
-        
-        //Title
         self.navigationController?.navigationBar.tintColor = Color.secondColor
-        navigationItem.title = "Buscador"
+        navigationItem.title = "Character finder"
         let textAttributes = [NSAttributedString.Key.foregroundColor: Color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
-        
-        //SearchText
-        searchText.placeholder = "Introduce nombre"
-        searchText.layer.cornerRadius = 40
-        searchText.backgroundColor = Color.secondColor
-        
         backImage.image = LocalImages.searchImage
         backImage.contentMode = .scaleAspectFill
-        
-        ///Button
+    }
+    
+    func searchTextStyle(){
+        searchText.placeholder = "Enter a name"
+        searchText.layer.cornerRadius = 40
+        searchText.backgroundColor = Color.secondColor
+    }
+    
+    func createButtonStyle(){
         buttonView.backgroundColor = Color.secondColor
         buttonView.layer.cornerRadius = 24
-        searchButton.titleLabel?.text = "Buscar"
+        searchButton.setTitle("Search", 
+                              for: .normal)
         searchButton.tintColor = .black
-        
-        ///Tab bar
+    }
+    
+    func createTabBar(){
         tabBarSearch.delegate = self
         tabBarSearch.tintColor = Color.secondColor
         tabBarSearch.barTintColor = Color.mainColor
         tabBarSearch.isTranslucent = false
-
-        ///Search Collection
+    }
+    
+    func createSearchCollection(){
         searchCollection.clearBackground()
         searchCollection.dataSource = self
         searchCollection.delegate = self
         searchCollection.register(UINib(nibName: CharacterCell.identifier,
                                         bundle: nil),
-                                      forCellWithReuseIdentifier: CharacterCell.identifier)
+                                  forCellWithReuseIdentifier: CharacterCell.identifier)
         searchCollection.isHidden = true
     }
     
+    func searchCharacters(){
+        let newName = searchText.text
+        if newName == "" {
+            searchText.placeholder = "Please, enter a name"
+        } else {
+            NetworkApi.shared.searchCharacters(name: newName!) { allCharacters in
+                self.model = allCharacters
+                self.searchText.backgroundColor = Color.secondColor
+                self.searchCollection.isHidden = false
+                self.searchCollection.reloadData()
+            }
+        }
+    }
     // MARK: - Botones -
     @IBAction func searchAction(_ sender: Any) {
-        let newName = searchText.text
-        NetworkApi.shared.searchCharacters(name: newName!) { allCharacters in
-            self.model = allCharacters
-            self.searchCollection.reloadData()
-            self.searchText.backgroundColor = Color.secondColor
-            self.searchCollection.isHidden = false
-        }
+        searchCharacters()
     }
 }
 
-// MARK: - Extension de datasource -
+    // MARK: - Extension de datasource -
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -107,7 +124,7 @@ extension SearchViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Extension de delegado -
+    // MARK: - Extension de delegado -
 extension SearchViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
