@@ -23,52 +23,29 @@ class LocationViewController: UIViewController {
     var pageCount = 1
     
     // MARK: - Init -
-    init(
-        _ model: AllLocations
-    ) {
+    init(_ model: AllLocations) {
         self.model = model
         super.init(
             nibName: nil,
-            bundle: nil
-        )
+            bundle: nil)
     }
     
-    required init?(
-        coder: NSCoder
-    ) {
-        fatalError(
-            "init(coder:) has not been implemented"
-        )
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.tintColor = Color.secondColor
-        navigationItem.title = "Localizaciones"
-        let textAttributes = [NSAttributedString.Key.foregroundColor: Color.secondColor]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
-        
-        self.view.backgroundColor = Color.mainColor
-        
-        backImage.image = LocalImages.locationEpisodeImage
-        
-        locationTabBar.delegate = self
-        locationTabBar.isTranslucent = false
-        locationTabBar.barTintColor = Color.mainColor
-        
-        locationTable.dataSource = self
-        locationTable.delegate = self
-        locationTable.register(
-            UINib(
-                nibName: TableViewCell.identifier,
-                bundle: nil
-            ),
-            forCellReuseIdentifier: TableViewCell.identifier
-        )
-        locationTable.backgroundColor = .clear
-        
+        locationTableStyle()
+        navigationBarStyle()
+        viewStyle()
+        pagesViewStyle()
+        locTabBar()
+    }
+    
+    // MARK: - Funciones -
+    func pagesViewStyle() {
         pagesView.backgroundColor = .clear
         pageLabel.text = "\(pageCount) / \(model.info.pages)"
         pageLabel.textColor = Color.secondColor
@@ -78,16 +55,35 @@ class LocationViewController: UIViewController {
         }
     }
     
-    // MARK: - Botones -
-    @IBAction func nextBAct(
-        _ sender: Any
-    ) {
-        NetworkApi.shared.pagesLocation(
-            url: (
-                model.info.next
-            )!
-        ) { AllLocations in
-            
+    func viewStyle(){
+        self.view.backgroundColor = Color.mainColor
+        backImage.image = LocalImages.locationEpisodeImage
+    }
+    
+    func navigationBarStyle(){
+        self.navigationController?.navigationBar.tintColor = Color.secondColor
+        navigationItem.title = "Localizaciones"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: Color.secondColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
+    }
+    
+    func locationTableStyle(){
+        locationTable.dataSource = self
+        locationTable.delegate = self
+        locationTable.register(UINib(nibName: TableViewCell.identifier,
+                                     bundle: nil),
+                               forCellReuseIdentifier: TableViewCell.identifier)
+        locationTable.backgroundColor = .clear
+    }
+    
+    func locTabBar() {
+        locationTabBar.delegate = self
+        locationTabBar.isTranslucent = false
+        locationTabBar.barTintColor = Color.mainColor
+    }
+    
+    func nextPage(){
+        NetworkApi.shared.pagesLocation(url: (model.info.next)! ) { AllLocations in
             self.model = AllLocations
             self.locationTable.reloadData()
             self.pageCount += 1
@@ -99,15 +95,8 @@ class LocationViewController: UIViewController {
         }
     }
     
-    @IBAction func backBAct(
-        _ sender: Any
-    ) {
-        NetworkApi.shared.pagesLocation(
-            url: (
-                model.info.prev
-            )!
-        ) { AllLocations in
-            
+    func prevPage() {
+        NetworkApi.shared.pagesLocation(url: (model.info.prev)!) { AllLocations in
             self.model = AllLocations
             self.locationTable.reloadData()
             self.pageCount -= 1
@@ -118,6 +107,15 @@ class LocationViewController: UIViewController {
                 self.backButton.isHidden = true
             }
         }
+    }
+    
+    // MARK: - Botones -
+    @IBAction func nextBAct(_ sender: Any) {
+        nextPage()
+    }
+    
+    @IBAction func backBAct(_ sender: Any) {
+        prevPage()
     }
 }
 
@@ -156,6 +154,7 @@ extension LocationViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - Tab Bar -
 extension LocationViewController: UITabBarDelegate {
     func tabBar(
         _ tabBar: UITabBar,
