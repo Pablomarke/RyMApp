@@ -45,6 +45,11 @@ class LocationViewController: UIViewController {
     }
     
     // MARK: - Funciones -
+    func viewStyle(){
+        self.view.backgroundColor = Color.mainColor
+        backImage.image = LocalImages.locationEpisodeImage
+    }
+    
     func pagesViewStyle() {
         pagesView.backgroundColor = .clear
         pageLabel.text = "\(pageCount) / \(model.info.pages)"
@@ -53,11 +58,6 @@ class LocationViewController: UIViewController {
         if model.info.prev == nil {
             backButton.isHidden = true
         }
-    }
-    
-    func viewStyle(){
-        self.view.backgroundColor = Color.mainColor
-        backImage.image = LocalImages.locationEpisodeImage
     }
     
     func navigationBarStyle(){
@@ -119,7 +119,7 @@ class LocationViewController: UIViewController {
     }
 }
 
-// MARK: - Extension de datasource -
+    // MARK: - Extension de datasource -
 extension LocationViewController: UITableViewDataSource {
     
     func tableView(
@@ -140,7 +140,7 @@ extension LocationViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Extension de delegado -
+    // MARK: - Extension de delegado -
 extension LocationViewController: UITableViewDelegate {
     func tableView(
         _ tableView: UITableView,
@@ -154,7 +154,7 @@ extension LocationViewController: UITableViewDelegate {
     }
 }
 
-// MARK: - Tab Bar -
+    // MARK: - Tab Bar -
 extension LocationViewController: UITabBarDelegate {
     func tabBar(
         _ tabBar: UITabBar,

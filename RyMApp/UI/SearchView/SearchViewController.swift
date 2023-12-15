@@ -96,6 +96,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
     // MARK: - Botones -
     @IBAction func searchAction(_ sender: Any) {
         searchCharacters()
@@ -138,6 +139,7 @@ extension SearchViewController: UICollectionViewDelegate{
     }
 }
 
+    // MARK: - UItabBar -
 extension SearchViewController: UITabBarDelegate {
     func tabBar(
         _ tabBar: UITabBar,

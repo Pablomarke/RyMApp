@@ -124,7 +124,7 @@ class CharactersViewController: UIViewController {
     }
 }
 
-// MARK: - Extension de datasource -
+    // MARK: - Extension de datasource -
 extension CharactersViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -145,7 +145,7 @@ extension CharactersViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Extension de delegado -
+    // MARK: - Extension de delegado -
 extension CharactersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
@@ -158,7 +158,7 @@ extension CharactersViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - Extension de tabBar -
+    // MARK: - Extension de tabBar -
 extension CharactersViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar,
                 didSelect item: UITabBarItem) {

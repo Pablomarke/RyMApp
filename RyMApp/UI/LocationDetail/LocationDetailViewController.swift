@@ -75,7 +75,7 @@ class LocationDetailViewController: UIViewController {
     }
 }
 
-// MARK: - Extension de datasource -
+    // MARK: - Extension de datasource -
 extension LocationDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -93,7 +93,7 @@ extension LocationDetailViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Extension de delegate -
+    // MARK: - Extension de delegate -
 extension LocationDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, 
                         didSelectItemAt indexPath: IndexPath) {

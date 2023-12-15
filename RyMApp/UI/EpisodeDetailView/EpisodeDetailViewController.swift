@@ -41,6 +41,20 @@ class EpisodeDetailViewController: UIViewController {
     }
     
     // MARK: - Funciones -
+    func viewStyle(){
+        self.view.backgroundColor = Color.mainColor
+        topView.backgroundColor = Color.secondColor
+        topView.layer.cornerRadius = 22
+        characterLabel.text = "Characters"
+        characterLabel.textColor = Color.secondColor
+        backImage.image = LocalImages.episodeDetailImage
+        backImage.contentMode =  .scaleToFill
+        topView.backgroundColor = .clear
+        nameLabel.font = Font.size24
+        nameLabel.textColor = Color.secondColor
+        nameLabel.numberOfLines = 2
+    }
+    
     func syncModelWithView(){
         nameLabel.text = model.name
         episodeLabel.text = model.episode
@@ -56,23 +70,9 @@ class EpisodeDetailViewController: UIViewController {
                 bundle: nil),
                                       forCellWithReuseIdentifier: CharacterCell.identifier)
     }
-    
-    func viewStyle(){
-        self.view.backgroundColor = Color.mainColor
-        topView.backgroundColor = Color.secondColor
-        topView.layer.cornerRadius = 22
-        characterLabel.text = "Characters"
-        characterLabel.textColor = Color.secondColor
-        backImage.image = LocalImages.episodeDetailImage
-        backImage.contentMode =  .scaleToFill
-        topView.backgroundColor = .clear
-        nameLabel.font = Font.size24
-        nameLabel.textColor = Color.secondColor
-        nameLabel.numberOfLines = 2
-    }
 }
 
-// MARK: - Extension de datasource -
+    // MARK: - Extension de datasource -
 extension EpisodeDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -94,7 +94,7 @@ extension EpisodeDetailViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Extension de delegado -
+    // MARK: - Extension de delegado -
 extension EpisodeDetailViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {

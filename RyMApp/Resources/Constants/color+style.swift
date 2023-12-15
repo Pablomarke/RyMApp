@@ -20,7 +20,7 @@ enum Font {
     )
     static let size32 = UIFont(
         name: "Get Schwifty Regular",
-        size: 24
+        size: 32
     )
     static let size36 = UIFont(
         name: "Get Schwifty Regular",

@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     }
     
     func buttonStyle(){
-        buttonLabel.text = "Entrar"
+        buttonLabel.text = "Enter"
         buttonLabel.font = Font.size32
         buttonLabel.textAlignment = .center
         homeButton.tintColor = .clear

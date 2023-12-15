@@ -29,8 +29,8 @@ class TableViewCell: UITableViewCell {
         dataLabel.textColor = Color.mainColor
         titleView.cornerToTableView()
         dataView.cornerToTableView()
-
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = nil

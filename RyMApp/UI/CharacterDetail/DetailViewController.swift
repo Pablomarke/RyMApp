@@ -72,6 +72,17 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - Funciones -
+    func viewStyle(){
+        self.view.backgroundColor = Color.mainColor
+        backImage.image = LocalImages.detailImage
+        backImage.contentMode = .scaleToFill
+        imageDetail.cornerToImagedetailViews()
+        colorCharacter.cornerToImagedetailViews()
+        colorStatus.cornerToImagedetailViews(corner: 20)
+        nameLabel.font = Font.size36
+        nameLabel.textColor = Color.secondColor
+    }
+    
     func syncCharacterModelwithView() {
         nameLabel.text = model.name
         statusLabel.text = model.status
@@ -122,19 +133,8 @@ class DetailViewController: UIViewController {
         originLabel.textColor = Color.mainColor
         tOriginLabel.text = "Origin"
     }
-    
-    func viewStyle(){
-        self.view.backgroundColor = Color.mainColor
-        backImage.image = LocalImages.detailImage
-        backImage.contentMode = .scaleToFill
-        imageDetail.cornerToImagedetailViews()
-        colorCharacter.cornerToImagedetailViews()
-        colorStatus.cornerToImagedetailViews(corner: 20)
-        nameLabel.font = Font.size36
-        nameLabel.textColor = Color.secondColor
-    }
 }
-// MARK: - Extension de datasource -
+    // MARK: - Extension de datasource -
 extension DetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
@@ -153,7 +153,7 @@ extension DetailViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Extension de delegado -
+    // MARK: - Extension de delegado -
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
