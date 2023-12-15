@@ -21,53 +21,54 @@ class EpisodeDetailViewController: UIViewController {
     var model: Episode
     
     // MARK: - Init -
-    init(
-        _ model: Episode
-    ) {
+    init(_ model: Episode) {
         self.model = model
         super.init(
             nibName: nil,
-            bundle: nil
-        )
+            bundle: nil)
     }
     
-    required init?(
-        coder: NSCoder
-    ) {
-        fatalError(
-            "init(coder:) has not been implemented"
-        )
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
+        syncModelWithView()
+        createCollectionCharacter()
+        viewStyle()
+    }
+    
+    // MARK: - Funciones -
+    func syncModelWithView(){
+        nameLabel.text = model.name
+        episodeLabel.text = model.episode
+        estrenoLabel.text = model.air_date
+    }
+    
+    func createCollectionCharacter(){
+        collectionCharacters.dataSource = self
+        collectionCharacters.delegate = self
+        collectionCharacters.backgroundColor = .clear
+        collectionCharacters.register(UINib(
+                nibName: CharacterCell.identifier,
+                bundle: nil),
+                                      forCellWithReuseIdentifier: CharacterCell.identifier)
+    }
+    
+    func viewStyle(){
         self.view.backgroundColor = Color.mainColor
         topView.backgroundColor = Color.secondColor
         topView.layer.cornerRadius = 22
-        characterLabel.text = "Personajes :"
+        characterLabel.text = "Characters"
         characterLabel.textColor = Color.secondColor
         backImage.image = LocalImages.episodeDetailImage
         backImage.contentMode =  .scaleToFill
         topView.backgroundColor = .clear
-        
-        nameLabel.text = model.name
         nameLabel.font = Font.size24
         nameLabel.textColor = Color.secondColor
         nameLabel.numberOfLines = 2
-        episodeLabel.text = model.episode
-        estrenoLabel.text = model.air_date
-        
-        collectionCharacters.dataSource = self
-        collectionCharacters.delegate = self
-        collectionCharacters.backgroundColor = .clear
-        collectionCharacters.register(
-            UINib(
-                nibName: CharacterCell.identifier,
-                bundle: nil
-            ),
-            forCellWithReuseIdentifier: CharacterCell.identifier
-        )
     }
 }
 
