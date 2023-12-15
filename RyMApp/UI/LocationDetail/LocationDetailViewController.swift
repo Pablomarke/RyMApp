@@ -34,32 +34,40 @@ class LocationDetailViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewStyle()
+        syncModelWithView()
+        createResidentCollection()
+    }
+    
+    // MARK: - Funciones -
+    func viewStyle(){
         self.view.backgroundColor = Color.mainColor
         backImage.image = LocalImages.locationDetailImage
         backImage.contentMode = .scaleToFill
-        
         topView.backgroundColor = .clear
         nameLabel.font = Font.size24
         nameLabel.textColor = Color.secondColor
         nameLabel.numberOfLines = 2
-        nameLabel.text = model.name
-        typeLabel.text = model.type
         typeLabel.textColor = Color.secondColor
         typeLabel.numberOfLines = 2
-        dimensionLabel.text = model.dimension
         dimensionLabel.textColor = Color.secondColor
         dimensionLabel.numberOfLines = 2
-        
-        if model.residents.count != 0 {
-            residentsLabel.text = "Residentes"
-        } else {
-            residentsLabel.text = "No hay residentes"
-        }
-        
         residentsLabel.textColor = Color.secondColor
+    }
+    
+    func syncModelWithView() {
+        nameLabel.text = model.name
+        typeLabel.text = model.type
+        dimensionLabel.text = model.dimension
+        if model.residents.count != 0 {
+            residentsLabel.text = "Residents"
+        } else {
+            residentsLabel.text = "No residents found"
+        }
+    }
+    
+    func createResidentCollection(){
         residentsCollection.backgroundColor = .clear
-       
         residentsCollection.dataSource = self
         residentsCollection.delegate = self
         residentsCollection.register(UINib(nibName: CharacterCell.identifier, bundle: nil),
@@ -85,8 +93,10 @@ extension LocationDetailViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Extension de delegate -
 extension LocationDetailViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, 
+                        didSelectItemAt indexPath: IndexPath) {
         NetworkApi.shared.getCharacterUrl(url: model.residents[indexPath.row]) { character in
             let detailView = DetailViewController(model: character)
             self.navigationController?.showDetailViewController(detailView,
