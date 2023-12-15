@@ -256,7 +256,7 @@ class NetworkApi {
     func getArrayEpisodes(
         season: String,
         completion: @escaping(
-            _ episodes: [Episode]
+            _ episodes: Episodes
         ) -> ()
     ) {
         let seasonsUrl = baseUrl + Endpoint.allEpisodes + "\(season)"
@@ -287,7 +287,7 @@ class NetworkApi {
                     return
                 }
                 guard let episodes = try? DataDecoder().decode(
-                    [Episode].self,
+                    Episodes.self,
                     from: data
                 ) else {
                     return

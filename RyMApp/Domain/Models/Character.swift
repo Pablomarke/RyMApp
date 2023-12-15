@@ -7,6 +7,7 @@
 
 import UIKit
 
+typealias Characters = [Character]
 
 struct Character: Codable {
     let id: Int

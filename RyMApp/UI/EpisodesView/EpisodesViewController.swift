@@ -16,10 +16,10 @@ class EpisodesViewController: UIViewController {
     @IBOutlet weak var seasonMenu: UIMenu!
     
     // MARK: - Propiedades -
-    var model: [Episode]
+    var model: Episodes
     
     // MARK: - Init -
-    init(_ model: [Episode]) {
+    init(_ model: Episodes) {
         self.model = model
         super.init(nibName: nil,
                    bundle: nil)

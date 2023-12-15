@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias Episodes = [Episode]
+
 struct Episode: Codable {
     let name: String
     let episode: String
