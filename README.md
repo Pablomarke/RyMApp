@@ -24,12 +24,12 @@ Cambios visuales en toda la app y navegación.
 <img src="https://github.com/Pablomarke/GitImages/blob/main/rym/newdetail.png" width="150" />
 
 #### Version 1.2
-Eliminada dependencia de Alamfoire. Todas las llamadas a la api se hacen con URLSession.
+Eliminada dependencia de Alamfoire. Todas las llamadas a la api se realizan con URLSession. Para así evitar problemas con dependencias externas.
 
 ***
-#### Version 1.3 (no implementada)
+#### Version 1.3 (En implementación)
 - Optimizar el codigo
-- Añadir filtros a la busqueda y las propias visualizaciones.
+- Añadir filtros a la busqueda y las propias visualizaciones de datos.
 
 
 # Información extra
