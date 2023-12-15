@@ -50,38 +50,38 @@ class EpisodesViewController: UIViewController {
     }
     
     func createMenu(){
-        let item1 = UIAction(title: "Temporada 1") { (action) in
+        let item1 = UIAction(title: "Season 1") { (action) in
             NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
             }
         }
-        let item2 = UIAction(title: "Temporada 2") { (action) in
+        let item2 = UIAction(title: "Season 2") { (action) in
             NetworkApi.shared.getArrayEpisodes(season: "12,13,14,15,16,17,18,19,20,21") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
             }
         }
-        let item3 = UIAction(title: "Temporada 3") { (action) in
+        let item3 = UIAction(title: "Season 3") { (action) in
             
             NetworkApi.shared.getArrayEpisodes(season: "22,23,24,25,26,27,28,29,30,31") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
             }
         }
-        let item4 = UIAction(title: "Temporada 4") { (action) in
+        let item4 = UIAction(title: "Season 4") { (action) in
             NetworkApi.shared.getArrayEpisodes(season: "32,33,34,35,36,37,38,39,40,41") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
             }
         }
-        let item5 = UIAction(title: "Temporada 5") { (action) in
+        let item5 = UIAction(title: "Season 5") { (action) in
             NetworkApi.shared.getArrayEpisodes(season: "42,43,44,45,46,47,48,49,50,51") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
             }
         }
-        let menu = UIMenu(title: "Selecciona Temporada",
+        let menu = UIMenu(title: "Select Season",
                           options: .displayInline,
                           children: [item1, item2, item3, item4, item5])
         

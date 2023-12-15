@@ -62,7 +62,7 @@ class LocationViewController: UIViewController {
     
     func navigationBarStyle(){
         self.navigationController?.navigationBar.tintColor = Color.secondColor
-        navigationItem.title = "Localizaciones"
+        navigationItem.title = "Locations"
         let textAttributes = [NSAttributedString.Key.foregroundColor: Color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
     }
