@@ -110,8 +110,8 @@ class EpisodesViewController: UIViewController {
     }
 }
 
-extension EpisodesViewController: UITableViewDelegate, 
-                                    UITableViewDataSource {
+    // MARK: - Extension Data Source -
+extension EpisodesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return model.count
@@ -125,7 +125,10 @@ extension EpisodesViewController: UITableViewDelegate,
         cell.syncEpisodeWithCell(model: model[indexPath.row])
         return cell
     }
-    
+}
+
+    // MARK: - Extension Delegate -
+extension EpisodesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         NetworkApi.shared.getEpisode(url: (model[indexPath.row].url)) { episode in
@@ -136,11 +139,10 @@ extension EpisodesViewController: UITableViewDelegate,
     }
 }
 
+    // MARK: - TabBar -
  extension EpisodesViewController: UITabBarDelegate {
-     func tabBar(
-         _ tabBar: UITabBar,
-         didSelect item: UITabBarItem
-     ) {
+     func tabBar(_ tabBar: UITabBar,
+                 didSelect item: UITabBarItem) {
          switch item.title {
              case "Characters" :
              NetworkApi.shared.getAllCharacters { allCharacters in
