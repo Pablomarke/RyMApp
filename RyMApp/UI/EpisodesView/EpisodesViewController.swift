@@ -32,29 +32,28 @@ class EpisodesViewController: UIViewController {
     // MARK: - Ciclo de vida -
     override func viewDidLoad() {
         super.viewDidLoad()
+        createMenu()
+        createEpisodeTable()
+        viewStyle()
+        createTabBarEpisode()
+        buttonStyle()
+    }
+    
+    // MARK: - Funciones -
+    func viewStyle(){
         backImage.image = LocalImages.locationEpisodeImage
         self.navigationController?.navigationBar.tintColor = Color.secondColor
-        navigationItem.title = "Episodios"
+        navigationItem.title = "Episodes"
         let textAttributes = [NSAttributedString.Key.foregroundColor: Color.secondColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
-        
         self.view.backgroundColor = Color.mainColor
-        tabBarEpisode.barTintColor = Color.mainColor
-        tabBarEpisode.isTranslucent = false
-        tabBarEpisode.tintColor = Color.secondColor
-        
-        episodeTable.dataSource = self
-        episodeTable.delegate = self
-        episodeTable.register(UINib(nibName: TableViewCell.identifier,
-                                    bundle: nil), forCellReuseIdentifier: TableViewCell.identifier)
-        episodeTable.backgroundColor = .clear
-        tabBarEpisode.delegate = self
-        
+    }
+    
+    func createMenu(){
         let item1 = UIAction(title: "Temporada 1") { (action) in
             NetworkApi.shared.getArrayEpisodes(season: "1,2,3,4,5,6,7,8,9,10,11") { episodes in
                 self.model = episodes
                 self.episodeTable.reloadData()
-                
             }
         }
         let item2 = UIAction(title: "Temporada 2") { (action) in
@@ -76,7 +75,6 @@ class EpisodesViewController: UIViewController {
                 self.episodeTable.reloadData()
             }
         }
-        
         let item5 = UIAction(title: "Temporada 5") { (action) in
             NetworkApi.shared.getArrayEpisodes(season: "42,43,44,45,46,47,48,49,50,51") { episodes in
                 self.model = episodes
@@ -89,6 +87,24 @@ class EpisodesViewController: UIViewController {
         
         buttonSeason.menu = menu
         buttonSeason.showsMenuAsPrimaryAction = true
+    }
+    
+    func createEpisodeTable(){
+        episodeTable.dataSource = self
+        episodeTable.delegate = self
+        episodeTable.register(UINib(nibName: TableViewCell.identifier,
+                                    bundle: nil), forCellReuseIdentifier: TableViewCell.identifier)
+        episodeTable.backgroundColor = .clear
+    }
+    
+    func createTabBarEpisode(){
+        tabBarEpisode.tintColor = Color.secondColor
+        tabBarEpisode.barTintColor = Color.mainColor
+        tabBarEpisode.isTranslucent = false
+        tabBarEpisode.delegate = self
+    }
+    
+    func buttonStyle(){
         buttonSeason.backgroundColor = Color.secondColor
         buttonSeason.layer.cornerRadius = 24
     }
