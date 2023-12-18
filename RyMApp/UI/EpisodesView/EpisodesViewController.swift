@@ -122,6 +122,7 @@ extension EpisodesViewController: UITableViewDataSource {
         guard let cell = episodeTable.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as? TableViewCell else {
             return UITableViewCell()
         }
+        
         cell.syncEpisodeWithCell(model: model[indexPath.row])
         return cell
     }
