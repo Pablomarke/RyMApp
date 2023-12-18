@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkApi {
+final class NetworkApi {
     static let shared = NetworkApi()
     private let cstatusOk = 200
     private let baseUrl = "https://rickandmortyapi.com/api/"
