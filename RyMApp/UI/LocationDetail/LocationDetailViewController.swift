@@ -84,8 +84,11 @@ extension LocationDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = residentsCollection.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
-                                                           for: indexPath) as! CharacterCell
+        guard let cell = residentsCollection.dequeueReusableCell(withReuseIdentifier: CharacterCell.identifier,
+                                                                 for: indexPath) as? CharacterCell  else {
+            return UICollectionViewCell()
+        }
+        
         NetworkApi.shared.getCharacterUrl(url: model.residents[indexPath.row]) { character in
             cell.syncCellWithModel(model: character)
         }
