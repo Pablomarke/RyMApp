@@ -146,6 +146,7 @@ extension DetailViewController: UITableViewDataSource {
         guard let detailCell = episodeTable.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as? TableViewCell else {
             return UITableViewCell()
         }
+        
         NetworkApi.shared.getEpisode(url: model.episode[indexPath.row]) { episode in
             detailCell.syncEpisodeWithCell(model: episode)
         }
