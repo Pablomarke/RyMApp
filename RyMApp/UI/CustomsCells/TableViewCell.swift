@@ -19,8 +19,8 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         cellStyle()
-        
     }
+    
     // MARK: - Funciones -
     func cellStyle(){
         contentView.backgroundColor = Color.clearColor
