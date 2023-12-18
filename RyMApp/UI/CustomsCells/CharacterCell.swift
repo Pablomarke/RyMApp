@@ -45,9 +45,9 @@ class CharacterCell: UICollectionViewCell {
     
     func syncCellWithModel(model: Character) {
         characterName.text = model.name
+        characterStatus.text = model.status
         let urlImage = URL(string: model.image)
         CharacterView.kf.setImage(with: urlImage)
-        characterStatus.text = model.status
         statusView.backgroundColor = model.statusColor()
     }
 }
