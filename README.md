@@ -1,6 +1,6 @@
 # RyMApp para iOS
 
-App creada en swift. consumiendo la free api de Rick y Morty ["The Rick and Morty API"](https://rickandmortyapi.com/).
+App creada en swift con un patrón de diseño MVC (Modelo-vista-Controlador). consumiendo la free api de Rick y Morty ["The Rick and Morty API"](https://rickandmortyapi.com/).
 La app está siendo desarrollada en swift nativo y se encuentra en fase de desarrollo.
 
 ### Aviso importante !!
